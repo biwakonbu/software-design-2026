@@ -13,9 +13,9 @@
   },
   {
     "file": "output/pdf/04-algorithms.pdf",
-    "pages": 34,
-    "size_bytes": 322162,
-    "sha256": "78b66c4fd359bba7f0c93999db86ba44bc4b3d96ddf6322f94b15840fc6de171"
+    "pages": 45,
+    "size_bytes": 392887,
+    "sha256": "3f58b690041e028ab53a248de09977ef31abe43bc2e5eb3d2228d9b4ad119bbe"
   },
   {
     "file": "output/pdf/05-graphs.pdf",
@@ -37,9 +37,9 @@
   },
   {
     "file": "output/pdf/08-calculator.pdf",
-    "pages": 27,
-    "size_bytes": 343740,
-    "sha256": "1e3f24169fd85aaf60bf082b64bd675dae0fe1b7ddd4d8a2a54622d3175defea"
+    "pages": 37,
+    "size_bytes": 449081,
+    "sha256": "28e3b71aa86c1f00df03f9ec863dd963c76c8d82bea371fdc1c537e4e6865806"
   },
   {
     "file": "output/pdf/09-lisp-arithmetic.pdf",
@@ -49,21 +49,21 @@
   },
   {
     "file": "output/pdf/10-lisp-functions.pdf",
-    "pages": 35,
-    "size_bytes": 368729,
-    "sha256": "370dd0f1b240eafdfad09369f741ac9253819a75e1b498d7c9a19ed7edde5662"
+    "pages": 37,
+    "size_bytes": 374509,
+    "sha256": "2bfff1d0bf1e3c63b48a3cbb3b0dfd043fb58783da6589bb768a62734d759845"
   },
   {
     "file": "output/pdf/11-lisp-scripts.pdf",
-    "pages": 33,
-    "size_bytes": 374632,
-    "sha256": "865936ac9e6a7ced857d2532a0c6bba6cee0c91a8387de9ec3219908a9f5006b"
+    "pages": 35,
+    "size_bytes": 379962,
+    "sha256": "20a035d7f179e19e61b0de0f8a83dcb51a1834943a30e15dae4dfbcd0fa1be51"
   },
   {
     "file": "output/pdf/12-meta-evaluator.pdf",
-    "pages": 29,
-    "size_bytes": 251169,
-    "sha256": "be3fd06d6b048f3a274632279b6ffad73043107e9dfd1b6fa90c8c2d48fd7e8b"
+    "pages": 36,
+    "size_bytes": 355315,
+    "sha256": "8d237d4b4164a9bfb07e3441c3e78aa61916cda275bf5aae04f398aef83788f1"
   },
   {
     "file": "output/pdf/13-language-review.pdf",
@@ -73,9 +73,9 @@
   },
   {
     "file": "output/pdf/14-selfhosting.pdf",
-    "pages": 40,
-    "size_bytes": 422929,
-    "sha256": "aae9aecf6a7b6156b99ca0106fe6a8336ed02ca394b8754222ea96e66c16e2f5"
+    "pages": 42,
+    "size_bytes": 431805,
+    "sha256": "aabce2e6b5eecd0df65c3c083aa28de61d6eeb23718d0b32518b5d62d4f93882"
   },
   {
     "file": "output/pdf/15-showcase.pdf",
@@ -85,14 +85,14 @@
   },
   {
     "file": "output/pdf/instructor-notes.pdf",
-    "pages": 38,
-    "size_bytes": 1157360,
-    "sha256": "001ea2f3507a030d6094f9cfc4cb78831d5bef37adee296bc5fa539f3b8544a5"
+    "pages": 42,
+    "size_bytes": 2612738,
+    "sha256": "ede39648a8c881f9533142be4e3a5dee27ef1895ad728d7b8567391ae58ed097"
   },
   {
     "file": "output/pdf/student-workbook.pdf",
-    "pages": 58,
-    "size_bytes": 4246138,
-    "sha256": "90fcb44055aea16a59ca732b3b544cf85be1c80de0b1ddf40d3c2cd3891b9209"
+    "pages": 62,
+    "size_bytes": 4360538,
+    "sha256": "d8b99070c53e942aa8c85285c8a1bc7239e2c76c9748d94f1d24528e776ff142"
   }
 ]

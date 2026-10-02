@@ -23,12 +23,15 @@
 
 [学生向け演習冊子（A4）](output/pdf/student-workbook.pdf)と[教師用補足・公開解説（A4）](output/pdf/instructor-notes.pdf)もあります。教師用のMarkdownは[instructor/](instructor/)です。解説・referenceは学習のために公開した例であり、実際の学生回答や採点結果を含みません。
 
+第2回は60ページの自習用教材です。変数と値、条件分岐、反復、リストと辞書、関数とreturn、スコープ、例外を、入力・途中の状態・出力の順に追います。編集可能な図、誤りと修正の比較、理由付きの確認問題を含み、提出の案内は末尾の付録にまとめています。[第2回の概念デモ](examples/02-basics/README.md)は12ケースを個別に実行できます。
+
 ## 実行環境
 
 サンプルはPython **3.12以上**と標準ライブラリで動きます。自由に使えるPCとエディタを用意し、実行コマンドが使用する版を確認します。
 
 ```sh
 python3 --version
+python3 examples/02-basics/concepts.py for-trace
 python3 examples/02-basics/order_summary.py
 python3 examples/08-calculator/calculator.py --eval '2+3*4'
 python3 examples/09-lisp-arithmetic/lisp.py --eval '(+ 1 (* 2 3))'
@@ -55,6 +58,8 @@ node scripts/export-workbooks.mjs
 ```
 
 `npm run export`は14回のスライドPDFを出力します。`make export`はそれに加えて学生冊子と教師用補足も生成します。特定回だけなら `node scripts/export-pdfs.mjs 02 10`。静的なSlidev閲覧用サイトは `npm run build` で `dist/02`〜`dist/15`に生成します。リポジトリは授業資料の保管先で、サイトの公開を自動実行しません。
+
+スライドPDF出力後は、原稿のスライド数とPDFページ数、および描画エラーの有無を自動照合します。図の意味と紙面の読みやすさは、実PDFの目視確認も必要です。
 
 ## 段階的なプロジェクト
 

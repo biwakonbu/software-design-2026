@@ -1,9 +1,9 @@
 [
   {
     "file": "output/pdf/02-python-basics.pdf",
-    "pages": 27,
-    "size_bytes": 238820,
-    "sha256": "4964d0bd95384edb6a1733975dff53639587ec39e004c323a785b432d5181051"
+    "pages": 60,
+    "size_bytes": 460747,
+    "sha256": "df655970b149920cf21046ef41b3d5b2a7e2e8ab3c7571cde06b373c16a8d5f8"
   },
   {
     "file": "output/pdf/03-ai-workflow.pdf",
@@ -85,14 +85,14 @@
   },
   {
     "file": "output/pdf/instructor-notes.pdf",
-    "pages": 29,
-    "size_bytes": 864334,
-    "sha256": "61707cb683be59c5a3835ed03b7e8e6993af2a968cd149455f91d790c86826f6"
+    "pages": 34,
+    "size_bytes": 1084608,
+    "sha256": "2026f3a4a0e09b74f8e1de24bd63528e3231690ecc754fa9b359621c288ac3b1"
   },
   {
     "file": "output/pdf/student-workbook.pdf",
-    "pages": 38,
-    "size_bytes": 2561695,
-    "sha256": "67806f451b44fca50d5c646372d1a97bde47a97c8a04d81586266f792453081f"
+    "pages": 51,
+    "size_bytes": 4126662,
+    "sha256": "440f96f8be88ace624836675368d071b07936bac359efda79bbcd6a0f8d9375b"
   }
 ]

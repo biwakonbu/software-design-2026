@@ -1,0 +1,23 @@
+/* 第2回自習版だけに適用。他の回の紙面を変えない。 */
+.slidev-layout.study02 { padding:46px 64px 66px; }
+.slidev-layout.study02 h1 { margin-bottom:24px; }
+.slidev-layout.study02 h2 { margin:14px 0 10px; }
+.slidev-layout.study02 p { margin:12px 0; line-height:1.5; }
+.slidev-layout.study02 pre { margin:12px 0!important; padding:18px 20px!important; }
+.slidev-layout.study02 table { margin:12px 0; }
+.slidev-layout.study02 th,.slidev-layout.study02 td { padding:9px 12px; }
+.slidev-layout.study02 .study-grid { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:30px; align-items:start; }
+.slidev-layout.study02 .study-wide { display:grid; grid-template-columns:1.15fr .85fr; gap:30px; align-items:start; }
+.slidev-layout.study02 .study-note { border-top:2px solid var(--sd-teal); padding-top:12px; margin-top:18px; }
+.slidev-layout.study02 .study-caption { font-size:26px; line-height:1.5; }
+.slidev-layout.study02 .study-question { border-left:5px solid #bb7c20; padding-left:18px; }
+.slidev-layout.study02 .study-diagram { width:100%; margin:12px 0; }
+.slidev-layout.study02 .study-diagram svg { width:100%; height:auto; max-height:370px; overflow:visible; }
+.slidev-layout.study02 .study-diagram text { font-family:'Noto Sans JP',sans-serif; font-size:28px; fill:var(--sd-ink); }
+.slidev-layout.study02 .study-diagram .mono { font-family:'JetBrains Mono','Noto Sans JP',monospace; }
+.slidev-layout.study02 .study-diagram .tiny { font-size:25px; }
+.slidev-layout.study02 .study-diagram .label { fill:var(--sd-teal); font-weight:600; }
+.slidev-layout.study02 .study-diagram .name { fill:#e5f2f0; stroke:#087d80; stroke-width:2; }
+.slidev-layout.study02 .study-diagram .value { fill:#f1f4f5; stroke:#154b74; stroke-width:2; }
+.slidev-layout.study02 .study-diagram .arrow { fill:none; stroke:#087d80; stroke-width:3; marker-end:var(--py-arrow-marker); }
+.slidev-layout.study02 .study-diagram .line { fill:none; stroke:#154b74; stroke-width:2; }

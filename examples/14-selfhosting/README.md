@@ -89,3 +89,74 @@ printf '(+ 1 2)\n(/ 1 0)\n(+ 3 4)\n:quit\n' | python3 examples/14-selfhosting/li
 ## 検証
 
 ルートで `python3 -m unittest discover -s tests -p 'test_languages.py' -v`。reader、算術、arity、環境、回復、host/meta 互換を確認します。
+
+## 完成評価器で確かめる段階チェックポイント
+
+`checkpoints.py` は、既存の完成評価器とLisp製REPLを使う理解確認用driverです。未完成starterに機能を追加するものでも、新規提出課題・採点条件でもありません。自作評価器の達成範囲とは分けて記録してください。
+
+リポジトリのルートから：
+
+```sh
+python3 examples/14-selfhosting/checkpoints.py minimal
+python3 examples/14-selfhosting/checkpoints.py environment
+python3 examples/14-selfhosting/checkpoints.py closure
+python3 examples/14-selfhosting/checkpoints.py repl
+```
+
+引数なしは4段階全部、`--help`は使い方を表示します。各CASEは新しい環境で開始します。正常終了0、未知のCASEは2です。
+
+minimalの期待出力：
+
+```text
+[minimal]
+meta 42 => 42
+meta (quote (+ 2 3)) => (+ 2 3)
+meta (+ 1 (* 2 3)) => 7
+meta (if #f (/ 1 0) 9) => 9
+```
+
+quoteの結果は式のデータで、5へ計算していません。ifの選ばない枝は評価しないので、0除算も起きません。完成評価器での確認結果であり、最小starterが全てを実装済みという意味ではありません。
+
+environmentの期待出力：
+
+```text
+[environment]
+G: x=5
+E3: y=3, parent=G
+lookup x in E3 => 5
+lookup y in E3 => 3
+```
+
+Gは対象大域環境、E3は観察のためy=3を束縛した子環境の名前です。環境表現は`(frame-cell parent)`。既存のLisp関数m-new-env、m-define、m-lookupを実行して確かめています。xは子にないので親Gへ探しに行き、yは子で見つかります。
+
+closureの期待出力：
+
+```text
+[closure]
+square: params=(x), captured=G
+argument values: (6)
+observation E6: x=6, parent=G
+lookup * in E6 => (primitive *)
+body (* x x) => 36
+normal (square 6) => 36
+```
+
+対象のsquareを定義した後、引数値の評価、観察用E6の作成、仮引数の束縛、本文の評価を順に確かめます。m-applyも使う既存のm-new-env、m-bind、m-sequenceを呼んでいます。E6はこの観察で作った実環境で、通常呼び出しの内部環境を捕捉した表示ではありません。最後に通常のm-evalによる`(square 6)`も実行し、36が一致することを確認します。
+
+replの期待出力：
+
+```text
+[repl]
+square
+36
+error: division by zero
+49
+error: unknown symbol: primitive
+9
+```
+
+入力はcheckpoints.pyのREPL_INPUTにあります。squareを定義した同じ対象環境で6、7、3を渡します。失敗後の49と9は、定義を保持し、次の入力へ回復した証拠です。primitiveはhostの支援名で、対象環境からは使えません。このLisp製REPLのエラーは標準出力へ表示され、想定した失敗から回復するのでdriver全体は正常終了します。
+
+Pythonはこの補足の操作・表示を担当します。対象式の評価・名前検索・クロージャ適用は既存のevaluator.lisp、入力の反復と回復はrepl.lispに任せます。readや算術などのhost依存は、上の境界説明のままです。完成評価器のコピーやPythonへの対象式の丸投げは追加していません。
+
+補足の検証：`python3 -m unittest discover -s tests -p 'test_learning_traces.py' -v`。

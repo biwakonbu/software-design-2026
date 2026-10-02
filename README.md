@@ -65,6 +65,13 @@ node scripts/export-workbooks.mjs
 
 [examples/](examples/)の各フォルダは単独で動く段階別referenceです。後の回のファイルへ依存せず、前段階の動作を保って拡張できます。各READMEの仕様・入口・starterの変更場所を確認してください。
 
+第10回には、クロージャが保持する環境と再帰の戻り順を観察する[実行追跡](examples/10-lisp-functions/README.md#環境寿命と再帰を観察する補足)があります。第14回には、最小評価器・名前・関数・REPLを順に確かめる[チェックポイント](examples/14-selfhosting/README.md#完成評価器で確かめる段階チェックポイント)があります。先に結果を予測し、実行後に講義の途中状態と照合して復習できます。
+
+```sh
+python3 examples/10-lisp-functions/learning_trace.py closure
+python3 examples/14-selfhosting/checkpoints.py all
+```
+
 - 第06回は、同一点・隣接点で動く未完成の経路starterと、公開referenceを分けています。
 - 第09〜15回のstarterは、完成処理系にsquareを追加した実行可能な拡張の入口です。TODO穴埋めではなく、仕様を変えてテストする演習です。
 - 第12回以降には、自己評価される値から始めるLisp製評価器のstarterがあります。

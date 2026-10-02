@@ -37,3 +37,45 @@ python3 examples/10-lisp-functions/starter.py --eval '(square 5)'
 ## 検証
 
 ルートで `python3 -m unittest discover -s tests -p 'test_languages.py' -v`。reader、算術、arity、環境、回復、host/meta 互換を確認します。
+
+## 環境寿命と再帰を観察する補足
+
+`learning_trace.py` は完成hostの理解確認用です。新しい処理系・提出課題・採点条件ではありません。予測を先に書き、出力を講義の環境図と照合してください。
+
+```sh
+python3 examples/10-lisp-functions/learning_trace.py closure
+python3 examples/10-lisp-functions/learning_trace.py fact
+```
+
+closureの期待出力：
+
+```text
+[closure]
+define make-adder: captured=G
+call make-adder(5): E5 x=5, parent=G
+returned add5: captured=E5; make-adder call finished
+call add5(3): E3 y=3, parent=E5
+lookup x: E5=5; lookup y: E3=3
+result: 8
+```
+
+Gは大域環境、E5はmake-adderへ5を渡した呼び出し環境、E3はadd5へ3を渡した呼び出し環境の説明用の名前です。メモリ番地ではありません。実際の呼び出しが作った環境を記録しています。add5の定義環境としてE5への参照が残り、E3の親になるため、外側の呼び出し終了後もxを読めます。
+
+factの期待出力：
+
+```text
+[fact]
+call fact: n=2
+call fact: n=1
+call fact: n=0
+return fact: n=0 => 1
+return fact: n=1 => 1
+return fact: n=2 => 2
+result: 2
+```
+
+各callのnは別のローカル環境です。0から戻るときに、待っていた掛け算が順に完了します。入力2では戻り値1が続くため、callのnと戻り値を区別して読んでください。
+
+引数なしは両方、`--help`は使い方を表示します。正常終了0、未知のCASEは2です。観察用のPythonクラスは既存評価器へ処理を任せ、環境と戻り値だけを記録します。計算式の評価や環境作成の実装を複製していません。
+
+補足の検証：`python3 -m unittest discover -s tests -p 'test_learning_traces.py' -v`。

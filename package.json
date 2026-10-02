@@ -1,0 +1,41 @@
+{
+  "name": "software-design-2026",
+  "version": "1.0.0",
+  "description": "2026年度 ソフトウェアデザイン 第2–15回 Slidev・演習・Pythonサンプル",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "example": "examples",
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "slidev lectures/02.md --port 3030",
+    "test": "python3.12 -m unittest discover -s tests -v",
+    "export": "node scripts/export-pdfs.mjs",
+    "build": "node scripts/build-slides.mjs",
+    "qa:pdf": "python3 scripts/render-pdfs.py",
+    "check:privacy": "python3 scripts/check-public.py"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "UNLICENSED",
+  "type": "module",
+  "dependencies": {
+    "@fontsource/jetbrains-mono": "5.3.0",
+    "@fontsource/noto-sans-jp": "5.3.0",
+    "@slidev/cli": "53.0.0",
+    "@slidev/theme-default": "0.25.0",
+    "playwright": "1.63.0"
+  },
+  "devDependencies": {
+    "markdown-it": "15.0.2",
+    "pdfjs-dist": "6.3.289",
+    "playwright-chromium": "1.63.0"
+  },
+  "private": true,
+  "overrides": {
+    "dompurify": "3.4.16",
+    "image-size": "2.0.4",
+    "monaco-editor": "0.57.0"
+  }
+}

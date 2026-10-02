@@ -1,0 +1,98 @@
+[
+  {
+    "file": "output/pdf/02-python-basics.pdf",
+    "pages": 27,
+    "size_bytes": 238820,
+    "sha256": "4964d0bd95384edb6a1733975dff53639587ec39e004c323a785b432d5181051"
+  },
+  {
+    "file": "output/pdf/03-ai-workflow.pdf",
+    "pages": 24,
+    "size_bytes": 288157,
+    "sha256": "66a74ede9d11f178e8483b2f9ae3d303bbb7280c33d78f90c30834251a8a7c6d"
+  },
+  {
+    "file": "output/pdf/04-algorithms.pdf",
+    "pages": 34,
+    "size_bytes": 322162,
+    "sha256": "78b66c4fd359bba7f0c93999db86ba44bc4b3d96ddf6322f94b15840fc6de171"
+  },
+  {
+    "file": "output/pdf/05-graphs.pdf",
+    "pages": 27,
+    "size_bytes": 359324,
+    "sha256": "75f1ba9e273099ddd5544ca11f504d89fa1b5994578747ea4a0e73c5bb98551a"
+  },
+  {
+    "file": "output/pdf/06-route-project.pdf",
+    "pages": 25,
+    "size_bytes": 283376,
+    "sha256": "f6bfd1a89fb73f8df7f689d26cc08ef38b5b378799e1b149983f34b4c3092d8e"
+  },
+  {
+    "file": "output/pdf/07-review.pdf",
+    "pages": 24,
+    "size_bytes": 294262,
+    "sha256": "842dcd68fe22fcc801d77aa15f76f80e81953f40043308e684d44c09a6138095"
+  },
+  {
+    "file": "output/pdf/08-calculator.pdf",
+    "pages": 27,
+    "size_bytes": 343740,
+    "sha256": "1e3f24169fd85aaf60bf082b64bd675dae0fe1b7ddd4d8a2a54622d3175defea"
+  },
+  {
+    "file": "output/pdf/09-lisp-arithmetic.pdf",
+    "pages": 26,
+    "size_bytes": 233804,
+    "sha256": "c9cf48d62390fa392132d1978252cbd7405069651faf92866381b346a0a1176c"
+  },
+  {
+    "file": "output/pdf/10-lisp-functions.pdf",
+    "pages": 29,
+    "size_bytes": 221796,
+    "sha256": "ee1bfbbb8677c47a0a56d8326fd9ee14f7822b58d65809fe7f4f9e64810dc985"
+  },
+  {
+    "file": "output/pdf/11-lisp-scripts.pdf",
+    "pages": 26,
+    "size_bytes": 239640,
+    "sha256": "ec61ce96263d621dd3468b0ef118686307c5467941957dfc97bce47ee8b575c6"
+  },
+  {
+    "file": "output/pdf/12-meta-evaluator.pdf",
+    "pages": 29,
+    "size_bytes": 251169,
+    "sha256": "be3fd06d6b048f3a274632279b6ffad73043107e9dfd1b6fa90c8c2d48fd7e8b"
+  },
+  {
+    "file": "output/pdf/13-language-review.pdf",
+    "pages": 25,
+    "size_bytes": 195078,
+    "sha256": "95c80afd516f22094e7251635f722072c9f6f592ad9576eb507ee0f8bf99115f"
+  },
+  {
+    "file": "output/pdf/14-selfhosting.pdf",
+    "pages": 29,
+    "size_bytes": 260734,
+    "sha256": "e03ecbdfed79cb3182d9c29cd303dfbe3175c4b31038a4589ce7cba8f9366be4"
+  },
+  {
+    "file": "output/pdf/15-showcase.pdf",
+    "pages": 25,
+    "size_bytes": 205316,
+    "sha256": "5aaabdd5c0c6b72c3331dda79affe790b0699a76171183ffd0eb930a4d91ae71"
+  },
+  {
+    "file": "output/pdf/instructor-notes.pdf",
+    "pages": 29,
+    "size_bytes": 864334,
+    "sha256": "61707cb683be59c5a3835ed03b7e8e6993af2a968cd149455f91d790c86826f6"
+  },
+  {
+    "file": "output/pdf/student-workbook.pdf",
+    "pages": 38,
+    "size_bytes": 2561695,
+    "sha256": "67806f451b44fca50d5c646372d1a97bde47a97c8a04d81586266f792453081f"
+  }
+]

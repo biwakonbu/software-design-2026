@@ -1,0 +1,32 @@
+[
+  {
+    "source": "(if #f (/ 1 0) 42)",
+    "expected": "42",
+    "question": "未選択の枝は評価されるか"
+  },
+  {
+    "source": "(if 0 1 2)",
+    "expected": "1",
+    "question": "Python と真偽値の規則は同じか"
+  },
+  {
+    "source": "'()",
+    "expected": "()",
+    "question": "空の適用と空のデータの違いは"
+  },
+  {
+    "source": "((lambda (x) (+ x 1)))",
+    "error": "arguments",
+    "question": "arity をどこで検査するか"
+  },
+  {
+    "source": "missing",
+    "error": "unknown symbol",
+    "question": "どの環境を探索したか"
+  },
+  {
+    "source": "(begin (define x 10) (define f (lambda (y) (+ x y))) ((lambda (x) (f 1)) 99))",
+    "expected": "11",
+    "question": "字句スコープと動的スコープの差は"
+  }
+]

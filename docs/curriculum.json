@@ -1,0 +1,16 @@
+[
+  {"id":"02","title":"Pythonの基礎","example":"02-basics","pdf":"output/pdf/02-python-basics.pdf"},
+  {"id":"03","title":"AI時代の学習と開発","example":"03-ai-workflow","pdf":"output/pdf/03-ai-workflow.pdf"},
+  {"id":"04","title":"データ構造とアルゴリズム","example":"04-algorithms","pdf":"output/pdf/04-algorithms.pdf"},
+  {"id":"05","title":"グラフによる問題のモデル化","example":"05-graphs","pdf":"output/pdf/05-graphs.pdf"},
+  {"id":"06","title":"データ構造とアルゴリズムの実装演習","example":"06-route-project","pdf":"output/pdf/06-route-project.pdf"},
+  {"id":"07","title":"実装の講評とディスカッション","example":"07-review","pdf":"output/pdf/07-review.pdf"},
+  {"id":"08","title":"電卓の字句・構文・意味解析","example":"08-calculator","pdf":"output/pdf/08-calculator.pdf"},
+  {"id":"09","title":"LispのREPLと四則演算","example":"09-lisp-arithmetic","pdf":"output/pdf/09-lisp-arithmetic.pdf"},
+  {"id":"10","title":"Lispの変数と関数","example":"10-lisp-functions","pdf":"output/pdf/10-lisp-functions.pdf"},
+  {"id":"11","title":"スクリプト実行とセルフホスティングの準備","example":"11-lisp-scripts","pdf":"output/pdf/11-lisp-scripts.pdf"},
+  {"id":"12","title":"Lispで書く評価器","example":"12-meta-evaluator","pdf":"output/pdf/12-meta-evaluator.pdf"},
+  {"id":"13","title":"処理系の理解とディスカッション","example":"13-language-review","pdf":"output/pdf/13-language-review.pdf"},
+  {"id":"14","title":"LispによるLispの評価とREPL","example":"14-selfhosting","pdf":"output/pdf/14-selfhosting.pdf"},
+  {"id":"15","title":"開発した処理系の講評","example":"15-showcase","pdf":"output/pdf/15-showcase.pdf"}
+]

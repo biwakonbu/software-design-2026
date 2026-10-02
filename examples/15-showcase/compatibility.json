@@ -1,0 +1,68 @@
+[
+  {
+    "source": "(if #f (/ 1 0) 42)",
+    "expected": "42",
+    "question": "未選択の枝は評価されるか"
+  },
+  {
+    "source": "(if 0 1 2)",
+    "expected": "1",
+    "question": "Python と真偽値の規則は同じか"
+  },
+  {
+    "source": "'()",
+    "expected": "()",
+    "question": "空の適用と空のデータの違いは"
+  },
+  {
+    "source": "((lambda (x) (+ x 1)))",
+    "error": "arguments",
+    "question": "arity をどこで検査するか"
+  },
+  {
+    "source": "missing",
+    "error": "unknown symbol",
+    "question": "どの環境を探索したか"
+  },
+  {
+    "source": "(begin (define x 10) (define f (lambda (y) (+ x y))) ((lambda (x) (f 1)) 99))",
+    "expected": "11",
+    "question": "字句スコープと動的スコープの差は"
+  },
+  {
+    "source": "(begin (define fact (lambda (n) (if (= n 0) 1 (* n (fact (- n 1)))))) (fact 5))",
+    "expected": "120"
+  },
+  {
+    "source": "(begin (define make-adder (lambda (x) (lambda (y) (+ x y)))) (define add10 (make-adder 10)) (add10 3))",
+    "expected": "13"
+  },
+  {
+    "source": "(begin (define x 1) (define f (lambda () x)) (set! x 7) (f))",
+    "expected": "7"
+  },
+  {
+    "source": "(begin (define x 3) (while (> x 0) (set! x (- x 1))) x)",
+    "expected": "0"
+  },
+  {
+    "source": "(apply (lambda (x y) (+ x y)) (list 2 3))",
+    "expected": "5"
+  },
+  {
+    "source": "(+ #t 1)",
+    "error": "number"
+  },
+  {
+    "source": "(/ 1 0)",
+    "error": "division by zero"
+  },
+  {
+    "source": "(car (list))",
+    "error": "empty list"
+  },
+  {
+    "source": "(lambda (x x) x)",
+    "error": "duplicate parameter"
+  }
+]

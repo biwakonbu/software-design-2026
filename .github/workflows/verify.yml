@@ -1,0 +1,46 @@
+name: Verify course materials
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  examples:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.12', '3.14']
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m unittest discover -s tests -v
+      - run: python examples/15-showcase/check_compatibility.py
+  exports:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+          cache: npm
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - run: npm ci --ignore-scripts
+      - run: npx playwright install --with-deps chromium
+      - run: sudo apt-get update && sudo apt-get install -y poppler-utils
+      - run: npm audit --audit-level=low
+      - run: node scripts/export-pdfs.mjs
+      - run: node scripts/export-workbooks.mjs
+      - run: python scripts/check-public.py
+      - run: python scripts/render-pdfs.py --scale 1280
+      - uses: actions/upload-artifact@v7
+        with:
+          name: handouts-and-page-renders
+          path: |
+            output/pdf/
+            tmp/pdf-qa/

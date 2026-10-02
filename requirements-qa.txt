@@ -1,0 +1,3 @@
+# Optional local PDF QA tools. Examples themselves use only Python's standard library.
+pillow==12.3.0
+pymupdf==1.28.2

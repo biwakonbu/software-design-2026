@@ -1,0 +1,15 @@
+{
+  "course": "bootcamp",
+  "long_sentence_min_chars": 40,
+  "no_comma_min_chars": 40,
+  "targets": [
+    {"glob": "products/bootcamp/curriculum/**/*.md", "adapter": "markdown", "medium": "curriculum"},
+    {"glob": "products/bootcamp/books/*/main.typ", "adapter": "typst", "medium": "book"},
+    {"glob": "products/bootcamp/books/*/chapters/*.typ", "adapter": "typst", "medium": "book"},
+    {"glob": "products/bootcamp/books/*/reading-map.typ", "adapter": "typst", "medium": "book"},
+    {"glob": "products/bootcamp/books/*/terms.typ", "adapter": "typst", "medium": "book"},
+    {"glob": "products/bootcamp/slides/*/src/content.json", "adapter": "slide-json", "medium": "slides"},
+    {"glob": "products/bootcamp/slides/*/src/App.tsx", "adapter": "renderer", "medium": "renderer"}
+  ],
+  "description": "products/正本。TSXを実行せずcontent.jsonの既知表示フィールドを抽出。Typstは静的部分のみ。"
+}

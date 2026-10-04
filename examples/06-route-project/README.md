@@ -15,7 +15,7 @@ python3 examples/06-route-project/route_starter.py A B
 python3 examples/06-route-project/route_reference.py A D
 ```
 
-starterの既存動作は同駅`A A`なら`A`、隣駅`A B`なら`A -> B`。それ以外は`None`となる仮実装です。CLIも起動でき、多段の`A D`は「starterは多段経路未実装」と表示して終了コード2になります。これは仕様を満たす完成版ではありません。
+配布時のstarterの動作は、同駅`A A`なら`A`、隣駅`A B`なら`A -> B`です。それ以外は`None`となる仮実装です。CLIも起動でき、多段の`A D`は「starterは多段経路未実装」と表示して終了コード2になります。これは仕様を満たす完成版ではありません。
 
 両ファイルの関数契約は`find_route(graph, start, goal) -> list[str] | None`です。既知駅で到達不能は`None`、未知駅IDや無向辺の不整合は`ValueError`。グラフのキーは全ての駅、値は隣接駅IDのリストです。入力を変更しません。
 
@@ -30,7 +30,7 @@ A -> B -> D
 
 `exercises/06.md`の手順でstarterとデータを作業用フォルダへコピーし、その`find_route`をBFSへ拡張します。キュー、訪問済み記録、直前の駅を使い、最初に到達した終点から始点へたどって反転してください。隣接順を保てば同距離の経路も再現できます。`A A`、`A B`、`A D`、`A X`、未知IDをそれぞれ検証します。
 
-公開テスト`python3 -m unittest discover -s tests -p test_foundations.py`はreferenceの最短性と**配布starterの既存動作**を検証します。作業コピーを自動採点するテストではありません。公開例を残し、作業フォルダに自分の完成仕様のテストを作ってください。referenceとの照合も自分の実装に適用できます。配布starterの未完成動作を確認するテストが通ることは、課題完成の証拠ではありません。
+公開テスト`python3 -m unittest discover -s tests -p test_foundations.py`はreferenceの最短性と**配布時のstarterの動作**を検証します。作業コピーを自動採点するテストではありません。公開例を残し、作業フォルダに自分の完成仕様のテストを作ってください。referenceとの照合も自分の実装に適用できます。配布starterの未完成動作を確認するテストが通ることは、課題完成の証拠ではありません。
 
 ## 公開referenceの読み方・質疑
 

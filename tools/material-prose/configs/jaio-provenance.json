@@ -1,0 +1,10 @@
+{
+  "version": "0.9.4",
+  "source_repository": "https://github.com/co-routine/jaio",
+  "source_commit": "e3d610f8636ba4aeb655232dfc7f63d3311fdb77",
+  "binary_sha256": "6d0b7e1826183fe62d102dab406c8603c467c2144ad767d792ee94f889a8e86c",
+  "cargo_lock_sha256": "00d13742b27570e1c059d38d851d4e08a6e68524e870ef60ec6dc809bf7f23ea",
+  "execution": "macOS sandbox-exec with deny network*; no installation, builds, auth changes, hooks or source edits",
+  "runtime_services": [],
+  "runtime_api_cost": 0
+}

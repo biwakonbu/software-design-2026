@@ -1,0 +1,12 @@
+{
+  "course": "university",
+  "long_sentence_min_chars": 80,
+  "no_comma_min_chars": 60,
+  "targets": [
+    {"glob": "lectures/[0-9][0-9].md", "adapter": "markdown-slides", "medium": "slides"},
+    {"glob": "exercises/[0-9][0-9].md", "adapter": "protected", "medium": "exercise"},
+    {"glob": "instructor/[0-9][0-9].md", "adapter": "markdown", "medium": "instructor"},
+    {"glob": "examples/*/README.md", "adapter": "markdown", "medium": "reference"}
+  ],
+  "description": "大学第2〜15回。演習ファイルを保護。講義・教師補足の解答/設問区間も保護。"
+}

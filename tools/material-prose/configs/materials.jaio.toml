@@ -1,0 +1,42 @@
+# jaio 0.9.4 の実装と実バイナリで検証する教材共通設定。
+# 抽出コーパス専用。元リポジトリへそのまま当てない。
+[style]
+target = "polite"
+
+[paths]
+include_hidden = false
+
+[merge]
+min_similarity = 0.80
+
+[lint.rules]
+# 抽出物には元のリンクグラフ・階層・コメントが無い。
+"relation/broken-link" = "allow"
+"relation/orphan" = "allow"
+"relation/dir-mismatch" = "allow"
+"relation/doc-comment-drift" = "allow"
+"relation/move-integrity" = "allow"
+"structure/heading-skip" = "allow"
+"structure/empty-section" = "allow"
+"structure/over-nesting" = "allow"
+# 再掲の採否・統合先を機械で決めない。重複検出そのものは維持。
+"merge/consolidation-plan" = "allow"
+"consistency/particle" = "allow"
+# 用語の短い定義・投影用の短句を低情報量と誤認しない。
+"efficiency/token-density" = "allow"
+
+[detection]
+doc_body_min_chars = 80
+doc_similarity = 0.80
+section_body_min_chars = 80
+section_similarity = 0.85
+repeat_quote_min_chars = 60
+long_sentence_min_chars = 80
+no_comma_min_chars = 60
+all_pairs = true
+
+[terms]
+pairs = [
+  ["AI コーディング", "AIコーディング"],
+  ["ブートキャンプ", "ブート・キャンプ"],
+]

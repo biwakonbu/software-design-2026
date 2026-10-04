@@ -4,6 +4,13 @@ import { join } from 'node:path'
 import MarkdownIt from 'markdown-it'
 import { chromium } from 'playwright'
 const md = new MarkdownIt({ html: false, linkify: true })
+const renderLink = md.renderer.rules.link_open || ((tokens, index, options, env, self) => self.renderToken(tokens, index, options))
+md.renderer.rules.link_open = (tokens, index, options, env, self) => {
+  const href = tokens[index].attrGet('href')
+  if (href && !/^(?:[a-z][a-z\d+.-]*:|\/\/|#)/i.test(href))
+    tokens[index].attrSet('href', new URL(href, `https://github.com/biwakonbu/software-design-2026/blob/main/${env.source}/`).href)
+  return renderLink(tokens, index, options, env, self)
+}
 const lessons = JSON.parse(readFileSync('docs/curriculum.json', 'utf8'))
 const packages = ['noto-sans-jp', 'jetbrains-mono']
 const css = packages.map(name => [400, ...(name==='noto-sans-jp'?[600,700]:[])].map(weight =>
@@ -29,7 +36,7 @@ await new Promise(resolve=>server.listen(0,'127.0.0.1',resolve))
 const browser=await chromium.launch({headless:true});const page=await browser.newPage()
 try {
   for (const [source,name,title] of [['exercises','student-workbook','学生向け演習'],['instructor','instructor-notes','教師用補足・公開解説']]) {
-    const content=lessons.map(l=>`<section>${md.render(readFileSync(`${source}/${l.id}.md`,'utf8'))}</section>`).join('\n')
+    const content=lessons.map(l=>`<section>${md.render(readFileSync(`${source}/${l.id}.md`,'utf8'), {source})}</section>`).join('\n')
     html=`<!doctype html><html lang="ja"><meta charset="utf-8"><title>${title}</title><style>${style}</style><body><section class="cover"><h1>ソフトウェアデザイン<br>2026</h1><p>${title}</p><p>第2〜15回<br>情報システム学科 3年生　選択2単位</p><p>授業で案内する提出先・期限に従って使用する。<br>演習のフォルダ構成は本教材の推奨例。</p></section>${content}</body></html>`
     writeFileSync(`tmp/workbooks/${name}.html`,html)
     await page.goto(`http://127.0.0.1:${server.address().port}/`,{waitUntil:'networkidle'});await page.evaluate(()=>document.fonts.ready)

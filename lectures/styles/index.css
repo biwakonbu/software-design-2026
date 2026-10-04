@@ -32,3 +32,14 @@
 .slidev-layout .small { font-size:23px; }
 .slidev-layout .two-col { display:grid; grid-template-columns:1fr 1fr; gap:42px; }
 @media print { * { -webkit-print-color-adjust:exact!important; print-color-adjust:exact!important; } }
+
+/* Teaching figures: retain editable references; render the reviewed visual. */
+.slidev-layout:has(.sd-diagram-full) { padding-top:22px; }
+.slidev-layout:has(.sd-diagram-full) > h1 { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.sd-diagram-full { height:540px; display:flex; justify-content:center; align-items:center; }
+.sd-diagram-full img { max-height:100%; max-width:100%; object-fit:contain; }
+.sd-closure-return { position:relative; width:1080px; height:250px; margin:0 auto; overflow:hidden; }
+.sd-closure-return img { position:absolute; width:2000px; max-width:none; left:0; top:-400px; }
+.sd-closure-columns { display:grid; grid-template-columns:580px 1fr; gap:36px; align-items:center; }
+.sd-closure-call { position:relative; width:580px; height:470px; overflow:hidden; }
+.sd-closure-call img { position:absolute; width:1250px; max-width:none; left:-690px; top:-200px; }

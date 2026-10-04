@@ -38,8 +38,8 @@
   {
     "file": "output/pdf/08-calculator.pdf",
     "pages": 37,
-    "size_bytes": 453090,
-    "sha256": "47a4d3c2deb22381aa67744cdb17ba3ee8b0fa60d9940a91d06cf05019303975"
+    "size_bytes": 1777340,
+    "sha256": "741fa885798908613e9e178201044b5d9af6d8040ecfa41013f53022e68026cd"
   },
   {
     "file": "output/pdf/09-lisp-arithmetic.pdf",
@@ -50,8 +50,8 @@
   {
     "file": "output/pdf/10-lisp-functions.pdf",
     "pages": 37,
-    "size_bytes": 376995,
-    "sha256": "499ab304ebbb9ad930cda3e00411564e7245c2efcf642f42dede5c8a38224833"
+    "size_bytes": 1620972,
+    "sha256": "7ce1038a7cfe04a90b93e8ce5c24bfa673ed7e9d40371dcd8873dfee2e0ee318"
   },
   {
     "file": "output/pdf/11-lisp-scripts.pdf",
@@ -74,8 +74,8 @@
   {
     "file": "output/pdf/14-selfhosting.pdf",
     "pages": 42,
-    "size_bytes": 432494,
-    "sha256": "fd49b7fc82fa6e4274392a7c091c31c2d5944e8dd58f7de15680bcb690af8f80"
+    "size_bytes": 1910889,
+    "sha256": "78e48654b19b63bea36e0ac451a973902491b0884458a6b95cda8430d121e8c7"
   },
   {
     "file": "output/pdf/15-showcase.pdf",

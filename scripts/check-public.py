@@ -1,6 +1,7 @@
 """Check the intended public files, without reading private input directories."""
 from pathlib import Path
 import json
+import hashlib
 import re
 import subprocess
 import sys
@@ -14,6 +15,8 @@ secret_patterns = [
     re.compile(r"sk-[A-Za-z0-9_-]{30,}"),
     re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
 ]
+reviewed_illustrations = {'lectures/assets/illustrations/parser-term.png': '7b33e8a98684d589c3f2d37ff640e08071742a5c5707162e6c03f72da790382a', 'lectures/assets/illustrations/closure-environments.png': 'd365da6df1b33eafa8f93f1d985d25755658c672b69e770cd695146170fd4559', 'lectures/assets/illustrations/repl-error-continuation.png': '302fe417aa0b4405a1c7d0767d6b928fe5cc28348da8c76493ddfa01cb584f1d'}
+
 source_patterns = [
     re.compile("/" + "Users/"),
     re.compile("osaka-" + "sandai\\.ac\\.jp", re.I),
@@ -35,7 +38,10 @@ for name in filter(None, names):
         pdf_count += 1
         text = subprocess.check_output(["pdftotext", str(path), "-"], text=True)
     elif path.suffix.lower() in {".png", ".jpg", ".jpeg", ".woff", ".woff2"}:
-        if not name.startswith("output/previews/"):
+        if name in reviewed_illustrations:
+            if hashlib.sha256(path.read_bytes()).hexdigest() != reviewed_illustrations[name]:
+                problems.append(f"reviewed illustration SHA differs: {name}")
+        elif not name.startswith("output/previews/"):
             problems.append(f"unexpected binary visual: {name}")
         continue
     else:

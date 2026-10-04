@@ -63,7 +63,7 @@ Computer Useでは最終第14回の実Slidevで第38→39ページ、第08回の
 
 ## 依存・公開検査
 
-package-lock.jsonの依存は `npm audit --audit-level=low` で **0件**。dompurify、image-size、monaco-editorの修正版をoverridesで固定した。サンプルコードの実行には外部Pythonライブラリを必要としない。
+初版制作時、package-lock.jsonの依存は `npm audit --audit-level=low` で **0件**だった。dompurify、image-size、monaco-editorの修正版をoverridesで固定した。現在の依存検査結果は末尾の「公開と遠隔CI」を参照する。サンプルコードの実行には外部Pythonライブラリを必要としない。
 
 公開対象を `scripts/check-public.py` で検査し、原資料、privateディレクトリ、個人のMacの絶対パス、大学システムのURL、secretパターン、想定外の画像・バイナリを除外した。画像は新作PDFの代表プレビューと、承認済みの授業図解3点に限定する。フォントのOFLライセンスを収録し、新作教材全体への包括的なライセンスは付与していない。
 
@@ -133,3 +133,9 @@ Python **3.12.13**・**3.14.7**の両版で本体と保護検査の **211 tests*
 Python **3.12.13**・**3.14.7**で、各 **211 tests**と共通runnerの各 **21 tests**、互換fixture各 **15/15**を再確認しました。公開174ファイル・16PDFの検査も成功し、承認PNGの変造と未知PNGを拒否する検証も成功しています。
 
 完成した変更は、本人の新たなcommit・通常pushの許可に沿って、文章改訂、活動案内、図解の単位で公開します。遠隔CIの結果は対応するcommitのGitHub Actionsで確認します。既存の納品ファイルとLibrary IDの履歴は保持し、この統合を既存Library成果物の新versionへ置き換える操作は別の納品範囲として扱います。
+
+## 公開と遠隔CI
+
+文章改訂`ac755d8`、活動案内`c41cdfc`、図解`226eb9e`を通常pushし、公開mainのSHA一致を確認しました。[226eb9eのCI](https://github.com/biwakonbu/software-design-2026/actions/runs/37217302990)ではPython3.12・3.14のテストと互換検査が成功しました。exports jobは`npm audit --audit-level=low`で失敗し、遠隔でのPDF出力以降のstepには進んでいません。ローカルでの全PDF・Slidev検証とは分けて記録します。
+
+原因は既存依存の`braces 3.0.3`に対する[GHSA-vfj7-8cjw-p6xm](https://github.com/advisories/GHSA-vfj7-8cjw-p6xm)です。2026-10-04 UTC時点の公式advisoryは影響範囲を`<= 3.0.3`、修正版を未提供としています。現在のnpm auditでも同じ指摘が依存先9パッケージへ波及していることを確認しました。今回package.json・lockfileとCIの検査条件は変更していません。依存検査の失敗は未解消です。

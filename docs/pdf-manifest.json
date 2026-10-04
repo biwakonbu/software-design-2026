@@ -8,20 +8,20 @@
   {
     "file": "output/pdf/03-ai-workflow.pdf",
     "pages": 24,
-    "size_bytes": 289434,
-    "sha256": "e1f4a7f6262cafb01adb7a3434962108b1b552a7c9267e3c0d482948f21730e2"
+    "size_bytes": 290620,
+    "sha256": "483c595148d598fbc3725d3846c3bc199960d466ec9f10c6a20c4d8ef075597a"
   },
   {
     "file": "output/pdf/04-algorithms.pdf",
     "pages": 45,
-    "size_bytes": 393746,
-    "sha256": "3df612f8d29cbc6c318f2a5bc696d620e63d408be3ebc96f733f9fb110e489d0"
+    "size_bytes": 395052,
+    "sha256": "62a0d5001ef54a120632be3ac49dd6cd1724784a0c794a74f5060a828bab58cd"
   },
   {
     "file": "output/pdf/05-graphs.pdf",
     "pages": 27,
-    "size_bytes": 359882,
-    "sha256": "ffeb1d91445b9936c3d3238818e8beb1e4565b6477950703e23c694d06cba745"
+    "size_bytes": 360695,
+    "sha256": "122cbadacbdcacbcbd4f5969f810b5d323ef997131a14e5d9d68bba3b533b257"
   },
   {
     "file": "output/pdf/06-route-project.pdf",
@@ -38,8 +38,8 @@
   {
     "file": "output/pdf/08-calculator.pdf",
     "pages": 37,
-    "size_bytes": 450305,
-    "sha256": "04eb8176d20f82993c1bf6c2483ccfa9bda1edeae5c35f89902d98a9dfac4ee0"
+    "size_bytes": 453090,
+    "sha256": "47a4d3c2deb22381aa67744cdb17ba3ee8b0fa60d9940a91d06cf05019303975"
   },
   {
     "file": "output/pdf/09-lisp-arithmetic.pdf",
@@ -62,8 +62,8 @@
   {
     "file": "output/pdf/12-meta-evaluator.pdf",
     "pages": 36,
-    "size_bytes": 356002,
-    "sha256": "0f101ad4be18fd652d32c1068957e3a71187b134d0965c7e53e3585562fdb803"
+    "size_bytes": 359124,
+    "sha256": "022fa0eff1cc4e56fe056eb75d8c56253741155e1afcf247a047c01bb2e22e62"
   },
   {
     "file": "output/pdf/13-language-review.pdf",

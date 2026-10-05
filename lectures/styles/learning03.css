@@ -1,0 +1,8 @@
+.slidev-layout.learning03 { padding:34px 50px 66px; }
+.slidev-layout.learning03 h1 { font-size:42px; margin-bottom:18px; }
+.slidev-layout.learning03 p { margin:12px 0; line-height:1.45; }
+.slidev-layout.learning03 pre { margin:12px 0!important; padding:14px 22px!important; }
+.slidev-layout.learning03 p code { white-space:nowrap; }
+.learning-figure { display:block; width:1180px; max-width:100%; }
+.slidev-layout.learning03 pre code, .slidev-layout.learning03 .slidev-code { font-size:26px!important; line-height:1.4!important; }
+.slidev-layout.learning03.activity03 li { margin:4px 0; line-height:1.35; }

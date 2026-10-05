@@ -1,4 +1,19 @@
-# 第3回: AI出力を反例で確認する
+# 第3回: AI時代の学び方
+
+[公開Gist](https://gist.github.com/biwakonbu/7aa6c2d4eba43e49f852381734a38265) と同じ主例を収録しています。整数リストの最高値を題材に、疑問・予想・ヒント・検証・説明の5ステップを練習します。
+
+リポジトリのルートから実行します。
+
+```sh
+python3 examples/03-ai-workflow/test_highest.py
+python3 examples/03-ai-workflow/test_contract.py
+python3 examples/03-ai-workflow/verify.py
+```
+
+期待出力はそれぞれ `10 tests passed; highest: 3906 integer lists`、`8 tests passed; exhaustive contract: 1764 cases`、反例を含む3行です。詳しい契約・意図的な誤りの扱い・検証範囲は [Gist収録内容](../../docs/gist-samples.md) を参照してください。有限テストは全入力での正しさの証明ではありません。課題の条件は `exercises/03.md` に従います。
+
+## 参考: 二分探索
+
 
 これは説明用に作った**架空のAI出力**です。実際の対話や学生の提出ではありません。Python 3.12以上で、ルートから実行します。
 

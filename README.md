@@ -113,4 +113,4 @@ render-pdfs.pyはPopplerのpdftoppmを使い、全ページをtmp/pdf-qaへ出�
 
 ## 図解と公開サンプル
 
-[概念と図解の棚卸し](docs/visual-learning-map.md)と[第03回の公開Gist](docs/gist-samples.md)を追加しました。第03回では、候補1個の閉区間、探索範囲の更新、期待値と実行結果の照合を図で追えます。
+[概念と図解の棚卸し](docs/visual-learning-map.md)と[第03回の公開Gist](docs/gist-samples.md)を追加しました。第03回は「AI時代の学び方」を主題に、疑問・予想・ヒント・検証・説明の5ステップを図と同じ例でたどります。主例と実行手順を公開Gistに収録し、[独立レビューと修正の記録](docs/lesson03-learning-review.md)を残しています。

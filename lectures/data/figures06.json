@@ -1,0 +1,6 @@
+{
+ "nodes":[{"id":"A","x":120,"y":140},{"id":"B","x":580,"y":50},{"id":"D","x":1040,"y":140},{"id":"C","x":400,"y":240},{"id":"E","x":760,"y":240},{"id":"X","x":120,"y":262,"isolated":true}],
+ "edges":[["A","B"],["B","D"],["A","C"],["C","E"],["E","D"]],
+ "outcomes":[{"args":["A","D"],"result":["A","B","D"],"stdout":"A -> B -> D\n移動数: 2\n","stderr":"","exit":0},{"args":["A","A"],"result":["A"],"stdout":"A\n移動数: 0\n","stderr":"","exit":0},{"args":["A","B"],"result":["A","B"],"stdout":"A -> B\n移動数: 1\n","stderr":"","exit":0},{"args":["A","X"],"result":null,"stdout":"","stderr":"経路なし: A → X\n","exit":2},{"args":["UNKNOWN","D"],"result":"ValueError","stdout":"","stderr":"入力エラー: 未知の駅IDです\n","exit":2}],
+ "stages":["開始状態","1 仕様","2 初期状態","3 発見","4 停止","5 復元","検証・提出"]
+}

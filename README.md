@@ -110,3 +110,7 @@ python3.12 scripts/render-pdfs.py
 render-pdfs.pyはPopplerのpdftoppmを使い、全ページをtmp/pdf-qaへ出力します。生成後は画像と実際のPDF/Slidevを確認してください。検証記録は[docs/verification.md](docs/verification.md)、再現可能な自動チェックは[GitHub Actions](.github/workflows/verify.yml)にあります。
 
 配布用の一式ZIPは `python3.12 scripts/package-course.py` で `tmp/software-design-2026.zip` に作成できます。Gitの公開対象だけを収録し、実行環境のキャッシュや原資料は含めません。
+
+## 図解と公開サンプル
+
+[概念と図解の棚卸し](docs/visual-learning-map.md)と[第03回の公開Gist](docs/gist-samples.md)を追加しました。第03回では、候補1個の閉区間、探索範囲の更新、期待値と実行結果の照合を図で追えます。

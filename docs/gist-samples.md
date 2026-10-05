@@ -188,3 +188,16 @@ buggy: None corrected: 0
 ### 誤り例についての注意
 
 `binary_search_buggy.py` は学習のための**意図的な誤り**です。実用、課題の提出、他教材への正解としての転用はしないでください。
+
+
+## 第04回：処理順・木・探索
+
+[検証済み公開Gist](https://gist.github.com/biwakonbu/ad6341fde64f3a41d5b4f1fa60711edf)。本人所有・public、Python3.12.13/3.14.7でデモと2テスト（全364整数列と木の境界）を実行し、独立Opus5.5レビューに合格しました（53,114ms）。任意の自習用で、提出条件は追加していません。保存後に全5ファイルをreadbackし、次のSHAと一致しました。第03回のGistは変更していません。
+
+| ファイル | SHA-256 |
+|---|---|
+| README.md | `f869dc6fc6f31851f7a5a0cbc0e88947529bb71b74d933d021ab57cf175372a4` |
+| containers.py | `72eabe680b322eae21a9d95c33c4d2ebfc8e27ea8e853ea739392bcf20923928` |
+| sorting_search.py | `fdd8c1c1de6be9bb903a97310db83d4f9315cd6c10fa9377564bb1b96e6c3334` |
+| test_examples.py | `622adc2068ba59f290c66c6a6e47fb637d8481dc833f4c0462ee87963e58a24a` |
+| trees.py | `e6b4dfff3e344a38088d1dcbe8ae807fabfefae23333a2a7c55d9630b1be860c` |

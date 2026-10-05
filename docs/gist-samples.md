@@ -201,3 +201,14 @@ buggy: None corrected: 0
 | sorting_search.py | `fdd8c1c1de6be9bb903a97310db83d4f9315cd6c10fa9377564bb1b96e6c3334` |
 | test_examples.py | `622adc2068ba59f290c66c6a6e47fb637d8481dc833f4c0462ee87963e58a24a` |
 | trees.py | `e6b4dfff3e344a38088d1dcbe8ae807fabfefae23333a2a7c55d9630b1be860c` |
+
+
+## 第05回：グラフ・BFSと経路復元
+
+[検証済み公開Gist](https://gist.github.com/biwakonbu/b3ff11e2b12c062e11854f5df658269b)。本人所有・public、Python3.12.13/3.14.7でデモと4テスト（全64グラフ・1024経路と境界）を実行し、独立Opus5.5レビューに合格しました（53,114ms）。自習用で提出条件は追加していません。保存後の全3ファイルをreadbackし、次のSHAと一致しました。
+
+| ファイル | SHA-256 |
+|---|---|
+| README.md | `b71a1d2ee4a8d3cf7da0dfbd87ab477b43f7bc297d7629b2d5c17171bce76e4d` |
+| graphs.py | `31d97d6c840efafe050a803e865443f928df22652669806bb5eef0d27989c156` |
+| test_graphs.py | `6e494840cd9847c7bbe0b26f262e8afe60173c70b7c349e10f833838d3ac23cb` |

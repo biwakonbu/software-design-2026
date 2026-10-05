@@ -9,3 +9,5 @@
 
 /* The SVG viewport is inside the paper margin: retain edge strokes and glyphs. */
 .slidev-layout.learning03 .learning-figure { overflow:visible; }
+
+.slidev-layout.learning03 .learning03-illustration { display:block; width:840px; max-width:100%; height:auto; margin:12px 0 0; }

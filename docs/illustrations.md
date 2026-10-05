@@ -19,3 +19,10 @@
 | `parser-term.png` | `7b33e8a98684d589c3f2d37ff640e08071742a5c5707162e6c03f72da790382a` |
 | `closure-environments.png` | `d365da6df1b33eafa8f93f1d985d25755658c672b69e770cd695146170fd4559` |
 | `repl-error-continuation.png` | `302fe417aa0b4405a1c7d0767d6b928fe5cc28348da8c76493ddfa01cb584f1d` |
+
+
+## 第03回の学習行為
+
+第03回p29へ[5つの学習行為](../lectures/assets/illustrations/learning-five-actions.png)を1枚追加しました。実Opus 5.5の既存設計とCodex向け指示を使い、Codexの組み込み画像生成で生成・編集し、原寸画像と完成PDFの独立レビューに合格しています。本文・数値・コードを画像だけに移していません。[工程と挿入条件](lesson03-image-brief.md)を参照してください。
+
+新しい画像のSHA-256は `b50416152a50471accb16eca2d0472eacd5fd103648ee45623c53d5e5abe9683` です。前節の3画像も無変更で保持し、公開検査は4画像のパスとSHAを個別に照合します。

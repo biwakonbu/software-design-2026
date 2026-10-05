@@ -15,7 +15,7 @@ secret_patterns = [
     re.compile(r"sk-[A-Za-z0-9_-]{30,}"),
     re.compile(r"-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----"),
 ]
-reviewed_illustrations = {'lectures/assets/illustrations/parser-term.png': '7b33e8a98684d589c3f2d37ff640e08071742a5c5707162e6c03f72da790382a', 'lectures/assets/illustrations/closure-environments.png': 'd365da6df1b33eafa8f93f1d985d25755658c672b69e770cd695146170fd4559', 'lectures/assets/illustrations/repl-error-continuation.png': '302fe417aa0b4405a1c7d0767d6b928fe5cc28348da8c76493ddfa01cb584f1d'}
+reviewed_illustrations = {'lectures/assets/illustrations/parser-term.png': '7b33e8a98684d589c3f2d37ff640e08071742a5c5707162e6c03f72da790382a', 'lectures/assets/illustrations/closure-environments.png': 'd365da6df1b33eafa8f93f1d985d25755658c672b69e770cd695146170fd4559', 'lectures/assets/illustrations/repl-error-continuation.png': '302fe417aa0b4405a1c7d0767d6b928fe5cc28348da8c76493ddfa01cb584f1d', 'lectures/assets/illustrations/learning-five-actions.png': 'b50416152a50471accb16eca2d0472eacd5fd103648ee45623c53d5e5abe9683'}
 
 source_patterns = [
     re.compile("/" + "Users/"),

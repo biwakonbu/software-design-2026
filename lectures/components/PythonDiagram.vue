@@ -13,7 +13,7 @@ const markerId = `py-arrow-${useId()}`
         <rect x="24" y="67" width="120" height="60" class="name"/><text x="68" y="108" class="mono">a</text>
         <rect x="24" y="150" width="120" height="60" class="name"/><text x="68" y="191" class="mono">b</text>
         <path d="M144 97 L315 124" class="arrow"/><path d="M144 180 L315 142" class="arrow"/>
-        <rect x="330" y="100" width="210" height="72" class="value"/><text x="375" y="147" class="mono">[200, 120]</text>
+        <rect x="330" y="100" width="210" height="72" class="value"/><text x="350" y="147" class="mono">[200, 120]</text>
         <text x="24" y="260">名前は2つ、リストは1つ。</text>
         <text x="24" y="305">bからの変更をaからも読める。</text>
       </g>
@@ -99,7 +99,7 @@ const markerId = `py-arrow-${useId()}`
         <text x="24" y="94" class="mono">orders[1]</text>
         <path d="M162 108 L162 154" class="arrow"/>
         <rect x="22" y="166" width="540" height="87" class="value"/><text x="43" y="203">2件目の辞書</text><text x="43" y="240" class="mono">name : "ペン"</text>
-        <path d="M421 261 L421 303" class="arrow"/><text x="292" y="295" class="mono">["name"]</text>
+        <path d="M421 261 L421 303" class="arrow"/><text x="250" y="295" class="mono">["name"]</text>
         <text x="370" y="346" class="label">"ペン"</text>
       </g>
       <g v-else-if="kind === 'orders'">

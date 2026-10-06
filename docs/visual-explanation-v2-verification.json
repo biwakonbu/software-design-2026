@@ -1,0 +1,1073 @@
+{
+  "baseline_commit": "f039575096af34c092c6ba2691854e0e745bd0eb",
+  "completed_scope": "第02〜15回",
+  "new_pngs": 26,
+  "added_slide_pages": 27,
+  "lecture_pdf_pages": 533,
+  "unchanged_book_pages": 107,
+  "total_pdf_pages": 640,
+  "pdf_reviews": [
+    {
+      "id": "02",
+      "pdf_sha256": "7c0373c412d164c7eb9607dfc2c73cd016b6f208ed58dc1dc213b2b927ef60b3",
+      "pages": 62,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [
+          "claude-fable-5-1"
+        ],
+        "duration_ms": 286569,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-20",
+          "21-40",
+          "41-60",
+          "61-62"
+        ],
+        "returned_page_images": 62,
+        "snapshot": "visual-v2-final-d-02.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 62,
+        "verdict": "pass"
+      },
+      "browser": {
+        "viewport": [
+          1280,
+          720
+        ],
+        "pages": 62,
+        "problems": 0,
+        "navigation_1_to_2": "passed"
+      }
+    },
+    {
+      "id": "03",
+      "pdf_sha256": "fa88c6163842503869cb81f0154bd168ce4e2d30fd7ab4602554197b5617d38d",
+      "pages": 33,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [
+          "claude-fable-5-1"
+        ],
+        "duration_ms": 286569,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-17",
+          "18-33"
+        ],
+        "returned_page_images": 33,
+        "snapshot": "visual-v2-final-d-03.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 33,
+        "verdict": "pass"
+      },
+      "browser": {
+        "viewport": [
+          1280,
+          720
+        ],
+        "pages": 33,
+        "problems": 0,
+        "navigation_1_to_2": "passed"
+      }
+    },
+    {
+      "id": "04",
+      "pdf_sha256": "f3da19b95d103e2f6a952cc27036c5b1eda0ea67091796d3c296981ebebd6803",
+      "pages": 50,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [],
+        "duration_ms": 131387,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-20",
+          "21-40",
+          "41-50"
+        ],
+        "returned_page_images": 50,
+        "snapshot": "visual-v2-final-e-04.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 50,
+        "verdict": "pass"
+      },
+      "browser": {
+        "viewport": [
+          1280,
+          720
+        ],
+        "pages": 50,
+        "problems": 0,
+        "navigation_1_to_2": "passed"
+      }
+    },
+    {
+      "id": "05",
+      "pdf_sha256": "ce5f99e3aa65763d6f20bd93843f03fe7fa6a951cdfb7c37ed038c7f3644fadb",
+      "pages": 30,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [
+          "claude-fable-5-1"
+        ],
+        "duration_ms": 387244,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-15",
+          "16-30"
+        ],
+        "returned_page_images": 30,
+        "snapshot": "visual-v2-final-05.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 30,
+        "verdict": "pass"
+      },
+      "browser": {
+        "viewport": [
+          1280,
+          720
+        ],
+        "pages": 30,
+        "problems": 0,
+        "navigation_1_to_2": "passed"
+      }
+    },
+    {
+      "id": "06",
+      "pdf_sha256": "2cc838ea4d9b7270e7facd586bbba87ca18822f7c21b26b4089bf2360f12fad1",
+      "pages": 27,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [
+          "claude-fable-5-1"
+        ],
+        "duration_ms": 301333,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-14",
+          "15-27"
+        ],
+        "returned_page_images": 27,
+        "snapshot": "visual-v2-final-06.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 27,
+        "verdict": "pass"
+      },
+      "browser": {
+        "viewport": [
+          1280,
+          720
+        ],
+        "pages": 27,
+        "problems": 0,
+        "navigation_1_to_2": "passed"
+      }
+    },
+    {
+      "id": "07",
+      "pdf_sha256": "b0d307285a5a4ddb54e1e21d0d42b42441760280b719c8e5ad2822da61281693",
+      "pages": 28,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [],
+        "duration_ms": 131387,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-14",
+          "15-28"
+        ],
+        "returned_page_images": 28,
+        "snapshot": "visual-v2-final-e-07.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 28,
+        "verdict": "pass"
+      },
+      "browser": {
+        "viewport": [
+          1280,
+          720
+        ],
+        "pages": 28,
+        "problems": 0,
+        "navigation_1_to_2": "passed"
+      }
+    },
+    {
+      "id": "08",
+      "pdf_sha256": "7346598721a20b3409fc4307812fff56ba93560d62c1c85a311116974c773caa",
+      "pages": 43,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [
+          "claude-fable-5-1"
+        ],
+        "duration_ms": 226810,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-20",
+          "21-40",
+          "41-43"
+        ],
+        "returned_page_images": 43,
+        "snapshot": "08-calculator.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 43,
+        "verdict": "pass"
+      },
+      "browser": {
+        "viewport": [
+          1280,
+          720
+        ],
+        "pages": 43,
+        "problems": 0,
+        "navigation_1_to_2": "passed"
+      }
+    },
+    {
+      "id": "09",
+      "pdf_sha256": "26da19c7dd7b0604ca88b008cb10ab1bcd8389afa49ab22e04a61d6fe5c63b07",
+      "pages": 31,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [
+          "claude-fable-5-1"
+        ],
+        "duration_ms": 283421,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-20",
+          "21-31"
+        ],
+        "returned_page_images": 31,
+        "snapshot": "visual-v2-final-09.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 31,
+        "verdict": "pass"
+      },
+      "browser": {
+        "viewport": [
+          1280,
+          720
+        ],
+        "pages": 31,
+        "problems": 0,
+        "navigation_1_to_2": "passed"
+      }
+    },
+    {
+      "id": "10",
+      "pdf_sha256": "401f9d5dbbe9a08e4cce4b87c28e841b2daa0708c7c396b37dda2eb5a34c7a0d",
+      "pages": 42,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [
+          "claude-fable-5-1"
+        ],
+        "duration_ms": 197955,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-20",
+          "21-40",
+          "41-42"
+        ],
+        "returned_page_images": 42,
+        "snapshot": "visual-v2-final-e-10.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 42,
+        "verdict": "pass"
+      },
+      "browser": {
+        "viewport": [
+          1280,
+          720
+        ],
+        "pages": 42,
+        "problems": 0,
+        "navigation_1_to_2": "passed"
+      }
+    },
+    {
+      "id": "11",
+      "pdf_sha256": "ea4edba410bed79f699733eaa7764857097e5bbb93d6b15d7b96b3752237ca89",
+      "pages": 39,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [
+          "claude-fable-5-1"
+        ],
+        "duration_ms": 325637,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-20",
+          "21-39"
+        ],
+        "returned_page_images": 39,
+        "snapshot": "11-lisp-scripts.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 39,
+        "verdict": "pass"
+      },
+      "browser": {
+        "viewport": [
+          1280,
+          720
+        ],
+        "pages": 39,
+        "problems": 0,
+        "navigation_1_to_2": "passed"
+      }
+    },
+    {
+      "id": "12",
+      "pdf_sha256": "d3944b0489c01358e5e65910cd2567e2e342c91d0ac0638d6d4596781d53c1ce",
+      "pages": 41,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [
+          "claude-fable-5-1"
+        ],
+        "duration_ms": 186909,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-20",
+          "21-40",
+          "41"
+        ],
+        "returned_page_images": 41,
+        "snapshot": "visual-v2-final-f-12.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 41,
+        "verdict": "pass"
+      },
+      "browser": {
+        "viewport": [
+          1280,
+          720
+        ],
+        "pages": 41,
+        "problems": 0,
+        "navigation_1_to_2": "passed"
+      }
+    },
+    {
+      "id": "13",
+      "pdf_sha256": "3e25c7698ca77eb9af137fbe95d18e6289b43e55627f8fb749a4ff93df0441c7",
+      "pages": 30,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [
+          "claude-fable-5-1"
+        ],
+        "duration_ms": 348721,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-15",
+          "16-30"
+        ],
+        "returned_page_images": 30,
+        "snapshot": "visual-v2-final-b-13.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 30,
+        "verdict": "pass"
+      },
+      "browser": {
+        "viewport": [
+          1280,
+          720
+        ],
+        "pages": 30,
+        "problems": 0,
+        "navigation_1_to_2": "passed"
+      }
+    },
+    {
+      "id": "14",
+      "pdf_sha256": "a5626cac1325af88d5d705e18baa2e889b2aa75fc40d953d74675e23806ab0ee",
+      "pages": 47,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [
+          "claude-fable-5-1"
+        ],
+        "duration_ms": 348721,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-16",
+          "17-32",
+          "33-47"
+        ],
+        "returned_page_images": 47,
+        "snapshot": "visual-v2-final-b-14.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 47,
+        "verdict": "pass"
+      },
+      "browser": {
+        "viewport": [
+          1280,
+          720
+        ],
+        "pages": 47,
+        "problems": 0,
+        "navigation_1_to_2": "passed"
+      }
+    },
+    {
+      "id": "15",
+      "pdf_sha256": "b64abf64f974a10a3f3e0fb5f60cd78332be099d7d345d8e38f3e5cf5e709e86",
+      "pages": 30,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [
+          "claude-fable-5-1"
+        ],
+        "duration_ms": 168518,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-15",
+          "16-30"
+        ],
+        "returned_page_images": 30,
+        "snapshot": "visual-v2-final-f-15.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 30,
+        "verdict": "pass"
+      },
+      "browser": {
+        "viewport": [
+          1280,
+          720
+        ],
+        "pages": 30,
+        "problems": 0,
+        "navigation_1_to_2": "passed"
+      }
+    },
+    {
+      "id": "instructor-notes",
+      "pdf_sha256": "1ce743f9861d3dd1b15daf0f3e6ddcfbbc437276e5fa949214044e387f80e043",
+      "pages": 43,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [
+          "claude-fable-5-1"
+        ],
+        "duration_ms": 378930,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-20",
+          "21-40",
+          "41-43"
+        ],
+        "returned_page_images": 43,
+        "snapshot": "visual-v2-final-instructor-notes.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 43,
+        "verdict": "pass"
+      }
+    },
+    {
+      "id": "student-workbook",
+      "pdf_sha256": "24647a9d5090d2d4731908feb0cdde29e786c7e2087d20b9e95b9b4cfbeab5dd",
+      "pages": 64,
+      "independent_review": {
+        "provider": "Claude Code CLI",
+        "model": "claude-opus-5-5",
+        "other_receipted_models": [
+          "claude-fable-5-1"
+        ],
+        "duration_ms": 378930,
+        "verdict": "pass",
+        "pdf_read_ranges": [
+          "1-20",
+          "21-40",
+          "41-60",
+          "61-64"
+        ],
+        "returned_page_images": 64,
+        "snapshot": "visual-v2-final-student-workbook.pdf"
+      },
+      "own_individual_page_review": {
+        "pages": 64,
+        "verdict": "pass"
+      }
+    }
+  ],
+  "reviewed_illustration_sha256": {
+    "lectures/assets/illustrations/05-campus-map-to-graph.png": "e93262f0b7103382dc8563f4712364467dbe5bf025f7ee919f99087d3be4ed6d",
+    "lectures/assets/illustrations/05-discovered-once-ledger.png": "8694879b3f4a0d1ea41be15eb8067b67a83cd11061e70d8fe2b37c53fdc28661",
+    "lectures/assets/illustrations/06-path-list-vs-moves.png": "6c2015391c8aac8a3bfc7906b78d304172c8d68aaa3e31940cce78c6037b2338",
+    "lectures/assets/illustrations/07-distinguishing-test.png": "4357b72de1a52b21d16c6af4f37a1e065e293f6e2ec55712449fd20065107424",
+    "lectures/assets/illustrations/08-cards-to-tree.png": "6ba76923d05a072bbe07846a0439c202d508af5b5871f1dfe5110dac933c6923",
+    "lectures/assets/illustrations/08-three-stops.png": "923a2d008b719667af7e8231cba3f4d7b8d79b8c037dea85510b38051d7d9c3e",
+    "lectures/assets/illustrations/09-infix-prefix-same-tree.png": "e782c5dd50c7bd3405ada426071496c1ff9c2456d5d5ce6be34ec3b735bc68af",
+    "lectures/assets/illustrations/09-read-eval-print-pipeline.png": "1a2ceaef336487b7b67d739c0e9688a27f24f666290f9001ed5bde891eb8f364",
+    "lectures/assets/illustrations/10-closure-keeps-e5.png": "c4023b760c3e862617148d7696f79d7de9010b581ec395a56f3eb9d5c39955c4",
+    "lectures/assets/illustrations/10-define-adds-binding.png": "f8b3b2efba047a6238a1a32e5d9ac6aca5dc9e747ffdb0503a7792002492f5af",
+    "lectures/assets/illustrations/11-script-shared-global.png": "c025d1579b22a0bd2a9fefd3f3873f217a744df05b4a16b8fdd34d5e6c7066b8",
+    "lectures/assets/illustrations/12-double-quote-layers.png": "a85daa9e833d429a76d3c0457e27ff84e7fd74b98b187779eaba6eb7408fd95f",
+    "lectures/assets/illustrations/12-host-and-target-environments.png": "8570b2db2c51749b9c086c4020cd27dee07125afcf621da4d246e86989de94a1",
+    "lectures/assets/illustrations/ai03-expected-value-source.png": "4760c247c50081d74fc284a658eaed0afa648b53ef1d1bb3d2783c4b0117ebd0",
+    "lectures/assets/illustrations/ai03-what-remains-two-desks.png": "912a17a347f42c16f02584761e062f4f9b9a9117cf11304d44e77ef27b274b3f",
+    "lectures/assets/illustrations/algo04-binary-search-premise.png": "12d019cabb69c194315adfde212412196b6a948dc70361299758a5baaaf2fb37",
+    "lectures/assets/illustrations/algo04-doubling-square.png": "3ee91c2dad5c6fea59d972ebd3a26859a7b8438447a3baab1efad93f0bb7c0ca",
+    "lectures/assets/illustrations/algo04-list-pop-shift.png": "089d9154329fceaf5a4f5ba3eddcbbd621725c1516a4899a320da916a3cf9bca",
+    "lectures/assets/illustrations/closure-environments.png": "d365da6df1b33eafa8f93f1d985d25755658c672b69e770cd695146170fd4559",
+    "lectures/assets/illustrations/l13-discussion-cycle-if.png": "1f83d51335c418bfd07130bfa462ce7667123253c53d04db288bd30fea41a37d",
+    "lectures/assets/illustrations/l13-quote-read-vs-eval.png": "a08e440610cd64866798ac2844c2cc791f86528fe13989fd751b5c5814d7a73a",
+    "lectures/assets/illustrations/l14-closure-shared-env-vs-copy.png": "affd3e3aa22d3e0f32eafd4eb930d5f64d974e76a357d61cb86be1c9d6a58ccb",
+    "lectures/assets/illustrations/l14-meta-eval-layers-7.png": "8d2cc1ed2444c6fa6ed7d385e6f55078a8907ff1129083a0fda0f5d30bcdc073",
+    "lectures/assets/illustrations/l15-four-evidence-add10.png": "06d18f58246ba8a70892f6531f7605c1467788a2cae69691ad3ddd7250b80d09",
+    "lectures/assets/illustrations/l15-review-pair-example-b.png": "78f76892d16c1abb486f719bedbd1301a6e56fb8cb5b201637595f20755e5653",
+    "lectures/assets/illustrations/learning-five-actions.png": "b50416152a50471accb16eca2d0472eacd5fd103648ee45623c53d5e5abe9683",
+    "lectures/assets/illustrations/parser-term.png": "7b33e8a98684d589c3f2d37ff640e08071742a5c5707162e6c03f72da790382a",
+    "lectures/assets/illustrations/python02-return-vs-print.png": "19e212dadd06176baf533782a5992c1eaca289d5e170dcde784ebcf77a8dac95",
+    "lectures/assets/illustrations/python02-shared-list-name-tags.png": "01a181f5c85dfd008cdc39fb409c91ebcc17a406afb8c128f02c5fd2a0adcb47",
+    "lectures/assets/illustrations/repl-error-continuation.png": "302fe417aa0b4405a1c7d0767d6b928fe5cc28348da8c76493ddfa01cb584f1d"
+  },
+  "image_generation": {
+    "tool": "Codex builtin image_gen",
+    "backend_model_id": "not returned by tool",
+    "local_processing": "mechanical resize/contain only; all text and shapes generated by image_gen"
+  },
+  "tests": {
+    "python": [
+      "3.12.13",
+      "3.14.7"
+    ],
+    "regression_tests_each": 213,
+    "runner_tests_each": 21,
+    "compatibility_fixtures_each": 15,
+    "oracle_examples_0207_1315_each": 27,
+    "calculator_gist_arithmetic_checks_each": 3375,
+    "calculator_gist_division_checks_each": 72,
+    "normal_boundary_failure_cases": "passed in both runtimes; oracle logs retained outside public repository"
+  },
+  "gists": [
+    {
+      "lesson": "03",
+      "url": "https://gist.github.com/biwakonbu/7aa6c2d4eba43e49f852381734a38265",
+      "owner": "biwakonbu",
+      "public": true,
+      "files": {
+        "README.md": "af4f076ef4d85102cc564fe452192a465b21c5bb1ea1a0fa5f434735f8efa669",
+        "binary_search_buggy.py": "45ad0611e6b0156a951cf06dcfc1ffc4475c4ac57c7ee19e4df67fb30d719b78",
+        "binary_search_corrected.py": "d86d2e5491a31a3f90d4aa6a357d5ebbfc6d8dc4b0d493e6b12d4856c48d350c",
+        "highest.py": "58c336f6f0780adc3e64691f12163d7ff9a2726991e806b1874d135e1f72e75f",
+        "test_contract.py": "16b44ce9bcfd5543faa3efbeae46445b39f21f38bdafedbea39a875055110b5e",
+        "test_highest.py": "adda5f8445eb53b780be5287cef3da0abf32bc94e13137c13a210476c5842b5f",
+        "verify.py": "b089ad4c4d21b7560ac81d3519a135a501855fe309e52d85852865987de70198"
+      },
+      "all_full_file_hashes_match": true
+    },
+    {
+      "lesson": "04",
+      "url": "https://gist.github.com/biwakonbu/ad6341fde64f3a41d5b4f1fa60711edf",
+      "owner": "biwakonbu",
+      "public": true,
+      "files": {
+        "README.md": "f869dc6fc6f31851f7a5a0cbc0e88947529bb71b74d933d021ab57cf175372a4",
+        "containers.py": "72eabe680b322eae21a9d95c33c4d2ebfc8e27ea8e853ea739392bcf20923928",
+        "sorting_search.py": "fdd8c1c1de6be9bb903a97310db83d4f9315cd6c10fa9377564bb1b96e6c3334",
+        "test_examples.py": "622adc2068ba59f290c66c6a6e47fb637d8481dc833f4c0462ee87963e58a24a",
+        "trees.py": "e6b4dfff3e344a38088d1dcbe8ae807fabfefae23333a2a7c55d9630b1be860c"
+      },
+      "all_full_file_hashes_match": true
+    },
+    {
+      "lesson": "05",
+      "url": "https://gist.github.com/biwakonbu/b3ff11e2b12c062e11854f5df658269b",
+      "owner": "biwakonbu",
+      "public": true,
+      "files": {
+        "README.md": "b71a1d2ee4a8d3cf7da0dfbd87ab477b43f7bc297d7629b2d5c17171bce76e4d",
+        "graphs.py": "31d97d6c840efafe050a803e865443f928df22652669806bb5eef0d27989c156",
+        "test_graphs.py": "6e494840cd9847c7bbe0b26f262e8afe60173c70b7c349e10f833838d3ac23cb"
+      },
+      "all_full_file_hashes_match": true
+    },
+    {
+      "lesson": "08",
+      "url": "https://gist.github.com/biwakonbu/f6214b0649b0581842fb41cba2fc21e7",
+      "owner": "biwakonbu",
+      "public": true,
+      "files": {
+        "README.md": "eb114c96c5bfab5edf6c2015c6eeb51c7cd4153366680039336702784a4bbc91",
+        "calculator.py": "678b9c5cfd7f07be6af501600950ab2811968e2ae714a0fc7ff9094c7d3b14cf",
+        "test_calculator.py": "bd017bf596bffcb7bffffb10e9a1b7c2338e31d0ba1e3f326d28d9e4b7e4ad42"
+      },
+      "all_full_file_hashes_match": true
+    },
+    {
+      "lesson": "09",
+      "url": "https://gist.github.com/biwakonbu/51af4a869e18e65cbe606c19274d5af7",
+      "owner": "biwakonbu",
+      "public": true,
+      "files": {
+        "README.md": "0b3405e15970c80aced8eadf8e9ded30435e2571a33fbcf56b578ad93cc73c32",
+        "lisp.py": "bf314839008e505ee1f6ca74e88ae42b808cbe076a9141723b8b33f697113bea",
+        "test_lisp.py": "5cc3c97cff9a05a6675ad16a56ebabb3a26133533a9d7d68cbb5bdc5e359f2ec"
+      },
+      "all_full_file_hashes_match": true
+    },
+    {
+      "lesson": "1011",
+      "url": "https://gist.github.com/biwakonbu/f66824f69d4b2dd127e19d0c3cea8866",
+      "owner": "biwakonbu",
+      "public": true,
+      "files": {
+        "README.md": "d85814b15a0433f77d15572d94b4d172aa98a77a40b0ed39d8514b8bc48a895d",
+        "lisp.py": "9e5734eb0a57f2f0ccbe7adaeeb2f984e93b3f67569253d43e743f6c8602fccb",
+        "test_flow.py": "99123c34d6aef73ee14fea163c304fa79e7f96a554e209d6463567f3447f5f0d"
+      },
+      "all_full_file_hashes_match": true
+    }
+  ],
+  "protection": {
+    "baseline_commit": "f039575096af34c092c6ba2691854e0e745bd0eb",
+    "baseline_files": 271,
+    "changed_tracked_files": [
+      "docs/course-rollout.md",
+      "docs/gist-samples.md",
+      "docs/illustrations.md",
+      "docs/pdf-manifest.json",
+      "docs/verification.md",
+      "lectures/02.md",
+      "lectures/03.md",
+      "lectures/04.md",
+      "lectures/05.md",
+      "lectures/06.md",
+      "lectures/07.md",
+      "lectures/08.md",
+      "lectures/09.md",
+      "lectures/10.md",
+      "lectures/11.md",
+      "lectures/12.md",
+      "lectures/13.md",
+      "lectures/14.md",
+      "lectures/15.md",
+      "lectures/components/PythonDiagram.vue",
+      "output/pdf/02-python-basics.pdf",
+      "output/pdf/03-ai-workflow.pdf",
+      "output/pdf/04-algorithms.pdf",
+      "output/pdf/05-graphs.pdf",
+      "output/pdf/06-route-project.pdf",
+      "output/pdf/07-review.pdf",
+      "output/pdf/08-calculator.pdf",
+      "output/pdf/09-lisp-arithmetic.pdf",
+      "output/pdf/10-lisp-functions.pdf",
+      "output/pdf/11-lisp-scripts.pdf",
+      "output/pdf/12-meta-evaluator.pdf",
+      "output/pdf/13-language-review.pdf",
+      "output/pdf/14-selfhosting.pdf",
+      "output/pdf/15-showcase.pdf",
+      "scripts/check-public.py"
+    ],
+    "all_other_baseline_files_byte_identical": true,
+    "lesson_contracts": [
+      {
+        "lesson": "02",
+        "original_fenced_blocks": 61,
+        "retained": true,
+        "original_table_rows_retained": true,
+        "original_markdown_links_retained": true
+      },
+      {
+        "lesson": "03",
+        "original_fenced_blocks": 12,
+        "retained": true,
+        "original_table_rows_retained": true,
+        "original_markdown_links_retained": true
+      },
+      {
+        "lesson": "04",
+        "original_fenced_blocks": 18,
+        "retained": true,
+        "original_table_rows_retained": true,
+        "original_markdown_links_retained": true
+      },
+      {
+        "lesson": "05",
+        "original_fenced_blocks": 10,
+        "retained": true,
+        "original_table_rows_retained": true,
+        "original_markdown_links_retained": true
+      },
+      {
+        "lesson": "06",
+        "original_fenced_blocks": 10,
+        "retained": true,
+        "original_table_rows_retained": true,
+        "original_markdown_links_retained": true
+      },
+      {
+        "lesson": "07",
+        "original_fenced_blocks": 4,
+        "retained": true,
+        "original_table_rows_retained": true,
+        "original_markdown_links_retained": true
+      },
+      {
+        "lesson": "08",
+        "original_fenced_blocks": 15,
+        "retained": true,
+        "original_table_rows_retained": true,
+        "original_markdown_links_retained": true
+      },
+      {
+        "lesson": "09",
+        "original_fenced_blocks": 8,
+        "retained": true,
+        "original_table_rows_retained": true,
+        "original_markdown_links_retained": true
+      },
+      {
+        "lesson": "10",
+        "original_fenced_blocks": 16,
+        "retained": true,
+        "original_table_rows_retained": true,
+        "original_markdown_links_retained": true
+      },
+      {
+        "lesson": "11",
+        "original_fenced_blocks": 10,
+        "retained": true,
+        "original_table_rows_retained": true,
+        "original_markdown_links_retained": true
+      },
+      {
+        "lesson": "12",
+        "original_fenced_blocks": 8,
+        "retained": true,
+        "original_table_rows_retained": true,
+        "original_markdown_links_retained": true
+      },
+      {
+        "lesson": "13",
+        "original_fenced_blocks": 5,
+        "retained": true,
+        "original_table_rows_retained": true,
+        "original_markdown_links_retained": true
+      },
+      {
+        "lesson": "14",
+        "original_fenced_blocks": 17,
+        "retained": true,
+        "original_table_rows_retained": true,
+        "original_markdown_links_retained": true
+      },
+      {
+        "lesson": "15",
+        "original_fenced_blocks": 1,
+        "retained": true,
+        "original_table_rows_retained": true,
+        "original_markdown_links_retained": true
+      }
+    ],
+    "authorized_text_only_exception": "03 text fence: p13 -> p14 following insertion",
+    "legacy_prose_gate": "false: this authorized image/page revision changes structure and lesson02; checker unchanged",
+    "samples_exercises_instructor_books_native_json_dependencies_unchanged": true,
+    "PythonDiagram_changes": "Only two text x coordinates moved to prevent overlap; all other component bytes retained"
+  },
+  "prose_authoring": {
+    "provider": "Claude Code CLI",
+    "model": "claude-opus-5-5",
+    "duration_ms": 431280
+  },
+  "limits": [
+    "No classroom projector physical test; browser 1280x720 and final PDF page images reviewed.",
+    "Some auxiliary image labels are smaller than the early 48px design target; complete labels also appear in large live text.",
+    "Exact image backend and Codex runtime model IDs were not reported; no guessed IDs recorded.",
+    "No fresh jaio engine run; fresh material-prose extraction and runner tests recorded separately.",
+    "Existing braces GHSA-vfj7-8cjw-p6xm dependency audit remains unchanged; user authorized proceeding.",
+    "Optional review suggestions were not treated as blockers after required corrections passed.",
+    "Finite example tests do not prove behavior for all possible inputs."
+  ],
+  "material_prose_extraction": {
+    "input_files": 56,
+    "extracted_documents": 509,
+    "engine_executed": false,
+    "manifest_sha256": "872cccb553612f98cbb465fe654ddd2ea84f4fe3482fe96521adb3348c74d27a",
+    "source_sha256": {
+      "examples/02-basics/README.md": "68f4e719b60b056e22e32a8b2f48a229b22231c2e30fa372be33b96c159e0163",
+      "examples/03-ai-workflow/README.md": "be2f5a1da0d183b4cd2dbdb4a2eaae7005946395b8f3e2d7bd23787c3754e60d",
+      "examples/04-algorithms/README.md": "b432f35aa8640283baa999b716e232718c07a9f7a85595ed8d0d1f09ed71eb41",
+      "examples/05-graphs/README.md": "195bf4283292b53a35fc869b3a934401154b8b680973f5d67c355d2a7d6d5e59",
+      "examples/06-route-project/README.md": "ee2cb5b6ff5a127a276275aa1ea84272f630d322976654b386fd9f505f7dc10a",
+      "examples/07-review/README.md": "ee84d30f537be5f8a5f20c0c37d351182aae91b0ae8f89b2523e480cee2c154a",
+      "examples/08-calculator/README.md": "55bcaad32367cd97c7da5e0e2d3706a27f4970adb68f307f2cc950bfc7a6cd2d",
+      "examples/09-lisp-arithmetic/README.md": "35f070b846f4fe284252247a6afdc1344eb57f84d9fc199aa82f8a93ddb41102",
+      "examples/10-lisp-functions/README.md": "cbb4d4f74d3337276f8c5845700b8d50be630c183d8d7b1d66b0e01b37128074",
+      "examples/11-lisp-scripts/README.md": "5d83826144fa7a5f944ddd122706c3c35f38f8b73a6d083a7eed38b6793448f3",
+      "examples/12-meta-evaluator/README.md": "8b8a742f72bf2ef94090345e3b8fecea369517eeb1e4598095404fb77907c4cf",
+      "examples/13-language-review/README.md": "b608c6f09eb32deb6f80afbdb0275bef23546b2a7fa4bb46a8d39d506ea1aea6",
+      "examples/14-selfhosting/README.md": "d9381bb1a87594f79ba30e8d584ae28191c2fbe0d2112e804311c4488b578b91",
+      "examples/15-showcase/README.md": "b649232800a3719799cb6e3c99bf84dc76335ec8e5ca21699ac33a061834c980",
+      "exercises/02.md": "44802117641bf81db864d673800d11e172d73b22345d895b4bb927b70e22506f",
+      "exercises/03.md": "cd6cbe94ebab847aba0efe959f47d8e2371774f39ce5cdc32cc3f0f15e1d43fe",
+      "exercises/04.md": "aed22be647eac9bede55541e37237f593f9d14997920761150d457f7e706fb6f",
+      "exercises/05.md": "4e963730822a8e4756e21a9b834b25d143090a436417a399ef129ade9afd63c3",
+      "exercises/06.md": "058d78191f7d6a6a1d1b13982196a411733cea1ed66e5cccd27c01a22935dfd3",
+      "exercises/07.md": "ecdad5c711df1c399a42a32aefd70e278d914ba5ca3b22545b69dfe19197b98b",
+      "exercises/08.md": "3ef978835632338df7d074c9c71dc6fbfc25b91153cb4f4dd477d08888eef2e9",
+      "exercises/09.md": "6e203b84c8dc5d780cc2b2631dea579046eff3df549df854a0bdc92d6de27bd0",
+      "exercises/10.md": "886debf33689d8b91489034e9dedf8358771aa620c9af3e8bd96ea17f4b2b7ff",
+      "exercises/11.md": "cc69cd80e33d781dbb75ec3b80dac3ebe7bc01045b04421abcd310edb59e0bd4",
+      "exercises/12.md": "1933ae4485954c076433ae3bcbda1dd7ba6bc4c5854459a2c50709079742cc7a",
+      "exercises/13.md": "851eff15c8bdffa78e3e21cf8abfafc2280ec930e575c665337d690efb3c711a",
+      "exercises/14.md": "66fdf9eda24072d1d8ca4335185d22a432b0568b00eb982b845a391939f0c398",
+      "exercises/15.md": "4dbd1b16864e8a061689348843c33368d2e1856c6d6bb8282e4b0e2e4e977c98",
+      "instructor/02.md": "f5af7f6a23589fa5b85a6bd55fdca9361e47ceaa62e1a09844d0e6417a2a7bf1",
+      "instructor/03.md": "c3186d9dd253c9516ad242951f199e098fbaf601c1a18f8fe0952e9490bf454a",
+      "instructor/04.md": "de59f87e7c4b04d026d68a53297ef2b9917f4580e63029853b8e88e0fe969204",
+      "instructor/05.md": "83e578529e6754d66862a508802e87e11d2dec2056c40ca968a051a3065db67e",
+      "instructor/06.md": "5cc85dcda3281dc63efe3a7e466c8f796c1046a81b902be6f25564ff01d0777b",
+      "instructor/07.md": "48df724f77af8c9d0b1c7023949b19d1e969daf181827a62098d8190b696bd06",
+      "instructor/08.md": "34dbeb7e9a0f793466a30b0ae12ba0026300d3403bb1158fde3cf96578c93f4e",
+      "instructor/09.md": "a16665bf63789a2efd5a1a5b3bee8505e2dadea03ac497810a17c42da95fea20",
+      "instructor/10.md": "676453b9cf98d93b0483c300248dbbf630d108435aaa243a8762bab75bb4b73a",
+      "instructor/11.md": "e221f36c9e7839fa1979d1941876f9afdc79b2d8dcddfe5effa949b589991f56",
+      "instructor/12.md": "daad9117ff250c6799c6950893669e27fa013a52826841f22cf3ba190d1a370e",
+      "instructor/13.md": "3606db12b04d5c4cb0409751df0c664909ecfae2bb6d27597dfdc6452cdd7664",
+      "instructor/14.md": "8fb434e6a70dc5296f09b0de55e6145331a394479c63955b1af0f30ae093563f",
+      "instructor/15.md": "bddb029bf932f6ec9d9abd63bdca08a4e5bd480e4aef711d8938a0055beac008",
+      "lectures/02.md": "cdf000a5cf4864d56b30cccef0f132f02cbf87763264a619fc38d60057d8c4a3",
+      "lectures/03.md": "66543e665d07a91fc4e006426299b7c7b7c93a01c9bf9c4f0d748126454da916",
+      "lectures/04.md": "005c9b8a2c22d2da4dffe204f4936d2101d6804ae70741ac25aac96763cc01b4",
+      "lectures/05.md": "f2bc66b62af9b7a49df9569506550cf5db0a9e7fbaf68f8f15abc0f18bafe26c",
+      "lectures/06.md": "1bacafd7ce210f4b0048d7df4a0b7c24682ed2051e56e4f5355689ed45582b0c",
+      "lectures/07.md": "64bc0156a7404df7c0a9297b564603832a55c16678a84dbc19bcb53677581132",
+      "lectures/08.md": "44801601ced51e58a5eda507c2f54e0e9bee276ee1a41ea4b23a7b4fbcd106f5",
+      "lectures/09.md": "f97f1a8590cbc4f2334dfd8e7f89fae19fb3f7a4cbd804f42c5bca4c06fa480f",
+      "lectures/10.md": "8651a9db8a361d81d33434807289dfe8f82704d56d240937b13e684baab9e21a",
+      "lectures/11.md": "d276e4a45b48ff1c85a8d012a0139fb0eff3ecbde1cfc0fb0e6646cd713f2ee9",
+      "lectures/12.md": "8c3c3df4c4c6d6371e419127834ab5e232589ff715f85a594dc86df07bf199f2",
+      "lectures/13.md": "953cdd388d82e093fac2829ea99e6ebdff7f5eca2b8d55529bd2c65004d19ded",
+      "lectures/14.md": "ee1b155db57f097857a2a3f1d6a291eca6c0b2d820982c2afad5036048dcab09",
+      "lectures/15.md": "3cc85979fb9e9af9f3c1733d99033f1322fd2a415aff6d9a328ec6bc10acaa64"
+    }
+  },
+  "public_check": {
+    "passed": true,
+    "intended_files": 302,
+    "pdfs": 16,
+    "pngs_by_individual_path_and_sha256": 30
+  },
+  "pdf_link_check": {
+    "pdfs": 16,
+    "pages": 640,
+    "gist_annotations": 10,
+    "records": [
+      {
+        "file": "output/pdf/02-python-basics.pdf",
+        "sha256": "7c0373c412d164c7eb9607dfc2c73cd016b6f208ed58dc1dc213b2b927ef60b3",
+        "pages": 62,
+        "gist_link_annotations": [],
+        "required_gist_link_found": null,
+        "render_error_pages": 0
+      },
+      {
+        "file": "output/pdf/03-ai-workflow.pdf",
+        "sha256": "fa88c6163842503869cb81f0154bd168ce4e2d30fd7ab4602554197b5617d38d",
+        "pages": 33,
+        "gist_link_annotations": [
+          {
+            "page": 7,
+            "url": "https://gist.github.com/biwakonbu/7aa6c2d4eba43e49f852381734a38265"
+          },
+          {
+            "page": 19,
+            "url": "https://gist.github.com/biwakonbu/7aa6c2d4eba43e49f852381734a38265"
+          },
+          {
+            "page": 32,
+            "url": "https://gist.github.com/biwakonbu/7aa6c2d4eba43e49f852381734a38265"
+          },
+          {
+            "page": 32,
+            "url": "https://gist.github.com/biwakonbu/7aa6c2d4eba43e49f852381734a38265"
+          }
+        ],
+        "required_gist_link_found": true,
+        "render_error_pages": 0
+      },
+      {
+        "file": "output/pdf/04-algorithms.pdf",
+        "sha256": "f3da19b95d103e2f6a952cc27036c5b1eda0ea67091796d3c296981ebebd6803",
+        "pages": 50,
+        "gist_link_annotations": [
+          {
+            "page": 40,
+            "url": "https://gist.github.com/biwakonbu/ad6341fde64f3a41d5b4f1fa60711edf"
+          }
+        ],
+        "required_gist_link_found": true,
+        "render_error_pages": 0
+      },
+      {
+        "file": "output/pdf/05-graphs.pdf",
+        "sha256": "ce5f99e3aa65763d6f20bd93843f03fe7fa6a951cdfb7c37ed038c7f3644fadb",
+        "pages": 30,
+        "gist_link_annotations": [
+          {
+            "page": 24,
+            "url": "https://gist.github.com/biwakonbu/b3ff11e2b12c062e11854f5df658269b"
+          }
+        ],
+        "required_gist_link_found": true,
+        "render_error_pages": 0
+      },
+      {
+        "file": "output/pdf/06-route-project.pdf",
+        "sha256": "2cc838ea4d9b7270e7facd586bbba87ca18822f7c21b26b4089bf2360f12fad1",
+        "pages": 27,
+        "gist_link_annotations": [],
+        "required_gist_link_found": null,
+        "render_error_pages": 0
+      },
+      {
+        "file": "output/pdf/07-review.pdf",
+        "sha256": "b0d307285a5a4ddb54e1e21d0d42b42441760280b719c8e5ad2822da61281693",
+        "pages": 28,
+        "gist_link_annotations": [],
+        "required_gist_link_found": null,
+        "render_error_pages": 0
+      },
+      {
+        "file": "output/pdf/08-calculator.pdf",
+        "sha256": "7346598721a20b3409fc4307812fff56ba93560d62c1c85a311116974c773caa",
+        "pages": 43,
+        "gist_link_annotations": [
+          {
+            "page": 34,
+            "url": "https://gist.github.com/biwakonbu/f6214b0649b0581842fb41cba2fc21e7"
+          }
+        ],
+        "required_gist_link_found": true,
+        "render_error_pages": 0
+      },
+      {
+        "file": "output/pdf/09-lisp-arithmetic.pdf",
+        "sha256": "26da19c7dd7b0604ca88b008cb10ab1bcd8389afa49ab22e04a61d6fe5c63b07",
+        "pages": 31,
+        "gist_link_annotations": [
+          {
+            "page": 31,
+            "url": "https://gist.github.com/biwakonbu/51af4a869e18e65cbe606c19274d5af7"
+          }
+        ],
+        "required_gist_link_found": true,
+        "render_error_pages": 0
+      },
+      {
+        "file": "output/pdf/10-lisp-functions.pdf",
+        "sha256": "401f9d5dbbe9a08e4cce4b87c28e841b2daa0708c7c396b37dda2eb5a34c7a0d",
+        "pages": 42,
+        "gist_link_annotations": [
+          {
+            "page": 42,
+            "url": "https://gist.github.com/biwakonbu/f66824f69d4b2dd127e19d0c3cea8866"
+          }
+        ],
+        "required_gist_link_found": true,
+        "render_error_pages": 0
+      },
+      {
+        "file": "output/pdf/11-lisp-scripts.pdf",
+        "sha256": "ea4edba410bed79f699733eaa7764857097e5bbb93d6b15d7b96b3752237ca89",
+        "pages": 39,
+        "gist_link_annotations": [
+          {
+            "page": 39,
+            "url": "https://gist.github.com/biwakonbu/f66824f69d4b2dd127e19d0c3cea8866"
+          }
+        ],
+        "required_gist_link_found": true,
+        "render_error_pages": 0
+      },
+      {
+        "file": "output/pdf/12-meta-evaluator.pdf",
+        "sha256": "d3944b0489c01358e5e65910cd2567e2e342c91d0ac0638d6d4596781d53c1ce",
+        "pages": 41,
+        "gist_link_annotations": [],
+        "required_gist_link_found": null,
+        "render_error_pages": 0
+      },
+      {
+        "file": "output/pdf/13-language-review.pdf",
+        "sha256": "3e25c7698ca77eb9af137fbe95d18e6289b43e55627f8fb749a4ff93df0441c7",
+        "pages": 30,
+        "gist_link_annotations": [],
+        "required_gist_link_found": null,
+        "render_error_pages": 0
+      },
+      {
+        "file": "output/pdf/14-selfhosting.pdf",
+        "sha256": "a5626cac1325af88d5d705e18baa2e889b2aa75fc40d953d74675e23806ab0ee",
+        "pages": 47,
+        "gist_link_annotations": [],
+        "required_gist_link_found": null,
+        "render_error_pages": 0
+      },
+      {
+        "file": "output/pdf/15-showcase.pdf",
+        "sha256": "b64abf64f974a10a3f3e0fb5f60cd78332be099d7d345d8e38f3e5cf5e709e86",
+        "pages": 30,
+        "gist_link_annotations": [],
+        "required_gist_link_found": null,
+        "render_error_pages": 0
+      },
+      {
+        "file": "output/pdf/instructor-notes.pdf",
+        "sha256": "1ce743f9861d3dd1b15daf0f3e6ddcfbbc437276e5fa949214044e387f80e043",
+        "pages": 43,
+        "gist_link_annotations": [],
+        "required_gist_link_found": null,
+        "render_error_pages": 0
+      },
+      {
+        "file": "output/pdf/student-workbook.pdf",
+        "sha256": "24647a9d5090d2d4731908feb0cdde29e786c7e2087d20b9e95b9b4cfbeab5dd",
+        "pages": 64,
+        "gist_link_annotations": [],
+        "required_gist_link_found": null,
+        "render_error_pages": 0
+      }
+    ]
+  },
+  "static_site_images": {
+    "images": 26,
+    "all_deployed_copies_byte_identical": true
+  }
+}

@@ -1,39 +1,39 @@
 [
   {
     "file": "output/pdf/02-python-basics.pdf",
-    "pages": 60,
-    "size_bytes": 460747,
-    "sha256": "df655970b149920cf21046ef41b3d5b2a7e2e8ab3c7571cde06b373c16a8d5f8"
+    "pages": 62,
+    "size_bytes": 2263290,
+    "sha256": "7c0373c412d164c7eb9607dfc2c73cd016b6f208ed58dc1dc213b2b927ef60b3"
   },
   {
     "file": "output/pdf/03-ai-workflow.pdf",
-    "pages": 31,
-    "size_bytes": 1625180,
-    "sha256": "557c415097d51069239adcc2fcd8b03a45d5f31dee644be0aa9fa5c7916efed4"
+    "pages": 33,
+    "size_bytes": 3655247,
+    "sha256": "fa88c6163842503869cb81f0154bd168ce4e2d30fd7ab4602554197b5617d38d"
   },
   {
     "file": "output/pdf/04-algorithms.pdf",
-    "pages": 47,
-    "size_bytes": 388929,
-    "sha256": "1a620228a56a1f3a3e058455fae9fff166eff5ce3f45b527819b4d0db9ee55e5"
+    "pages": 50,
+    "size_bytes": 2882971,
+    "sha256": "f3da19b95d103e2f6a952cc27036c5b1eda0ea67091796d3c296981ebebd6803"
   },
   {
     "file": "output/pdf/05-graphs.pdf",
-    "pages": 28,
-    "size_bytes": 295799,
-    "sha256": "c0aedf0a26542b94904820a0221914054593e839619f99fd9e1e7ca09d945eb6"
+    "pages": 30,
+    "size_bytes": 1314326,
+    "sha256": "ce5f99e3aa65763d6f20bd93843f03fe7fa6a951cdfb7c37ed038c7f3644fadb"
   },
   {
     "file": "output/pdf/06-route-project.pdf",
-    "pages": 26,
-    "size_bytes": 275128,
-    "sha256": "829b3e3019f4d6c994b7ba8b32608dd66619f460319bffe2e91de35ffbedb794"
+    "pages": 27,
+    "size_bytes": 788563,
+    "sha256": "2cc838ea4d9b7270e7facd586bbba87ca18822f7c21b26b4089bf2360f12fad1"
   },
   {
     "file": "output/pdf/07-review.pdf",
-    "pages": 27,
-    "size_bytes": 286271,
-    "sha256": "13c48102943e3ccc3acb096555b7127d9faef8d2616a71a11ff1a3c6d75fc4c1"
+    "pages": 28,
+    "size_bytes": 848984,
+    "sha256": "b0d307285a5a4ddb54e1e21d0d42b42441760280b719c8e5ad2822da61281693"
   },
   {
     "file": "output/pdf/08-calculator.pdf",
@@ -43,45 +43,45 @@
   },
   {
     "file": "output/pdf/09-lisp-arithmetic.pdf",
-    "pages": 29,
-    "size_bytes": 240304,
-    "sha256": "87c3f1425c35410cd4fe4f940de850a6a101052b36f38d0e73bb4f271569377d"
+    "pages": 31,
+    "size_bytes": 1340552,
+    "sha256": "26da19c7dd7b0604ca88b008cb10ab1bcd8389afa49ab22e04a61d6fe5c63b07"
   },
   {
     "file": "output/pdf/10-lisp-functions.pdf",
-    "pages": 40,
-    "size_bytes": 274715,
-    "sha256": "e202f6d13fbeda7ec7439131c7ea6bc631206843964edce534fe558440eb8ed8"
+    "pages": 42,
+    "size_bytes": 1493368,
+    "sha256": "401f9d5dbbe9a08e4cce4b87c28e841b2daa0708c7c396b37dda2eb5a34c7a0d"
   },
   {
     "file": "output/pdf/11-lisp-scripts.pdf",
-    "pages": 38,
-    "size_bytes": 301849,
-    "sha256": "358646d038b4a125d0566bab11bb61ec68f31497ec79d31e57bd4a6c77d7c911"
+    "pages": 39,
+    "size_bytes": 817667,
+    "sha256": "ea4edba410bed79f699733eaa7764857097e5bbb93d6b15d7b96b3752237ca89"
   },
   {
     "file": "output/pdf/12-meta-evaluator.pdf",
-    "pages": 39,
-    "size_bytes": 319746,
-    "sha256": "354dbb63a18d81c997fda15bfcf6f511e94b7f1b59e28c1346f9f5ba5e233d28"
+    "pages": 41,
+    "size_bytes": 1598519,
+    "sha256": "d3944b0489c01358e5e65910cd2567e2e342c91d0ac0638d6d4596781d53c1ce"
   },
   {
     "file": "output/pdf/13-language-review.pdf",
-    "pages": 28,
-    "size_bytes": 243490,
-    "sha256": "db3658575844e058519d9d44832fe0cfe57cdfa6a8a8eb8eec0e113a5a515a04"
+    "pages": 30,
+    "size_bytes": 1586390,
+    "sha256": "3e25c7698ca77eb9af137fbe95d18e6289b43e55627f8fb749a4ff93df0441c7"
   },
   {
     "file": "output/pdf/14-selfhosting.pdf",
-    "pages": 45,
-    "size_bytes": 1809025,
-    "sha256": "32e85ae94c73fbfe0300dc73adc107ead99f23267dfe8e85fc0bcfeb90a5f479"
+    "pages": 47,
+    "size_bytes": 3141008,
+    "sha256": "a5626cac1325af88d5d705e18baa2e889b2aa75fc40d953d74675e23806ab0ee"
   },
   {
     "file": "output/pdf/15-showcase.pdf",
-    "pages": 28,
-    "size_bytes": 254243,
-    "sha256": "b538cadb371c6e02251e1a8e04ed99d68a4d982dc622624e253bcb573cdc903e"
+    "pages": 30,
+    "size_bytes": 1693990,
+    "sha256": "b64abf64f974a10a3f3e0fb5f60cd78332be099d7d345d8e38f3e5cf5e709e86"
   },
   {
     "file": "output/pdf/instructor-notes.pdf",

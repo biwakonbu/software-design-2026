@@ -1,6 +1,6 @@
 {
   "baseline_commit": "f039575096af34c092c6ba2691854e0e745bd0eb",
-  "scope": "第02〜15回の授業PDF506ページを全頁の実画像として再評価。第二次改訂は継続中。",
+  "scope": "第02〜15回の第二次改訂を完了。14授業PDF533ページ、変更しない別冊107ページも全頁画像レビュー済み。",
   "model": "claude-opus-5-5",
   "provider": "Claude Code CLI",
   "audit_receipts_ms": {
@@ -12,7 +12,7 @@
   "lessons": [
     {
       "id": "02",
-      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "status": "反映・静的build・PDF生成・全ページDOM検査・全ページ画像の自己/独立レビュー完了。",
       "educational_assessment": "自習用の教材として完成度が高い。各頁で短いコード、出力の予測、実行表、native図が対になっていて、注文データ (ノート200x2 + ペン120x3 = 760) が summary 演習まで一貫している。p5 と p60 で「箱に値を入れるモデル」と「メモリ番地」をはっきり否定しており、この前提は守る必要がある。不足は2点だけ。(1) p21 の native図は「append前」の1コマだけなので、b.append(80) の後に a からも80が見えるという状態の変化が文章にしか書かれていない。p22 の copy とも別々の図に分かれている。(2) p40 の print と return は、結果の行き先の違いを2列のコードと文章だけで説明している。初学者が最もつまずく箇所なのに図がない。p3, p11-12, p46, p48 などは文章と表で足りている。画像は2枚に抑え、既存の学習の流れは崩さない。",
       "deficits": [
         {
@@ -129,11 +129,33 @@
           "learning_goal": "return した400は呼び出し元の x に結び付き、次の計算 x + 10 に使える。print は画面に400を出すだけで、x には None が結び付く。そのため x + 10 は TypeError になる。この2つの行き先を追えるようにする。",
           "target_in_baseline": "p40「printとreturnは、結果の行き先が違う」の直後に分割頁として挿入"
         }
+      ],
+      "final_pdf": {
+        "file": "output/pdf/02-python-basics.pdf",
+        "pages": 62,
+        "size_bytes": 2263290,
+        "sha256": "7c0373c412d164c7eb9607dfc2c73cd016b6f208ed58dc1dc213b2b927ef60b3"
+      },
+      "final_new_images": [
+        {
+          "page": 23,
+          "file": "lectures/assets/illustrations/python02-shared-list-name-tags.png",
+          "sha256": "01a181f5c85dfd008cdc39fb409c91ebcc17a406afb8c128f02c5fd2a0adcb47",
+          "width": 1280,
+          "height": 640
+        },
+        {
+          "page": 42,
+          "file": "lectures/assets/illustrations/python02-return-vs-print.png",
+          "sha256": "19e212dadd06176baf533782a5992c1eaca289d5e170dcde784ebcf77a8dac95",
+          "width": 1280,
+          "height": 640
+        }
       ]
     },
     {
       "id": "03",
-      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "status": "反映・静的build・PDF生成・全ページDOM検査・全ページ画像の自己/独立レビュー完了。",
       "educational_assessment": "AI時代の学習行為を主軸にした構成ができている。highest_draft という1つの題材で5ステップ (言葉にする、予想する、AIに聞く、確かめる、言い直す) を順に体験させている。native図 (LearningLoop, TraceTable, PasteGate, PredictVsActual, NewInputCheck) もそれぞれの行為の頁に合っている。二分探索は p30 の参考と演習B に限られていて、主軸に戻っていない。この形は保つ。弱点は、最初の動機づけになる p4 の対比が名前だけの箱の並びで、「手元に何が残るか」という核心が小さな注記にしかなっていない点。もう1つは p13 の「実装の出力から期待値を作ると同じ誤りを写す」が、AI時代に特有の重要な罠なのに文章とコード1行だけになっている点。人物の絵は最後の p29 にしかない。画像は2枚に抑え、p9 と p24 は markdown の注記で足りる。",
       "deficits": [
         {
@@ -239,11 +261,33 @@
           "learning_goal": "期待値を実装の出力から作ると、誤りの0がそのまま期待値に写り、テストが合格してしまう。仕様と手計算で -1 を求めると、実行結果0との不一致が反例として見つかる。期待値の根拠を自分で確かめる理由を説明できるようにする。",
           "target_in_baseline": "p13「4 もっともらしい説明とテストも、確かめる」の直後に分割頁として挿入"
         }
+      ],
+      "final_pdf": {
+        "file": "output/pdf/03-ai-workflow.pdf",
+        "pages": 33,
+        "size_bytes": 3655247,
+        "sha256": "fa88c6163842503869cb81f0154bd168ce4e2d30fd7ab4602554197b5617d38d"
+      },
+      "final_new_images": [
+        {
+          "page": 5,
+          "file": "lectures/assets/illustrations/ai03-what-remains-two-desks.png",
+          "sha256": "912a17a347f42c16f02584761e062f4f9b9a9117cf11304d44e77ef27b274b3f",
+          "width": 1280,
+          "height": 640
+        },
+        {
+          "page": 15,
+          "file": "lectures/assets/illustrations/ai03-expected-value-source.png",
+          "sha256": "4760c247c50081d74fc284a658eaed0afa648b53ef1d1bb3d2783c4b0117ebd0",
+          "width": 1280,
+          "height": 640
+        }
       ]
     },
     {
       "id": "04",
-      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "status": "反映・静的build・PDF生成・全ページDOM検査・全ページ画像の自己/独立レビュー完了。",
       "educational_assessment": "状態を追う部分は非常に強い。スタックとキューの手順図、半開区間と閉区間の追跡 (v-if=false の正確な表付き)、木の DFS の呼び出しの積み重ね、BFS のキュー表は、正確に追える図なので保持する。弱いのは前半の計算量 (p9-12)。表と文章だけで、n² がどこから来るのか、2倍にすると4倍になる理由が見えない。p16 の list.pop(0) が後ろを詰めるという費用も、言葉だけで書かれている。p22 は精密な追跡の前に置かれた唯一の直感の頁なのに文章だけで、未整列では捨てる根拠が崩れることが見えない。画像は3枚 (p10, p22, p16) にし、p11 と p21 は既存のデータを使った表の追加で補う。",
       "deficits": [
         {
@@ -380,11 +424,40 @@
           "learning_goal": "list の pop(0) は先頭を取り出した後、残りの要素を1つずつ前へ詰めるので、n 件なら n - 1 個を動かす O(n) になる。末尾の pop() は詰めないので O(1)。この違いを、表の「想定するコスト」と結び付けて説明できるようにする。",
           "target_in_baseline": "p16「操作と実装の選択」(既存の頁に2列で挿入)"
         }
+      ],
+      "final_pdf": {
+        "file": "output/pdf/04-algorithms.pdf",
+        "pages": 50,
+        "size_bytes": 2882971,
+        "sha256": "f3da19b95d103e2f6a952cc27036c5b1eda0ea67091796d3c296981ebebd6803"
+      },
+      "final_new_images": [
+        {
+          "page": 11,
+          "file": "lectures/assets/illustrations/algo04-doubling-square.png",
+          "sha256": "3ee91c2dad5c6fea59d972ebd3a26859a7b8438447a3baab1efad93f0bb7c0ca",
+          "width": 1280,
+          "height": 640
+        },
+        {
+          "page": 18,
+          "file": "lectures/assets/illustrations/algo04-list-pop-shift.png",
+          "sha256": "089d9154329fceaf5a4f5ba3eddcbbd621725c1516a4899a320da916a3cf9bca",
+          "width": 1280,
+          "height": 640
+        },
+        {
+          "page": 25,
+          "file": "lectures/assets/illustrations/algo04-binary-search-premise.png",
+          "sha256": "12d019cabb69c194315adfde212412196b6a948dc70361299758a5baaaf2fb37",
+          "width": 1280,
+          "height": 640
+        }
       ]
     },
     {
       "id": "05",
-      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "status": "反映・静的build・PDF生成・全ページDOM検査・全ページ画像の自己/独立レビュー完了。",
       "educational_assessment": "既存の native 図（p3 ひし形、p6/p7 有向・無向、p8 重み、p9 隣接リスト＋図、p16 層、p19 親の連鎖、p24/25 追跡表）は正確で、コードとも整合している。不足は、初めての学生が『頂点・辺』を名前だけの箱として受け取る入口（p4/p5）と、訪問済みを入れる時点で記録する理由（p18）。後者は3手順の状態変化を箇条書きだけで伝えている。p11 は2つの表現を比べるのに、どちらの実物も示していない。演習の架空校内マップ（入口A・受付B・図書室C・演習室D・別棟X）は DEMO_GRAPH と同じ形なので、身近な具体例として使える。生成画像は2枚、精密な比較は native 図で補う。",
       "deficits": [
         {
@@ -501,11 +574,33 @@
           "learning_goal": "B を処理した時点で D が parent に記録され、C から D を再び見つけても queue に入れず親 B を保つ、という状態変化を3コマで追える。parent が『発見済みの判定』と『直前の頂点』を兼ねることも見える。",
           "target_in_baseline": "p18「訪問済みを記録する理由」番号付きリスト1〜3の直下、最終文の上"
         }
+      ],
+      "final_pdf": {
+        "file": "output/pdf/05-graphs.pdf",
+        "pages": 30,
+        "size_bytes": 1314326,
+        "sha256": "ce5f99e3aa65763d6f20bd93843f03fe7fa6a951cdfb7c37ed038c7f3644fadb"
+      },
+      "final_new_images": [
+        {
+          "page": 6,
+          "file": "lectures/assets/illustrations/05-campus-map-to-graph.png",
+          "sha256": "e93262f0b7103382dc8563f4712364467dbe5bf025f7ee919f99087d3be4ed6d",
+          "width": 1280,
+          "height": 400
+        },
+        {
+          "page": 20,
+          "file": "lectures/assets/illustrations/05-discovered-once-ledger.png",
+          "sha256": "8694879b3f4a0d1ea41be15eb8067b67a83cd11061e70d8fe2b37c53fdc28661",
+          "width": 1280,
+          "height": 400
+        }
       ]
     },
     {
       "id": "06",
-      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "status": "反映・静的build・PDF生成・全ページDOM検査・全ページ画像の自己/独立レビュー完了。",
       "educational_assessment": "実装演習の回で、StageStrip06 の段階表示、RouteGraph06、CliOutcome06、p13 の空欄状態シートが学習導線として機能している。p13 は自分の実装を追わせる意図的な空欄で、答えを示すページはない。ここを埋める画像は作ってはならない。新しい生成画像の価値があるのは、経路リストの長さと移動数（辺数）の取り違え（p19『同駅で移動数1』の原因）を、架空駅の実物で示す1枚だけ。他は native 注記で足りる。",
       "deficits": [
         {
@@ -590,11 +685,26 @@
           "learning_goal": "経路リスト ['A', 'B', 'D'] は駅3つ、移動（辺）は2回であり、移動数 = len(path) - 1 になることを列車の乗車で実感できる。同じ駅 ['A'] では移動0になることも並べて確認できる。",
           "target_in_baseline": "p5「入力と出力」本文最終行『引数を省略するとAからDを使います。…』の直下"
         }
+      ],
+      "final_pdf": {
+        "file": "output/pdf/06-route-project.pdf",
+        "pages": 27,
+        "size_bytes": 788563,
+        "sha256": "2cc838ea4d9b7270e7facd586bbba87ca18822f7c21b26b4089bf2360f12fad1"
+      },
+      "final_new_images": [
+        {
+          "page": 6,
+          "file": "lectures/assets/illustrations/06-path-list-vs-moves.png",
+          "sha256": "6c2015391c8aac8a3bfc7906b78d304172c8d68aaa3e31940cce78c6037b2338",
+          "width": 1280,
+          "height": 400
+        }
       ]
     },
     {
       "id": "07",
-      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "status": "反映・静的build・PDF生成・全ページDOM検査・全ページ画像の自己/独立レビュー完了。",
       "educational_assessment": "Figure07 の4図（p4 講評用グラフ、p8 DFS の呼出し、p10 BFS の層と previous、p12 復元）は、flawed_route.py と improved_route.py を手で追った値と一致する。visited={A,B,E,F}、取り出し順 A B C E D、D を取り出す前の queue [D, F] を確認した。足りないのは、同じグラフに2本の経路（4辺と2辺）を重ねた比較（p6/p14）と、『区別できる条件』を持つテストの選び方（p16、文章のみ）。p16 に生成画像1枚、p6/p14 は正確なグラフが必要なので native の重ね描きで補う。",
       "deficits": [
         {
@@ -667,11 +777,26 @@
           "learning_goal": "テスト A→B では DFS と BFS の結果が同じ（1辺）で、誤りを検出できない。A→D では 4辺と2辺に分かれ、最少性の違いが見える。数より『区別できる条件』で入力を選ぶ判断を、2枚のテストカードの比較として目で追える。",
           "target_in_baseline": "p16「テストの不足」本文最終行『この例では、奥の4辺と近い2辺を持つ入力が…』の直下"
         }
+      ],
+      "final_pdf": {
+        "file": "output/pdf/07-review.pdf",
+        "pages": 28,
+        "size_bytes": 848984,
+        "sha256": "b0d307285a5a4ddb54e1e21d0d42b42441760280b719c8e5ad2822da61281693"
+      },
+      "final_new_images": [
+        {
+          "page": 17,
+          "file": "lectures/assets/illustrations/07-distinguishing-test.png",
+          "sha256": "4357b72de1a52b21d16c6af4f37a1e065e293f6e2ec55712449fd20065107424",
+          "width": 1280,
+          "height": 400
+        }
       ]
     },
     {
       "id": "08",
-      "status": "代表単元の最終43頁レビュー合格・公開検証済み",
+      "status": "反映・静的build・PDF生成・全ページDOM検査・全ページ画像の自己/独立レビュー完了。",
       "educational_assessment": "Figure08 の7図（p6 パイプライン、p12 AST、p20/p21 部分木の受け渡し、p23 左結合、p27 評価の帰り道、p30 停止段階）は calculator.py と一致する（2 + * 3 の column 5、2 @ 3 の column 3 を確認した）。p14〜p21 の表と図で pos の追跡も十分。足りないのは2点。字句解析の入口（p7〜p9）は表と文章だけで、空白を読み飛ばすこと、offset が空白でずれること、未知の文字で止まることが見えない。p13 の EBNF は、3段の規則の入れ子がなぜ優先順位になるのかが見えない。生成画像2枚（p9 は2段組、p13 は分割）と、(2+3)*4 の木の native 図・表記の修正で補う。",
       "deficits": [
         {
@@ -782,11 +907,33 @@
           "target_in_final_pdf": 31
         }
       ],
-      "implementation_note": "先行代表設計を採用。全回監査の代替2案は未実装として保持せず、実際に追加した2画像を記録する。"
+      "implementation_note": "先行代表設計を採用。全回監査の代替2案は未実装として保持せず、実際に追加した2画像を記録する。",
+      "final_pdf": {
+        "file": "output/pdf/08-calculator.pdf",
+        "pages": 43,
+        "size_bytes": 2126184,
+        "sha256": "7346598721a20b3409fc4307812fff56ba93560d62c1c85a311116974c773caa"
+      },
+      "final_new_images": [
+        {
+          "page": 7,
+          "file": "lectures/assets/illustrations/08-cards-to-tree.png",
+          "sha256": "6ba76923d05a072bbe07846a0439c202d508af5b5871f1dfe5110dac933c6923",
+          "width": 1280,
+          "height": 640
+        },
+        {
+          "page": 31,
+          "file": "lectures/assets/illustrations/08-three-stops.png",
+          "sha256": "923a2d008b719667af7e8231cba3f4d7b8d79b8c037dea85510b38051d7d9c3e",
+          "width": 1280,
+          "height": 640
+        }
+      ]
     },
     {
       "id": "09",
-      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "status": "反映・静的build・PDF生成・全ページDOM検査・全ページ画像の自己/独立レビュー完了。",
       "educational_assessment": "p11・p14・p22 のnative図はpos・評価順・tryの位置を正確に追えていて、残すべき図なのよ。足りないのは、新しい考え方を初めて出す頁かしら。p3（中置記法と前置記法の比較）は文章だけで、括弧が電卓の優先順位の代わりをするという今回の要点が目に見えないわ。p7 は字句解析・読取・評価・表示の段階名だけが並ぶ表で、同じ入力が各段階で何に変わるかが描かれていないのよ。そのため、p8 のトークン列・p9 の木・p5 の値7 が1本の流れとしてつながらないかしら。誤りが起きる段階（p17・p18）と可変長演算の左畳み込み（p16）も、実際の出力がないまま予想だけを求めていて、答え合わせをする材料が本文にないのよ。",
       "deficits": [
         {
@@ -876,11 +1023,33 @@
           "learning_goal": "p7 の4段階の名前を、同じ入力 (+ 1 (* 2 3)) が「文字列→トークン9個→入れ子のリスト→値7→表示7」と変わる具体的なデータに結び付け、参照版の関数名とも対応させる。",
           "target_in_baseline": "p8 トークン列（コードブロックと本文1行の直下）。p7 の表の下に「次頁で同じ入力を4段階で追います」の1行を足す"
         }
+      ],
+      "final_pdf": {
+        "file": "output/pdf/09-lisp-arithmetic.pdf",
+        "pages": 31,
+        "size_bytes": 1340552,
+        "sha256": "26da19c7dd7b0604ca88b008cb10ab1bcd8389afa49ab22e04a61d6fe5c63b07"
+      },
+      "final_new_images": [
+        {
+          "page": 4,
+          "file": "lectures/assets/illustrations/09-infix-prefix-same-tree.png",
+          "sha256": "e782c5dd50c7bd3405ada426071496c1ff9c2456d5d5ce6be34ec3b735bc68af",
+          "width": 1280,
+          "height": 440
+        },
+        {
+          "page": 10,
+          "file": "lectures/assets/illustrations/09-read-eval-print-pipeline.png",
+          "sha256": "1a2ceaef336487b7b67d739c0e9688a27f24f666290f9001ed5bde891eb8f364",
+          "width": 1280,
+          "height": 440
+        }
       ]
     },
     {
       "id": "10",
-      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "status": "反映・静的build・PDF生成・全ページDOM検査・全ページ画像の自己/独立レビュー完了。",
       "educational_assessment": "初めて出会う構造（環境・特殊形式・クロージャ・再帰）が一番多く、生成画像の効果が一番大きい回なのよ。p9（define）、p23（同名の引数）、p26（if）のnative図は、分岐と検索が止まる場所を正確に示していて、そのまま残せるかしら。弱いのは2か所。p6・p7 の環境は表と文章だけで、定義の前後で何が変わるか、検索に失敗するとどうなるかが動きとして見えないわ。p18〜21 のmake-adderの4状態は、細い四角と矢印が1頁ずつ並ぶだけなのよ。「呼出しが終わってもE5を使える」理由が「参照が残る」という言葉頼みで、値のコピーと誤解されやすいかしら。既存の closure-environments.png は非表示で、内容もnative図と同じ箱と矢印なのよ。",
       "deficits": [
         {
@@ -1002,11 +1171,33 @@
           "learning_goal": "make-adder の呼出しが終わった後も、関数値C5が保存環境E5を参照しているので x = 5 を使えること、そして (add5 3) では新しいE3の外側がE5になることを、値のコピーと誤解されない形で示す。",
           "target_in_baseline": "p17 クロージャの例（コードブロックと本文2行の直下）"
         }
+      ],
+      "final_pdf": {
+        "file": "output/pdf/10-lisp-functions.pdf",
+        "pages": 42,
+        "size_bytes": 1493368,
+        "sha256": "401f9d5dbbe9a08e4cce4b87c28e841b2daa0708c7c396b37dda2eb5a34c7a0d"
+      },
+      "final_new_images": [
+        {
+          "page": 8,
+          "file": "lectures/assets/illustrations/10-define-adds-binding.png",
+          "sha256": "f8b3b2efba047a6238a1a32e5d9ac6aca5dc9e747ffdb0503a7792002492f5af",
+          "width": 1280,
+          "height": 420
+        },
+        {
+          "page": 19,
+          "file": "lectures/assets/illustrations/10-closure-keeps-e5.png",
+          "sha256": "c4023b760c3e862617148d7696f79d7de9010b581ec395a56f3eb9d5c39955c4",
+          "width": 1280,
+          "height": 400
+        }
       ]
     },
     {
       "id": "11",
-      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "status": "反映・静的build・PDF生成・全ページDOM検査・全ページ画像の自己/独立レビュー完了。",
       "educational_assessment": "lexer の状態（p12〜14）、list と quote（p17）、car・cdr・cons（p19）、read_all の失敗位置（p26）、実行の層（p29）、式の分解（p31）は、native図と追跡表で具体的に追えて、十分なのよ。不足は主経路の「複数式が1つの大域環境を共有する」部分かしら。p6〜p9 は文章と表だけで、ファイルの式・共有するG・呼出しごとの局所環境・端末出力という4つの物の対応が見えないわ。各呼出しのxは別の環境という大事な区別も、文章1行だけなのよ。",
       "deficits": [
         {
@@ -1096,11 +1287,26 @@
           "learning_goal": "ファイルの5式が順に1つのGを共有すること、1式目の define が登録した square を2式目と4式目が見つけること、呼出しごとに別の局所環境（x = 5、x = 7）ができること、端末に 25・49・() が出ることを、物の対応で示す。式ごとにGを作り直す反例も小さく添える。",
           "target_in_baseline": "p8 環境の共有（本文3行の直下）"
         }
+      ],
+      "final_pdf": {
+        "file": "output/pdf/11-lisp-scripts.pdf",
+        "pages": 39,
+        "size_bytes": 817667,
+        "sha256": "ea4edba410bed79f699733eaa7764857097e5bbb93d6b15d7b96b3752237ca89"
+      },
+      "final_new_images": [
+        {
+          "page": 9,
+          "file": "lectures/assets/illustrations/11-script-shared-global.png",
+          "sha256": "c025d1579b22a0bd2a9fefd3f3873f217a744df05b4a16b8fdd34d5e6c7066b8",
+          "width": 1280,
+          "height": 440
+        }
       ]
     },
     {
       "id": "12",
-      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "status": "反映・静的build・PDF生成・全ページDOM検査・全ページ画像の自己/独立レビュー完了。",
       "educational_assessment": "m-eval の分岐順（p8）、if（p16）、算術の委譲（p18）、env の構造（p24）、eval と apply（p28）のnative図は、evaluator.lisp の分岐と一致していて精密追跡に必要なのよ。保持すべきかしら。弱いのは、この回で一番新しい「ホストと対象の2つの環境」を説明する p4 が文章3行だけな点なのよ。評価器が同じLispで書かれていて、対象環境は () で空、primitive だけが橋になる、という関係が見えないわ。二重quote（p11〜p13）も表だけで、2枚の quote がどの層で外れるかという動きが追いにくいのよ。p26・p27・p29・p30 は第14回へ向けた設計の文章で、今ここで絵にすると未実装の動作を教えてしまうから、画像にはしないかしら。",
       "deficits": [
         {
@@ -1208,11 +1414,33 @@
           "learning_goal": "外側の quote はホストが外し、内側の quote は対象の m-eval が car・cdr で分解して外すこと、そして結果のリスト (+ 1 2) は表示されるだけで再評価されず、3 にならないことを、2重の封筒が順に開く動きで示す。",
           "target_in_baseline": "p12 二重quoteを渡すホストの呼出し（コードと本文3行の直下）"
         }
+      ],
+      "final_pdf": {
+        "file": "output/pdf/12-meta-evaluator.pdf",
+        "pages": 41,
+        "size_bytes": 1598519,
+        "sha256": "d3944b0489c01358e5e65910cd2567e2e342c91d0ac0638d6d4596781d53c1ce"
+      },
+      "final_new_images": [
+        {
+          "page": 5,
+          "file": "lectures/assets/illustrations/12-host-and-target-environments.png",
+          "sha256": "8570b2db2c51749b9c086c4020cd27dee07125afcf621da4d246e86989de94a1",
+          "width": 1280,
+          "height": 480
+        },
+        {
+          "page": 14,
+          "file": "lectures/assets/illustrations/12-double-quote-layers.png",
+          "sha256": "a85daa9e833d429a76d3c0457e27ff84e7fd74b98b187779eaba6eb7408fd95f",
+          "width": 1280,
+          "height": 480
+        }
       ]
     },
     {
       "id": "13",
-      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "status": "反映・静的build・PDF生成・全ページDOM検査・全ページ画像の自己/独立レビュー完了。",
       "educational_assessment": "前回の技術検査は、図が描画され内容が実装と一致することの確認だった。教育効果の観点では不足がある。28頁のうち native 図は p10・p13・p18 の3枚だけで、この3枚は評価順・字句スコープ・meta ログを十分に説明している。一方、授業の中心活動である『予測→観察→説明→更新』(p4・p5・p21・p25)と、議論1の『読取と評価の区別』(p6・p7)は、短い文章の指示だけで終わっている。初学者は、何を書けば記録になるのか、quote がどの段で評価を止めるのかを絵で確かめられない。クロージャ(p11-p12)と名前の隠蔽(p14-p15)は、第10回の4状態図・同名引数図で既に視覚化されているので、新しい画像ではなく参照導線で補う。二重の評価(p19)も第12回 p13 の表で答え合わせできる。不具合の分類(p23)には、実際の最小入力と表示文言がない。",
       "deficits": [
         {
@@ -1324,11 +1552,33 @@
           "learning_goal": "1つの式について、予測・観察・説明・更新(反例)の4記録をペアで回す様子を見て、自分の議論記録に同じ形を作れるようにする。最初の予測が外れても、反例で説明を更新するのが目的だと伝える",
           "target_in_baseline": "lectures/13.md『議論の進め方』(PDF p4)の直後に分割ページを追加"
         }
+      ],
+      "final_pdf": {
+        "file": "output/pdf/13-language-review.pdf",
+        "pages": 30,
+        "size_bytes": 1586390,
+        "sha256": "3e25c7698ca77eb9af137fbe95d18e6289b43e55627f8fb749a4ff93df0441c7"
+      },
+      "final_new_images": [
+        {
+          "page": 5,
+          "file": "lectures/assets/illustrations/l13-discussion-cycle-if.png",
+          "sha256": "1f83d51335c418bfd07130bfa462ce7667123253c53d04db288bd30fea41a37d",
+          "width": 1280,
+          "height": 480
+        },
+        {
+          "page": 9,
+          "file": "lectures/assets/illustrations/l13-quote-read-vs-eval.png",
+          "sha256": "a08e440610cd64866798ac2844c2cc791f86528fe13989fd751b5c5814d7a73a",
+          "width": 1280,
+          "height": 480
+        }
       ]
     },
     {
       "id": "14",
-      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "status": "反映・静的build・PDF生成・全ページDOM検査・全ページ画像の自己/独立レビュー完了。",
       "educational_assessment": "native 図8枚と生成画像1枚(p33)があり、対象環境・apply・REPL の各段階には図が付いている。ただし、学生がつまずく箇所が2つ残る。(1) p7『本日の実行構成』は名前だけの箱で、p8 の `--meta --eval \"(+ 1 (* 2 3))\"` が層をどう往復して 7 になるかを、値で追えない。読取・算術・表示がホスト、意味の判断が Lisp という目標3の中心が抽象語のままになっている。(2) p15-p16 の共有セルは、native 図のラベルが『(car G) (prims)』『((fact C) prims)』と記号的である。そのため、なぜコピーではだめで、参照なら後から定義した fact が見つかるのかという動機が伝わらない(第12回 p30 で予告済みの論点)。square の適用(p17-p24)と REPL(p28-p33)は表・図・既存画像で十分に追える。ホスト環境と対象環境の区別は、p41 に実在する名前の例を1文足せば足り、新しい画像は不要と判断する。",
       "deficits": [
         {
@@ -1439,11 +1689,33 @@
           "learning_goal": "lambda を評価した時点の G に fact はまだない。それでも (fact 4) の中で fact が見つかるのは、クロージャが G のコピーではなく同じ G(frame-cell)への参照を持ち、m-define がその中身を set-car! で差し替えるからである。仮のコピー案では見つからないことと比べて理解する",
           "target_in_baseline": "lectures/14.md『定義と共有セル』(PDF p15)と『共有セルの差し替え』(PDF p16)の間に分割ページを追加"
         }
+      ],
+      "final_pdf": {
+        "file": "output/pdf/14-selfhosting.pdf",
+        "pages": 47,
+        "size_bytes": 3141008,
+        "sha256": "a5626cac1325af88d5d705e18baa2e889b2aa75fc40d953d74675e23806ab0ee"
+      },
+      "final_new_images": [
+        {
+          "page": 9,
+          "file": "lectures/assets/illustrations/l14-meta-eval-layers-7.png",
+          "sha256": "8d2cc1ed2444c6fa6ed7d385e6f55078a8907ff1129083a0fda0f5d30bcdc073",
+          "width": 1280,
+          "height": 480
+        },
+        {
+          "page": 17,
+          "file": "lectures/assets/illustrations/l14-closure-shared-env-vs-copy.png",
+          "sha256": "affd3e3aa22d3e0f32eafd4eb930d5f64d974e76a357d61cb86be1c9d6a58ccb",
+          "width": 1280,
+          "height": 480
+        }
       ]
     },
     {
       "id": "15",
-      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "status": "反映・静的build・PDF生成・全ページDOM検査・全ページ画像の自己/独立レビュー完了。",
       "educational_assessment": "講評回のため、新しい概念は少ない。native 図3枚(p11 例B、p14 層と委譲、p16 fixture 経路)は正確で、p11 と p14 は十分に役立っている。不足は2つ。(1) 中心活動である作者と聞き手の1往復(p5、p17-p19)が文章だけで、『事実と提案を分けて記録する』姿が見えない。(2) p15『証拠の比較』は4種類の証拠を抽象名で並べた表で、1つの動作を4つの証拠で確かめる具体例がない。p16 の fixture 図は代表例が '() で、エラー系を診断語の一部で比較する規則を示せていない。p21 のデータ構造との接続は文章だけなので、native 表で前半との対応を示す。",
       "deficits": [
         {
@@ -1527,7 +1799,30 @@
           "learning_goal": "同じ動作 (add10 3) → 13 を、実行ログ(何が起きたか)・受入例(何を守るか)・環境図(なぜ x = 10 か)・コード(どこで実装したか)の4つの証拠で確かめ、それぞれが別の問いに答えることを見る",
           "target_in_baseline": "lectures/15.md『参照実装の層と委譲』(PDF p14)と『証拠の比較』(PDF p15)の間に分割ページを追加"
         }
+      ],
+      "final_pdf": {
+        "file": "output/pdf/15-showcase.pdf",
+        "pages": 30,
+        "size_bytes": 1693990,
+        "sha256": "b64abf64f974a10a3f3e0fb5f60cd78332be099d7d345d8e38f3e5cf5e709e86"
+      },
+      "final_new_images": [
+        {
+          "page": 6,
+          "file": "lectures/assets/illustrations/l15-review-pair-example-b.png",
+          "sha256": "78f76892d16c1abb486f719bedbd1301a6e56fb8cb5b201637595f20755e5653",
+          "width": 1280,
+          "height": 480
+        },
+        {
+          "page": 18,
+          "file": "lectures/assets/illustrations/l15-four-evidence-add10.png",
+          "sha256": "06d18f58246ba8a70892f6531f7605c1467788a2cae69691ad3ddd7250b80d09",
+          "width": 1280,
+          "height": 480
+        }
       ]
     }
-  ]
+  ],
+  "completed": true
 }

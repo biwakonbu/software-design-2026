@@ -1,0 +1,576 @@
+[
+  {
+    "anchor": "議論2 ifの実装",
+    "prediction": "if を通常の関数にした案で、`(if #f (/ 1 0) 8)` がどこで失敗するか予想してください。",
+    "new_title": "特殊形式と関数の評価順",
+    "explanation": "関数は引数を全部先に評価し、特殊形式 if は条件を見てから枝を1つ評価します。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "f1",
+        "x": 28,
+        "y": 84,
+        "w": 330,
+        "h": 96,
+        "label": "関数 my-if",
+        "detail": "引数を全部評価"
+      },
+      {
+        "id": "f2",
+        "x": 425,
+        "y": 84,
+        "w": 330,
+        "h": 96,
+        "label": "(/ 1 0) を評価",
+        "detail": "選ぶ前に失敗"
+      },
+      {
+        "id": "f3",
+        "x": 822,
+        "y": 84,
+        "w": 330,
+        "h": 96,
+        "label": "error",
+        "detail": "division by zero"
+      },
+      {
+        "id": "s1",
+        "x": 28,
+        "y": 244,
+        "w": 330,
+        "h": 96,
+        "label": "特殊形式 if",
+        "detail": "条件だけ評価"
+      },
+      {
+        "id": "s2",
+        "x": 425,
+        "y": 244,
+        "w": 330,
+        "h": 96,
+        "label": "#f → 3番目",
+        "detail": "8 だけを評価"
+      },
+      {
+        "id": "s3",
+        "x": 822,
+        "y": 244,
+        "w": 330,
+        "h": 96,
+        "label": "8",
+        "detail": "(/ 1 0) は未評価"
+      }
+    ],
+    "edges": [
+      {
+        "from": "f1",
+        "to": "f2",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            358,
+            132
+          ],
+          [
+            425,
+            132
+          ]
+        ]
+      },
+      {
+        "from": "f2",
+        "to": "f3",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            755,
+            132
+          ],
+          [
+            822,
+            132
+          ]
+        ]
+      },
+      {
+        "from": "s1",
+        "to": "s2",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            358,
+            292
+          ],
+          [
+            425,
+            292
+          ]
+        ]
+      },
+      {
+        "from": "s2",
+        "to": "s3",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            755,
+            292
+          ],
+          [
+            822,
+            292
+          ]
+        ]
+      }
+    ],
+    "groups": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 386,
+        "h": 400,
+        "label": "1 引数の扱い"
+      },
+      {
+        "x": 397,
+        "y": 0,
+        "w": 386,
+        "h": 400,
+        "label": "2 途中"
+      },
+      {
+        "x": 794,
+        "y": 0,
+        "w": 386,
+        "h": 400,
+        "label": "3 結果"
+      }
+    ],
+    "footer_check": "別入力: `(define my-if (lambda (c a b) (if c a b)))` の後、`(my-if #f (/ 1 0) 8)` を予想して実行します。",
+    "verification": "ホスト evaluate は call の前に values を評価し、if 分岐は branch だけを評価する。--eval '(if #f (/ 1 0) 8)' で 8。'(begin (define my-if (lambda (c a b) (if c a b))) (my-if #f (/ 1 0) 8))' は error: division by zero。--meta でも同じ (Codex実行照合)"
+  },
+  {
+    "anchor": "議論3 環境の寿命",
+    "prediction": "`(begin (define x 10) (define f (lambda (y) (+ x y))) ((lambda (x) (f 1)) 99))` の値を予想してください。",
+    "new_title": "f の外側は G、呼出し元ではない",
+    "explanation": "f は定義時の G を保存するので、呼出し元 E99 の x=99 は見えません。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "G",
+        "x": 380,
+        "y": 52,
+        "w": 420,
+        "h": 96,
+        "label": "G: x = 10, f",
+        "detail": "f は G を保存"
+      },
+      {
+        "id": "E99",
+        "x": 80,
+        "y": 232,
+        "w": 280,
+        "h": 96,
+        "label": "E99: x = 99",
+        "detail": "(f 1) を呼ぶ"
+      },
+      {
+        "id": "E1",
+        "x": 590,
+        "y": 232,
+        "w": 240,
+        "h": 96,
+        "label": "E1: y = 1",
+        "detail": "x を探す"
+      },
+      {
+        "id": "res",
+        "x": 900,
+        "y": 216,
+        "w": 260,
+        "h": 96,
+        "label": "(+ x y) → 11",
+        "detail": "x = 10 を G で"
+      },
+      {
+        "id": "wrong",
+        "x": 900,
+        "y": 322,
+        "w": 260,
+        "h": 66,
+        "label": "動的なら 100",
+        "detail": "",
+        "kind": "counterfactual"
+      }
+    ],
+    "edges": [
+      {
+        "from": "E99",
+        "to": "G",
+        "label": "外側",
+        "type": "reference",
+        "points": [
+          [
+            220,
+            232
+          ],
+          [
+            220,
+            100
+          ],
+          [
+            380,
+            100
+          ]
+        ],
+        "labelAt": [
+          232,
+          140
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "E1",
+        "to": "G",
+        "label": "外側(保存)",
+        "type": "reference",
+        "points": [
+          [
+            740,
+            232
+          ],
+          [
+            740,
+            148
+          ]
+        ],
+        "labelAt": [
+          752,
+          200
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "E1",
+        "to": "E99",
+        "label": "動的なら",
+        "type": "reference",
+        "kind": "counterfactual",
+        "points": [
+          [
+            590,
+            280
+          ],
+          [
+            360,
+            280
+          ]
+        ],
+        "labelAt": [
+          440,
+          266
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "E1",
+        "to": "res",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            830,
+            264
+          ],
+          [
+            900,
+            264
+          ]
+        ]
+      }
+    ],
+    "groups": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 1180,
+        "h": 160,
+        "label": "1 定義後の G"
+      },
+      {
+        "x": 0,
+        "y": 160,
+        "w": 520,
+        "h": 240,
+        "label": "2 外の呼出し"
+      },
+      {
+        "x": 520,
+        "y": 160,
+        "w": 660,
+        "h": 240,
+        "label": "3 f の呼出し"
+      }
+    ],
+    "footer_check": "別入力: `(define x 10)` を `(define x 20)` に変えた値を予想し、ホストと `--meta` で確かめます。",
+    "verification": "review_cases.json 6番の expected は 11。ホストの call は function.environment を親にし、meta は (m-new-env (m-fourth function)) を作る。--eval と --meta --eval の両方で 11、x=20 版は 21 (Codex実行照合)"
+  },
+  {
+    "anchor": "議論5 追跡の限界",
+    "prediction": "`--trace --meta` の meta 行に、`(* 2 3)` の結果 6 が現れるか予想してください。",
+    "new_title": "meta ログが示すもの",
+    "explanation": "meta 行は m-eval に入った式と深さだけで、戻り値や環境は出ません。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "n1",
+        "x": 10,
+        "y": 150,
+        "w": 310,
+        "h": 56,
+        "label": "#1 (+ 1 (* 2 3))",
+        "detail": ""
+      },
+      {
+        "id": "n2",
+        "x": 375,
+        "y": 70,
+        "w": 220,
+        "h": 56,
+        "label": "#2 +",
+        "detail": ""
+      },
+      {
+        "id": "n3",
+        "x": 375,
+        "y": 150,
+        "w": 220,
+        "h": 56,
+        "label": "#3 1",
+        "detail": ""
+      },
+      {
+        "id": "n4",
+        "x": 375,
+        "y": 230,
+        "w": 220,
+        "h": 56,
+        "label": "#4 (* 2 3)",
+        "detail": ""
+      },
+      {
+        "id": "n5",
+        "x": 645,
+        "y": 150,
+        "w": 220,
+        "h": 56,
+        "label": "#5 *",
+        "detail": ""
+      },
+      {
+        "id": "n6",
+        "x": 645,
+        "y": 230,
+        "w": 220,
+        "h": 56,
+        "label": "#6 2",
+        "detail": ""
+      },
+      {
+        "id": "n7",
+        "x": 645,
+        "y": 310,
+        "w": 220,
+        "h": 56,
+        "label": "#7 3",
+        "detail": ""
+      },
+      {
+        "id": "miss",
+        "x": 905,
+        "y": 70,
+        "w": 260,
+        "h": 96,
+        "label": "戻り値 6・7",
+        "detail": "環境の中身",
+        "kind": "skipped"
+      },
+      {
+        "id": "host",
+        "x": 905,
+        "y": 230,
+        "w": 260,
+        "h": 96,
+        "label": "[host] 行",
+        "detail": "数えない",
+        "kind": "host"
+      }
+    ],
+    "edges": [
+      {
+        "from": "n1",
+        "to": "n2",
+        "label": "",
+        "type": "contains",
+        "points": [
+          [
+            320,
+            178
+          ],
+          [
+            335,
+            178
+          ],
+          [
+            335,
+            98
+          ],
+          [
+            375,
+            98
+          ]
+        ]
+      },
+      {
+        "from": "n1",
+        "to": "n3",
+        "label": "",
+        "type": "contains",
+        "points": [
+          [
+            320,
+            178
+          ],
+          [
+            375,
+            178
+          ]
+        ]
+      },
+      {
+        "from": "n1",
+        "to": "n4",
+        "label": "",
+        "type": "contains",
+        "points": [
+          [
+            320,
+            178
+          ],
+          [
+            335,
+            178
+          ],
+          [
+            335,
+            258
+          ],
+          [
+            375,
+            258
+          ]
+        ]
+      },
+      {
+        "from": "n4",
+        "to": "n5",
+        "label": "",
+        "type": "contains",
+        "points": [
+          [
+            595,
+            258
+          ],
+          [
+            610,
+            258
+          ],
+          [
+            610,
+            178
+          ],
+          [
+            645,
+            178
+          ]
+        ]
+      },
+      {
+        "from": "n4",
+        "to": "n6",
+        "label": "",
+        "type": "contains",
+        "points": [
+          [
+            595,
+            258
+          ],
+          [
+            645,
+            258
+          ]
+        ]
+      },
+      {
+        "from": "n4",
+        "to": "n7",
+        "label": "",
+        "type": "contains",
+        "points": [
+          [
+            595,
+            258
+          ],
+          [
+            610,
+            258
+          ],
+          [
+            610,
+            338
+          ],
+          [
+            645,
+            338
+          ]
+        ]
+      }
+    ],
+    "groups": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 350,
+        "h": 400,
+        "label": "depth 0"
+      },
+      {
+        "x": 350,
+        "y": 0,
+        "w": 270,
+        "h": 400,
+        "label": "depth 1"
+      },
+      {
+        "x": 620,
+        "y": 0,
+        "w": 270,
+        "h": 400,
+        "label": "depth 2"
+      },
+      {
+        "x": 890,
+        "y": 0,
+        "w": 290,
+        "h": 400,
+        "label": "ログに出ない"
+      }
+    ],
+    "footer_check": "別入力: `((lambda (x) (+ x 1)) 4)` の meta 行を depth 付きで予想し、標準エラーと照合します。",
+    "verification": "evaluator.lisp(13) の m-eval 冒頭 trace-event と (m-apply (m-eval head ..) (m-eval-list args ..) depth) から、python3 examples/13-language-review/lisp.py --trace --meta --eval '(+ 1 (* 2 3))' の stderr の meta 行は [meta depth=0] (+ 1 (* 2 3)) / [meta depth=1] + / [meta depth=1] 1 / [meta depth=1] (* 2 3) / [meta depth=2] * / [meta depth=2] 2 / [meta depth=2] 3 の順と予測。Codexが実行して照合し、違えば実際の出力に合わせて番号と depth を直す。host 行は数えない"
+  }
+]

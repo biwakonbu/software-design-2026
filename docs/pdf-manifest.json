@@ -67,9 +67,9 @@
   },
   {
     "file": "output/pdf/13-language-review.pdf",
-    "pages": 25,
-    "size_bytes": 202775,
-    "sha256": "a652f4c865b64d67a4b42c940177fc0d01b98d65477a611407e79198a4a9ca73"
+    "pages": 28,
+    "size_bytes": 243490,
+    "sha256": "db3658575844e058519d9d44832fe0cfe57cdfa6a8a8eb8eec0e113a5a515a04"
   },
   {
     "file": "output/pdf/14-selfhosting.pdf",

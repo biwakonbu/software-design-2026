@@ -1,0 +1,1031 @@
+[
+  {
+    "anchor": "左結合と計算結果",
+    "prediction": "`10-3-2` で while が2回目に回った直後、node の左の子を予想してください。",
+    "new_title": "while で node を包み直す",
+    "explanation": "expression は node を左の子にして、次の term と新しい Binary で包みます。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "n1",
+        "x": 10,
+        "y": 90,
+        "w": 366,
+        "h": 90,
+        "label": "node",
+        "detail": "Number(10.0)"
+      },
+      {
+        "id": "c1",
+        "x": 10,
+        "y": 230,
+        "w": 366,
+        "h": 90,
+        "label": "current '-'",
+        "detail": "pos 1・まだ進まない"
+      },
+      {
+        "id": "r2",
+        "x": 475,
+        "y": 90,
+        "w": 230,
+        "h": 70,
+        "label": "Binary('-')",
+        "detail": ""
+      },
+      {
+        "id": "l2",
+        "x": 417,
+        "y": 230,
+        "w": 160,
+        "h": 70,
+        "label": "10.0",
+        "detail": ""
+      },
+      {
+        "id": "rr2",
+        "x": 603,
+        "y": 230,
+        "w": 160,
+        "h": 70,
+        "label": "3.0",
+        "detail": ""
+      },
+      {
+        "id": "r3",
+        "x": 872,
+        "y": 90,
+        "w": 230,
+        "h": 70,
+        "label": "Binary('-')",
+        "detail": ""
+      },
+      {
+        "id": "l3",
+        "x": 804,
+        "y": 230,
+        "w": 200,
+        "h": 70,
+        "label": "前の node",
+        "detail": ""
+      },
+      {
+        "id": "rr3",
+        "x": 1014,
+        "y": 230,
+        "w": 156,
+        "h": 70,
+        "label": "2.0",
+        "detail": ""
+      },
+      {
+        "id": "v",
+        "x": 804,
+        "y": 320,
+        "w": 366,
+        "h": 70,
+        "label": "evaluate → 5.0",
+        "detail": ""
+      }
+    ],
+    "edges": [
+      {
+        "from": "r2",
+        "to": "l2",
+        "label": "left",
+        "type": "contains",
+        "labelAt": [
+          515,
+          210
+        ]
+      },
+      {
+        "from": "r2",
+        "to": "rr2",
+        "label": "right",
+        "type": "contains",
+        "labelAt": [
+          665,
+          210
+        ]
+      },
+      {
+        "from": "r3",
+        "to": "l3",
+        "label": "left",
+        "type": "contains",
+        "labelAt": [
+          915,
+          210
+        ]
+      },
+      {
+        "from": "r3",
+        "to": "rr3",
+        "label": "right",
+        "type": "contains",
+        "labelAt": [
+          1100,
+          210
+        ]
+      },
+      {
+        "from": "n1",
+        "to": "l2",
+        "label": "左の子へ",
+        "type": "reference",
+        "labelAt": [
+          365,
+          212
+        ]
+      },
+      {
+        "from": "r2",
+        "to": "l3",
+        "label": "包み直す",
+        "type": "reference",
+        "labelAt": [
+          790,
+          192
+        ]
+      }
+    ],
+    "groups": [
+      {
+        "id": "s1",
+        "label": "1 最初の term",
+        "x": 0,
+        "y": 0,
+        "w": 386,
+        "h": 400,
+        "members": [
+          "n1",
+          "c1"
+        ]
+      },
+      {
+        "id": "s2",
+        "label": "2 1回目の '-'",
+        "x": 397,
+        "y": 0,
+        "w": 386,
+        "h": 400,
+        "members": [
+          "r2",
+          "l2",
+          "rr2"
+        ]
+      },
+      {
+        "id": "s3",
+        "label": "3 2回目の '-'",
+        "x": 794,
+        "y": 0,
+        "w": 386,
+        "h": 400,
+        "members": [
+          "r3",
+          "l3",
+          "rr3",
+          "v"
+        ]
+      }
+    ],
+    "footer_check": "別入力: `8/2/2` の木を同じ3コマで描き、CLI の表示 2 と照合します。",
+    "verification": "Parser.expression の node = Binary(self.take().kind, node, self.term()) と一致。calculator.py --eval '10-3-2' で 5、'8/2/2' で 2 (Codex実行照合)"
+  },
+  {
+    "anchor": "ASTを評価する",
+    "prediction": "`2+3*4` の評価で、evaluate が最初に値を返すノードを予想してください。",
+    "new_title": "evaluate の帰り道",
+    "explanation": "左の子、右の子の順に値を求め、そろってから親の演算を適用します。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "L",
+        "x": 20,
+        "y": 90,
+        "w": 260,
+        "h": 90,
+        "label": "Number(2.0)",
+        "detail": "→ 2.0"
+      },
+      {
+        "id": "RL",
+        "x": 312,
+        "y": 200,
+        "w": 215,
+        "h": 90,
+        "label": "Number(3.0)",
+        "detail": "→ 3.0"
+      },
+      {
+        "id": "RR",
+        "x": 312,
+        "y": 305,
+        "w": 215,
+        "h": 90,
+        "label": "Number(4.0)",
+        "detail": "→ 4.0"
+      },
+      {
+        "id": "R",
+        "x": 575,
+        "y": 250,
+        "w": 215,
+        "h": 90,
+        "label": "Binary('*')",
+        "detail": "→ 12.0"
+      },
+      {
+        "id": "root",
+        "x": 830,
+        "y": 90,
+        "w": 340,
+        "h": 90,
+        "label": "Binary('+')",
+        "detail": "2.0+12.0 → 14.0"
+      },
+      {
+        "id": "res",
+        "x": 830,
+        "y": 250,
+        "w": 340,
+        "h": 90,
+        "label": "calculate",
+        "detail": "14.0・CLI 14"
+      }
+    ],
+    "edges": [
+      {
+        "from": "root",
+        "to": "L",
+        "label": "",
+        "type": "contains"
+      },
+      {
+        "from": "root",
+        "to": "R",
+        "label": "",
+        "type": "contains"
+      },
+      {
+        "from": "R",
+        "to": "RL",
+        "label": "",
+        "type": "contains"
+      },
+      {
+        "from": "RR",
+        "to": "R",
+        "label": "3",
+        "type": "return",
+        "labelAt": [
+          551,
+          385
+        ]
+      },
+      {
+        "from": "R",
+        "to": "RR",
+        "label": "",
+        "type": "contains"
+      },
+      {
+        "from": "L",
+        "to": "root",
+        "label": "1",
+        "type": "return",
+        "labelAt": [
+          600,
+          185
+        ]
+      },
+      {
+        "from": "RL",
+        "to": "R",
+        "label": "2",
+        "type": "return",
+        "labelAt": [
+          551,
+          228
+        ]
+      },
+      {
+        "from": "R",
+        "to": "root",
+        "label": "4",
+        "type": "return",
+        "labelAt": [
+          918,
+          240
+        ]
+      },
+      {
+        "from": "root",
+        "to": "res",
+        "label": "5 14.0",
+        "type": "return"
+      }
+    ],
+    "groups": [
+      {
+        "id": "s1",
+        "label": "1 左を先に",
+        "x": 0,
+        "y": 0,
+        "w": 300,
+        "h": 400,
+        "members": [
+          "L"
+        ]
+      },
+      {
+        "id": "s2",
+        "label": "2 右の部分木",
+        "x": 300,
+        "y": 0,
+        "w": 500,
+        "h": 400,
+        "members": [
+          "RL",
+          "RR",
+          "R"
+        ]
+      },
+      {
+        "id": "s3",
+        "label": "3 根で加算",
+        "x": 800,
+        "y": 0,
+        "w": 380,
+        "h": 400,
+        "members": [
+          "root",
+          "res"
+        ]
+      }
+    ],
+    "footer_check": "別入力: `(2+3)*4` で、最初に値を返すノードと根の計算を書いてから実行します。",
+    "verification": "evaluate の left, right = evaluate(node.left), evaluate(node.right) と一致(左が先)。calculate('2+3*4') は 14.0、CLI は 14。'(2+3)*4' は 20 (Codex実行照合)"
+  },
+  {
+    "anchor": "3段階のエラーを比較する",
+    "prediction": "`2 + * 3` のエラーが何文字目として報告されるか予想してください。",
+    "new_title": "どの段階で止まるか",
+    "explanation": "各入力は最初に失敗した段階で止まり、後の段階へ進みません。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "t",
+        "x": 10,
+        "y": 86,
+        "w": 260,
+        "h": 60,
+        "label": "tokenize",
+        "detail": ""
+      },
+      {
+        "id": "p",
+        "x": 304,
+        "y": 86,
+        "w": 240,
+        "h": 60,
+        "label": "parse",
+        "detail": ""
+      },
+      {
+        "id": "e",
+        "x": 578,
+        "y": 86,
+        "w": 300,
+        "h": 60,
+        "label": "evaluate",
+        "detail": ""
+      },
+      {
+        "id": "ok",
+        "x": 910,
+        "y": 86,
+        "w": 260,
+        "h": 90,
+        "label": "2+3*4 → 14",
+        "detail": "exit 0"
+      },
+      {
+        "id": "err1",
+        "x": 10,
+        "y": 200,
+        "w": 260,
+        "h": 100,
+        "label": "2 @ 3",
+        "detail": "column 3: '@'"
+      },
+      {
+        "id": "err2",
+        "x": 304,
+        "y": 200,
+        "w": 240,
+        "h": 100,
+        "label": "2 + * 3",
+        "detail": "column 5"
+      },
+      {
+        "id": "err3",
+        "x": 578,
+        "y": 200,
+        "w": 300,
+        "h": 100,
+        "label": "1 / 0",
+        "detail": "division by zero"
+      },
+      {
+        "id": "x1",
+        "x": 10,
+        "y": 335,
+        "w": 1160,
+        "h": 55,
+        "label": "stderr へ 'error: …'、exit 1",
+        "detail": ""
+      }
+    ],
+    "edges": [
+      {
+        "from": "t",
+        "to": "p",
+        "label": "tokens",
+        "type": "flow",
+        "labelAt": [
+          287.0,
+          74
+        ]
+      },
+      {
+        "from": "p",
+        "to": "e",
+        "label": "AST",
+        "type": "flow",
+        "labelAt": [
+          561.0,
+          74
+        ]
+      },
+      {
+        "from": "e",
+        "to": "ok",
+        "label": "14.0",
+        "type": "flow",
+        "labelAt": [
+          894.0,
+          74
+        ]
+      },
+      {
+        "from": "t",
+        "to": "err1",
+        "label": "字句",
+        "type": "flow",
+        "points": [
+          [
+            140,
+            146
+          ],
+          [
+            140,
+            200
+          ]
+        ],
+        "labelAt": [
+          152,
+          184
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "p",
+        "to": "err2",
+        "label": "構文",
+        "type": "flow",
+        "points": [
+          [
+            424,
+            146
+          ],
+          [
+            424,
+            200
+          ]
+        ],
+        "labelAt": [
+          436,
+          184
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "e",
+        "to": "err3",
+        "label": "意味",
+        "type": "flow",
+        "points": [
+          [
+            728,
+            146
+          ],
+          [
+            728,
+            200
+          ]
+        ],
+        "labelAt": [
+          740,
+          184
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "err1",
+        "to": "x1",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            140,
+            300
+          ],
+          [
+            140,
+            335
+          ]
+        ]
+      },
+      {
+        "from": "err2",
+        "to": "x1",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            424,
+            300
+          ],
+          [
+            424,
+            335
+          ]
+        ]
+      },
+      {
+        "from": "err3",
+        "to": "x1",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            728,
+            300
+          ],
+          [
+            728,
+            335
+          ]
+        ]
+      }
+    ],
+    "groups": [
+      {
+        "id": "s1",
+        "label": "1 tokenize",
+        "x": 0,
+        "y": 0,
+        "w": 287,
+        "h": 310,
+        "members": [
+          "t",
+          "err1"
+        ]
+      },
+      {
+        "id": "s2",
+        "label": "2 parse",
+        "x": 287,
+        "y": 0,
+        "w": 274,
+        "h": 310,
+        "members": [
+          "p",
+          "err2"
+        ]
+      },
+      {
+        "id": "s3",
+        "label": "3 evaluate",
+        "x": 561,
+        "y": 0,
+        "w": 333,
+        "h": 310,
+        "members": [
+          "e",
+          "err3"
+        ]
+      },
+      {
+        "id": "s4",
+        "label": "4 出力",
+        "x": 894,
+        "y": 0,
+        "w": 286,
+        "h": 310,
+        "members": [
+          "ok"
+        ]
+      }
+    ],
+    "footer_check": "別入力: `(2+3` と `2 3` が止まる段階と column を予想し、CLI で確かめます。",
+    "verification": "raise 文と一致: '2 @ 3' は lexical error at column 3: '@'、'2 + * 3' は syntax error at column 5: expected number or (、'1/0' は semantic error: division by zero。いずれも stderr に 'error: ' 付き、exit 1。別入力の予測: '(2+3' は column 5: expected )、'2 3' は column 3: unexpected token (Codex実行照合)"
+  },
+  {
+    "viewBox": "0 0 1180 260",
+    "nodes": [
+      {
+        "id": "in",
+        "x": 10,
+        "y": 20,
+        "w": 220,
+        "h": 80,
+        "label": "入力文字列"
+      },
+      {
+        "id": "lex",
+        "x": 320,
+        "y": 20,
+        "w": 200,
+        "h": 80,
+        "label": "字句解析"
+      },
+      {
+        "id": "tok",
+        "x": 610,
+        "y": 20,
+        "w": 220,
+        "h": 80,
+        "label": "トークン列"
+      },
+      {
+        "id": "syn",
+        "x": 920,
+        "y": 20,
+        "w": 200,
+        "h": 80,
+        "label": "構文解析"
+      },
+      {
+        "id": "ast",
+        "x": 920,
+        "y": 170,
+        "w": 200,
+        "h": 80,
+        "label": "抽象構文木"
+      },
+      {
+        "id": "sem",
+        "x": 470,
+        "y": 170,
+        "w": 360,
+        "h": 80,
+        "label": "意味を検査して評価"
+      },
+      {
+        "id": "val",
+        "x": 170,
+        "y": 170,
+        "w": 200,
+        "h": 80,
+        "label": "数値"
+      }
+    ],
+    "groups": [],
+    "new_title": "解析から実行まで",
+    "explanation": "",
+    "footer_check": "",
+    "edges": [
+      {
+        "from": "in",
+        "to": "lex",
+        "type": "flow",
+        "label": ""
+      },
+      {
+        "from": "lex",
+        "to": "tok",
+        "type": "flow",
+        "label": ""
+      },
+      {
+        "from": "tok",
+        "to": "syn",
+        "type": "flow",
+        "label": ""
+      },
+      {
+        "from": "syn",
+        "to": "ast",
+        "type": "flow",
+        "label": ""
+      },
+      {
+        "from": "ast",
+        "to": "sem",
+        "type": "flow",
+        "label": ""
+      },
+      {
+        "from": "sem",
+        "to": "val",
+        "type": "flow",
+        "label": ""
+      }
+    ]
+  },
+  {
+    "viewBox": "0 0 1180 300",
+    "nodes": [
+      {
+        "id": "r",
+        "x": 530,
+        "y": 10,
+        "w": 120,
+        "h": 72,
+        "label": "+"
+      },
+      {
+        "id": "a",
+        "x": 330,
+        "y": 114,
+        "w": 120,
+        "h": 72,
+        "label": "2"
+      },
+      {
+        "id": "m",
+        "x": 730,
+        "y": 114,
+        "w": 120,
+        "h": 72,
+        "label": "*"
+      },
+      {
+        "id": "b",
+        "x": 630,
+        "y": 218,
+        "w": 120,
+        "h": 72,
+        "label": "3"
+      },
+      {
+        "id": "c",
+        "x": 830,
+        "y": 218,
+        "w": 120,
+        "h": 72,
+        "label": "4"
+      }
+    ],
+    "groups": [],
+    "new_title": "抽象構文木（AST）",
+    "explanation": "",
+    "footer_check": "",
+    "edges": [
+      {
+        "from": "r",
+        "to": "a",
+        "type": "contains",
+        "label": ""
+      },
+      {
+        "from": "r",
+        "to": "m",
+        "type": "contains",
+        "label": ""
+      },
+      {
+        "from": "m",
+        "to": "b",
+        "type": "contains",
+        "label": ""
+      },
+      {
+        "from": "m",
+        "to": "c",
+        "type": "contains",
+        "label": ""
+      }
+    ]
+  },
+  {
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "S",
+        "x": 10,
+        "y": 10,
+        "w": 1160,
+        "h": 90,
+        "label": "2 + 3 * 4 eof",
+        "detail": "0 1 2 3 4 5",
+        "kind": "tokens"
+      },
+      {
+        "id": "n3",
+        "x": 30,
+        "y": 170,
+        "w": 326,
+        "h": 90,
+        "label": "factor が 3",
+        "detail": "Number(3.0)"
+      },
+      {
+        "id": "keep",
+        "x": 30,
+        "y": 290,
+        "w": 326,
+        "h": 90,
+        "label": "expression は",
+        "detail": "Number(2.0) 保持"
+      },
+      {
+        "id": "m",
+        "x": 427,
+        "y": 170,
+        "w": 326,
+        "h": 90,
+        "label": "term が * を take",
+        "detail": "左は Number(3.0)"
+      },
+      {
+        "id": "wait",
+        "x": 427,
+        "y": 290,
+        "w": 326,
+        "h": 90,
+        "label": "右の factor",
+        "detail": "を待つ"
+      },
+      {
+        "id": "b",
+        "x": 824,
+        "y": 170,
+        "w": 326,
+        "h": 90,
+        "label": "Binary('*')",
+        "detail": "3.0 と 4.0"
+      },
+      {
+        "id": "r",
+        "x": 824,
+        "y": 290,
+        "w": 326,
+        "h": 90,
+        "label": "eof で返す",
+        "detail": "未評価の木"
+      }
+    ],
+    "groups": [
+      {
+        "label": "1 pos 2→3",
+        "x": 0,
+        "y": 110,
+        "w": 386,
+        "h": 290
+      },
+      {
+        "label": "2 pos 3→4",
+        "x": 397,
+        "y": 110,
+        "w": 386,
+        "h": 290
+      },
+      {
+        "label": "3 pos 4→5",
+        "x": 794,
+        "y": 110,
+        "w": 386,
+        "h": 290
+      }
+    ],
+    "new_title": "途中2：右のtermで掛け算を作る",
+    "explanation": "",
+    "footer_check": "",
+    "edges": [
+      {
+        "from": "n3",
+        "to": "m",
+        "type": "flow",
+        "label": ""
+      },
+      {
+        "from": "m",
+        "to": "b",
+        "type": "flow",
+        "label": ""
+      },
+      {
+        "from": "b",
+        "to": "r",
+        "type": "flow",
+        "label": "",
+        "points": [
+          [
+            987,
+            260
+          ],
+          [
+            987,
+            290
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "viewBox": "0 0 1180 360",
+    "nodes": [
+      {
+        "id": "L",
+        "x": 20,
+        "y": 10,
+        "w": 340,
+        "h": 80,
+        "label": "左の木",
+        "detail": "Number(2.0)"
+      },
+      {
+        "id": "R",
+        "x": 440,
+        "y": 10,
+        "w": 720,
+        "h": 80,
+        "label": "右の木",
+        "detail": "Binary('*', Number(3.0), Number(4.0))"
+      },
+      {
+        "id": "A",
+        "x": 400,
+        "y": 160,
+        "w": 380,
+        "h": 70,
+        "label": "Binary('+', 左, 右)"
+      },
+      {
+        "id": "P",
+        "x": 360,
+        "y": 280,
+        "w": 460,
+        "h": 70,
+        "label": "expressionから parseへ返る木"
+      }
+    ],
+    "groups": [],
+    "new_title": "途中3：返った木を左の木につなぐ",
+    "explanation": "",
+    "footer_check": "",
+    "edges": [
+      {
+        "from": "L",
+        "to": "A",
+        "type": "flow",
+        "label": "保持していた",
+        "labelAt": [
+          330,
+          140
+        ]
+      },
+      {
+        "from": "R",
+        "to": "A",
+        "type": "flow",
+        "label": "termから返る",
+        "labelAt": [
+          760,
+          140
+        ]
+      },
+      {
+        "from": "A",
+        "to": "P",
+        "type": "flow",
+        "label": "",
+        "points": [
+          [
+            590,
+            230
+          ],
+          [
+            590,
+            280
+          ]
+        ]
+      }
+    ]
+  }
+]

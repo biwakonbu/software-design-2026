@@ -212,3 +212,14 @@ buggy: None corrected: 0
 | README.md | `b71a1d2ee4a8d3cf7da0dfbd87ab477b43f7bc297d7629b2d5c17171bce76e4d` |
 | graphs.py | `31d97d6c840efafe050a803e865443f928df22652669806bb5eef0d27989c156` |
 | test_graphs.py | `6e494840cd9847c7bbe0b26f262e8afe60173c70b7c349e10f833838d3ac23cb` |
+
+
+## 第08回：電卓の字句・構文・意味解析
+
+[検証済み公開Gist](https://gist.github.com/biwakonbu/f6214b0649b0581842fb41cba2fc21e7)。本人所有・publicで、保存後の全3ファイルSHAをreadbackしました。Python3.12.13/3.14.7で4テスト、3375計算と72除算、正常・境界・失敗・CLIのstdout/stderr/終了コードを照合しました。実Opus5.5の公開前レビューは合格（64,585ms）。公開済み自作referenceはbyte一致で、READMEとテストを添えた自習用です。有限の検証範囲と数値の制約をREADMEに明記しました。既存の非公開Gist、授業契約・課題解答・学生情報を収録していません。
+
+| ファイル | SHA-256 |
+|---|---|
+| README.md | `eb114c96c5bfab5edf6c2015c6eeb51c7cd4153366680039336702784a4bbc91` |
+| calculator.py | `678b9c5cfd7f07be6af501600950ab2811968e2ae714a0fc7ff9094c7d3b14cf` |
+| test_calculator.py | `bd017bf596bffcb7bffffb10e9a1b7c2338e31d0ba1e3f326d28d9e4b7e4ad42` |

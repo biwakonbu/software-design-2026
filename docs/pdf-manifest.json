@@ -37,9 +37,9 @@
   },
   {
     "file": "output/pdf/08-calculator.pdf",
-    "pages": 37,
-    "size_bytes": 1777340,
-    "sha256": "741fa885798908613e9e178201044b5d9af6d8040ecfa41013f53022e68026cd"
+    "pages": 40,
+    "size_bytes": 370299,
+    "sha256": "23ffd0bf2e843b6929b4bc1443f0493dff8e86b0469e122adcedd7da471cba94"
   },
   {
     "file": "output/pdf/09-lisp-arithmetic.pdf",

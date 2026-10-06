@@ -1,0 +1,1533 @@
+{
+  "baseline_commit": "f039575096af34c092c6ba2691854e0e745bd0eb",
+  "scope": "第02〜15回の授業PDF506ページを全頁の実画像として再評価。第二次改訂は継続中。",
+  "model": "claude-opus-5-5",
+  "provider": "Claude Code CLI",
+  "audit_receipts_ms": {
+    "02-04": 871669,
+    "05-08": 804209,
+    "09-12": 788346,
+    "13-15": 827388
+  },
+  "lessons": [
+    {
+      "id": "02",
+      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "educational_assessment": "自習用の教材として完成度が高い。各頁で短いコード、出力の予測、実行表、native図が対になっていて、注文データ (ノート200x2 + ペン120x3 = 760) が summary 演習まで一貫している。p5 と p60 で「箱に値を入れるモデル」と「メモリ番地」をはっきり否定しており、この前提は守る必要がある。不足は2点だけ。(1) p21 の native図は「append前」の1コマだけなので、b.append(80) の後に a からも80が見えるという状態の変化が文章にしか書かれていない。p22 の copy とも別々の図に分かれている。(2) p40 の print と return は、結果の行き先の違いを2列のコードと文章だけで説明している。初学者が最もつまずく箇所なのに図がない。p3, p11-12, p46, p48 などは文章と表で足りている。画像は2枚に抑え、既存の学習の流れは崩さない。",
+      "deficits": [
+        {
+          "page": "p3「ファイルとターミナルの役割」",
+          "concept": "保存 (エディタ) と実行 (ターミナル) を分けること",
+          "current_problem": "2列の文章で役割は伝わる。ただし「どこで何を打つか」の順番は文章からしか読めない。",
+          "recommended_change": "画像は不要。左右の列の冒頭に「① エディタで保存」「② ターミナルで実行」と番号を付ける markdown 変更だけにする。",
+          "priority": "low"
+        },
+        {
+          "page": "p11-12「文字列の連結と、数値への変換」「inputの結果と、変換できない入力」",
+          "concept": "文字列の2と整数の2の違い",
+          "current_problem": "print すると同じ見た目になる。ただし type の出力と変換表で具体的に区別できている。",
+          "recommended_change": "現状維持。",
+          "priority": "low"
+        },
+        {
+          "page": "p21「同じリストを指す、2つの名前」",
+          "concept": "2つの名前が1つのリストを共有し、変更が両方から見えること",
+          "current_problem": "native図は b = a 直後の1コマだけ (本文に「右図はappend前」とある)。append の後の状態は文章でしか分からない。名前のラベルと矢印だけの箱なので、「1つの物を2つの名前で指す」実感が持ちにくい。",
+          "recommended_change": "native図は残す。p22 の後に名札の比喩を使った画像の頁を1枚足し、前後の変化と copy との違いを4コマで見比べられるようにする (image_job python02-shared-list-name-tags)。",
+          "priority": "high"
+        },
+        {
+          "page": "p22「copyで、外側のリストを分ける」",
+          "concept": "copy で新しい外側のリストができること",
+          "current_problem": "図は copy 後の状態だけで、p21 の共有と並べて比べる場所がない。",
+          "recommended_change": "上の画像の下段 (③④) で扱う。p22 自体は変えない。",
+          "priority": "medium"
+        },
+        {
+          "page": "p25「浅いコピーと、入れ子の共有」",
+          "concept": "外側は別でも内側の辞書は共有されること",
+          "current_problem": "図の `a : [•]` という表記の読み方が頁のどこにも書かれていない。",
+          "recommended_change": "native_changes の1行説明を足す。図は保持する。",
+          "priority": "medium"
+        },
+        {
+          "page": "p40「printとreturnは、結果の行き先が違う」",
+          "concept": "戻り値は呼び出し元の名前に結び付き、print の表示は値として残らないこと",
+          "current_problem": "コード2列と注記だけで図がない。「画面に400が出たのに x は None」という食い違いが目で追えない。",
+          "recommended_change": "p40 は残し、直後に分割頁を足して return と print の2本の流れを絵で比べる (image_job python02-return-vs-print)。",
+          "priority": "high"
+        },
+        {
+          "page": "p43「引数のリストと、共有される変更」",
+          "concept": "仮引数も呼び出し元と同じリストに結び付くこと",
+          "current_problem": "コードのみ。p21 の共有と同じ仕組みだと示す一言がない。",
+          "recommended_change": "native_changes の1行を足し、名札の図への参照を付ける。",
+          "priority": "low"
+        },
+        {
+          "page": "p46「Tracebackは、最後の行から原因を読む」/ p48「try・exceptで、回復できる失敗を扱う」",
+          "concept": "診断の読む順番 / 例外のときに通る経路",
+          "current_problem": "①②③の読む順番と、通る場所の表で十分に具体的。",
+          "recommended_change": "現状維持。",
+          "priority": "low"
+        }
+      ],
+      "retain_pages": [
+        {
+          "page": "p7 rebind",
+          "reason": "a だけが3を指し、b は2のままという結び直しを正しく示している"
+        },
+        {
+          "page": "p15 if-flow / p33 while-flow + p34 実行表",
+          "reason": "判定の順番と、False で終了することを正確に追える"
+        },
+        {
+          "page": "p19 indices",
+          "reason": "正と負の添字の対応が一目で分かる"
+        },
+        {
+          "page": "p21 binding / p22 copy",
+          "reason": "正確な参照関係を示す図。新しい画像の頁と並べて残す"
+        },
+        {
+          "page": "p23 dictionary / p26 nested-access",
+          "reason": "キーから値、添字からキーへのたどり方が具体的"
+        },
+        {
+          "page": "p25 shallow",
+          "reason": "入れ子の共有を正確に示している (表記の説明だけ足す)"
+        },
+        {
+          "page": "p28 loop + p29 実行表 + p30 比較",
+          "reason": "累積と初期化の位置を、値の変化で追える"
+        },
+        {
+          "page": "p37 call + p38 実行表 / p42 scope",
+          "reason": "呼び出しの順番と、外側の100が保たれることが正確"
+        },
+        {
+          "page": "p50-52 注文集計の分解・orders図・実行表",
+          "reason": "演習の summary へつながる学習の流れの核"
+        },
+        {
+          "page": "p53-60",
+          "reason": "契約・検証・提出案内のテキスト頁。提出、必須、発展の扱いを保持する"
+        }
+      ],
+      "planned_images": [
+        {
+          "asset": "python02-shared-list-name-tags.png",
+          "width": 1280,
+          "height": 640,
+          "learning_goal": "b = a は1つのリストに名札を2枚付けることであり、b.append(80) はその1つのリストを変えるので a からも80が見える。a.copy() は2枚目のリストを作るので、c.append(80) は a に影響しない。この違いを、操作の前後で見比べて説明できるようにする。",
+          "target_in_baseline": "p22「copyで、外側のリストを分ける」の直後に分割頁として挿入 (p21-22 の説明の分割)"
+        },
+        {
+          "asset": "python02-return-vs-print.png",
+          "width": 1280,
+          "height": 640,
+          "learning_goal": "return した400は呼び出し元の x に結び付き、次の計算 x + 10 に使える。print は画面に400を出すだけで、x には None が結び付く。そのため x + 10 は TypeError になる。この2つの行き先を追えるようにする。",
+          "target_in_baseline": "p40「printとreturnは、結果の行き先が違う」の直後に分割頁として挿入"
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "educational_assessment": "AI時代の学習行為を主軸にした構成ができている。highest_draft という1つの題材で5ステップ (言葉にする、予想する、AIに聞く、確かめる、言い直す) を順に体験させている。native図 (LearningLoop, TraceTable, PasteGate, PredictVsActual, NewInputCheck) もそれぞれの行為の頁に合っている。二分探索は p30 の参考と演習B に限られていて、主軸に戻っていない。この形は保つ。弱点は、最初の動機づけになる p4 の対比が名前だけの箱の並びで、「手元に何が残るか」という核心が小さな注記にしかなっていない点。もう1つは p13 の「実装の出力から期待値を作ると同じ誤りを写す」が、AI時代に特有の重要な罠なのに文章とコード1行だけになっている点。人物の絵は最後の p29 にしかない。画像は2枚に抑え、p9 と p24 は markdown の注記で足りる。",
+      "deficits": [
+        {
+          "page": "p4「使い方で、手元に残るものが変わる」",
+          "concept": "答えを受け取って貼る使い方と、学習相手として使う使い方の違い (手元に残るもの)",
+          "current_problem": "AnswerVsLearning は破線と実線の箱にラベルを並べただけで、人の行動と、ノートに残るもの (説明と証拠) が見えない。対比の核心が小さな緑の注記に埋もれている。",
+          "recommended_change": "native は残し、直後に分割頁を足して、2つの机の場面で手元のノートの違いを見せる (image_job ai03-what-remains-two-desks)。",
+          "priority": "high"
+        },
+        {
+          "page": "p9「3 AIに聞く: 答えではなく、ヒントを求める」",
+          "concept": "学習相手にする依頼に含める情報",
+          "current_problem": "依頼文の例はあるが、どの部分が環境なのか、予想なのかといった役割の区別が示されていない。",
+          "recommended_change": "画像は不要。依頼文のコードブロックはそのまま残し、下に役割の順番を1行で示す (native_changes)。",
+          "priority": "medium"
+        },
+        {
+          "page": "p10, p15, p16「ヒント」と「修正を考える」の頁",
+          "concept": "ヒントを手がかりに自分で1行を追うこと",
+          "current_problem": "文章だけだが、p8 の実行表と p12 の比較図に結び付いていて十分に具体的。",
+          "recommended_change": "現状維持。",
+          "priority": "low"
+        },
+        {
+          "page": "p13「4 もっともらしい説明とテストも、確かめる」",
+          "concept": "期待値の出どころ (実装の出力か、仕様と手計算か)",
+          "current_problem": "assertEqual の1行と文章だけで、出力0が期待値にそのまま写され、テストが合格してしまうという循環が目で追えない。",
+          "recommended_change": "p13 は残し、直後に分割頁を足して2本の流れを比べる絵を入れる (image_job ai03-expected-value-source)。",
+          "priority": "high"
+        },
+        {
+          "page": "p24「学習の記録: 判断と検証の根拠を残す」",
+          "concept": "記録の各行と5ステップの対応",
+          "current_problem": "記録例は具体的だが、どの行がどのステップに当たるかが示されていない。",
+          "recommended_change": "1行の対応表記を足す (native_changes)。",
+          "priority": "medium"
+        },
+        {
+          "page": "p25「AIに渡す情報の選択」",
+          "concept": "個人情報・秘密情報を渡さないこと",
+          "current_problem": "箇条書きで正確。実在しそうな個人情報を絵にすると誤解のもとになるので、画像にしない方がよい。",
+          "recommended_change": "現状維持。",
+          "priority": "low"
+        },
+        {
+          "page": "p30「参考: 演習Bの二分探索でも同じ手順」",
+          "concept": "演習B の参考",
+          "current_problem": "参考の位置付けで適切。図を足すと二分探索の授業へ重心が戻ってしまう。",
+          "recommended_change": "変更しない。",
+          "priority": "low"
+        }
+      ],
+      "retain_pages": [
+        {
+          "page": "p5 LearningLoop",
+          "reason": "5ステップ、AIの出番 (3)、1へ戻る線が明確"
+        },
+        {
+          "page": "p7-9, p12, p18 の strip",
+          "reason": "今どのステップにいるかを示す道しるべとして機能している"
+        },
+        {
+          "page": "p8 TraceTable",
+          "reason": "手で追った例と空欄の対比で予想を書かせる。状態の追跡として正確"
+        },
+        {
+          "page": "p11 PasteGate",
+          "reason": "Q1-Q3 から「貼らない」への分岐が行動の判断として明確"
+        },
+        {
+          "page": "p12 PredictVsActual",
+          "reason": "期待値、予想、実行結果の3列と不一致の印で反例を定義している"
+        },
+        {
+          "page": "p20-21 NewInputCheck",
+          "reason": "予想の欄と結果の照合が対になっている"
+        },
+        {
+          "page": "p23 表",
+          "reason": "AIに頼むことと自分で決めることの分担が正確"
+        },
+        {
+          "page": "p29 learning-five-actions.png",
+          "reason": "既存の人物の絵。新しい画像はこの絵柄に合わせる"
+        },
+        {
+          "page": "p30-31",
+          "reason": "Gist の契約と期待出力 (8 tests passed; exhaustive contract: 1764 cases) を保持する"
+        }
+      ],
+      "planned_images": [
+        {
+          "asset": "ai03-what-remains-two-desks.png",
+          "width": 1280,
+          "height": 640,
+          "learning_goal": "AIの答えをそのまま貼ると手元にコードしか残らない。学習相手として使うと、ノートに疑問・予想・実行結果・説明が残る。この違いを人の行動として見せ、5ステップに取り組む動機にする。",
+          "target_in_baseline": "p4「使い方で、手元に残るものが変わる」の直後に分割頁として挿入"
+        },
+        {
+          "asset": "ai03-expected-value-source.png",
+          "width": 1280,
+          "height": 640,
+          "learning_goal": "期待値を実装の出力から作ると、誤りの0がそのまま期待値に写り、テストが合格してしまう。仕様と手計算で -1 を求めると、実行結果0との不一致が反例として見つかる。期待値の根拠を自分で確かめる理由を説明できるようにする。",
+          "target_in_baseline": "p13「4 もっともらしい説明とテストも、確かめる」の直後に分割頁として挿入"
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "educational_assessment": "状態を追う部分は非常に強い。スタックとキューの手順図、半開区間と閉区間の追跡 (v-if=false の正確な表付き)、木の DFS の呼び出しの積み重ね、BFS のキュー表は、正確に追える図なので保持する。弱いのは前半の計算量 (p9-12)。表と文章だけで、n² がどこから来るのか、2倍にすると4倍になる理由が見えない。p16 の list.pop(0) が後ろを詰めるという費用も、言葉だけで書かれている。p22 は精密な追跡の前に置かれた唯一の直感の頁なのに文章だけで、未整列では捨てる根拠が崩れることが見えない。画像は3枚 (p10, p22, p16) にし、p11 と p21 は既存のデータを使った表の追加で補う。",
+      "deficits": [
+        {
+          "page": "p4「前回との接続」",
+          "concept": "二重ループの処理回数",
+          "current_problem": "コードだけで、compare(x, y) が n x n 回呼ばれることが見えない。",
+          "recommended_change": "p10 の画像への参照を1行足す (native_changes)。",
+          "priority": "medium"
+        },
+        {
+          "page": "p6「リストの実装モデル」",
+          "concept": "可変長配列と、先頭を削ると詰めること",
+          "current_problem": "箇条書きだけで、詰める動きが見えない。",
+          "recommended_change": "単独の画像は作らず、p16 の画像を参照する1行を足す。",
+          "priority": "medium"
+        },
+        {
+          "page": "p7, p12「メモリサイズのモデル」「空間計算量」",
+          "concept": "固定長モデルと追加領域",
+          "current_problem": "文章と数値で具体的。p8 の native図が補っている。",
+          "recommended_change": "現状維持。",
+          "priority": "low"
+        },
+        {
+          "page": "p9「時間計算量」",
+          "concept": "O記法の増え方",
+          "current_problem": "名前と説明の表だけ。",
+          "recommended_change": "p10 の画像で具体化する。p9 は変えない。",
+          "priority": "medium"
+        },
+        {
+          "page": "p10「入力を2倍にしたとき」",
+          "concept": "n を2倍にすると一重ループは2倍、二重ループは4倍になること",
+          "current_problem": "数値の表だけで、4倍の理由 (縦も横も2倍になる) が見えない。",
+          "recommended_change": "表を左の列に寄せ、右に正方形の面積の画像を入れる (image_job algo04-doubling-square)。",
+          "priority": "high"
+        },
+        {
+          "page": "p11「ケースによる違い」",
+          "concept": "最良・最悪の比較回数",
+          "current_problem": "文章だけで、具体的なデータがない。",
+          "recommended_change": "既存のデータ [8, 2, 6, 4] で比較回数の表を足す (native_changes)。",
+          "priority": "medium"
+        },
+        {
+          "page": "p16「操作と実装の選択」",
+          "concept": "list.pop(0) は後ろを詰めるので O(n)、末尾の pop は O(1)",
+          "current_problem": "表と1文だけで、詰める動きと費用の差が見えない。",
+          "recommended_change": "表を左の列、画像を右の列に置く (image_job algo04-list-pop-shift)。deque の内部は描かない。",
+          "priority": "medium"
+        },
+        {
+          "page": "p18-19「挿入ソートの考え方」「ソートと検索の総コスト」",
+          "concept": "挿入の段階と総費用",
+          "current_problem": "表と箇条書きで足りている (概観として読む範囲)。",
+          "recommended_change": "現状維持。",
+          "priority": "low"
+        },
+        {
+          "page": "p21「全探索」",
+          "concept": "i < j による候補数 n(n-1)/2",
+          "current_problem": "式だけで、小さい n での具体的な数がない。",
+          "recommended_change": "exercises/04.md の段階2 と同じ数で表を足す (native_changes)。",
+          "priority": "medium"
+        },
+        {
+          "page": "p22「二分探索の前提」",
+          "concept": "昇順なら半分を捨てられるが、未整列では捨てる根拠がないこと",
+          "current_problem": "精密な追跡 (p24・p26) の前に置かれた唯一の直感の頁なのに文章だけ。未整列で見落とす様子が見えない。",
+          "recommended_change": "p22 は残し、直後に分割頁を足してカードの絵で比べる (image_job algo04-binary-search-premise)。",
+          "priority": "high"
+        },
+        {
+          "page": "p36「DFSとBFSの記憶量」",
+          "concept": "深く細い木と浅く広い木での補助記憶",
+          "current_problem": "表だけだが、p30 と p35 の native図と結び付いていて、概観としては足りる。",
+          "recommended_change": "現状維持。",
+          "priority": "low"
+        }
+      ],
+      "retain_pages": [
+        {
+          "page": "p8 ShallowSize04",
+          "reason": "getsizeof が測る範囲 (list本体のみ) を正確に区切っている"
+        },
+        {
+          "page": "p13 スタック / p15 キュー",
+          "reason": "append と pop、popleft の各段階の状態が正確"
+        },
+        {
+          "page": "p24 / p26 IntervalTrace04 と v-if=false の表",
+          "reason": "lo, hi と low, high の更新を正確に追える。分かりやすさの中心"
+        },
+        {
+          "page": "p25 / p27 表",
+          "reason": "半開区間と閉区間の一組の違い、候補1個と0個の扱いが正確"
+        },
+        {
+          "page": "p28 TreeOrder04 predict / p30 DFS / p35 BFS",
+          "reason": "予想の枠、呼び出しの積み重ね、キューの変化を追える"
+        },
+        {
+          "page": "p39 実行結果",
+          "reason": "containers.py と trees.py の出力と照合できる"
+        },
+        {
+          "page": "p41-42 GrowthCounts04",
+          "reason": "予想 → 公開 → 照合の流れ。モデル値であることも明記されている"
+        },
+        {
+          "page": "p43-45 確認問題と解答",
+          "reason": "演習と自分で確かめる問いにつながる"
+        }
+      ],
+      "planned_images": [
+        {
+          "asset": "algo04-doubling-square.png",
+          "width": 1280,
+          "height": 640,
+          "learning_goal": "二重ループの compare(x, y) 1回を正方形の1点と見る。n を100から200にすると、一重ループは長さが2倍 (100 → 200回)、二重ループは同じ正方形4つ分 (10,000 → 40,000回) になる。2倍と4倍の差を、図形の面積として説明できるようにする。",
+          "target_in_baseline": "p10「入力を2倍にしたとき」(既存の頁に2列で挿入)"
+        },
+        {
+          "asset": "algo04-binary-search-premise.png",
+          "width": 1280,
+          "height": 640,
+          "learning_goal": "昇順なら中央と比べて答えがあり得ない半分を捨てられる。未整列の列では、捨てた側に目的の値が残ることがあり、見落として None になる。この前提の違いを、具体的なカードの動きで説明できるようにする。",
+          "target_in_baseline": "p22「二分探索の前提」の直後に分割頁として挿入"
+        },
+        {
+          "asset": "algo04-list-pop-shift.png",
+          "width": 1280,
+          "height": 640,
+          "learning_goal": "list の pop(0) は先頭を取り出した後、残りの要素を1つずつ前へ詰めるので、n 件なら n - 1 個を動かす O(n) になる。末尾の pop() は詰めないので O(1)。この違いを、表の「想定するコスト」と結び付けて説明できるようにする。",
+          "target_in_baseline": "p16「操作と実装の選択」(既存の頁に2列で挿入)"
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "educational_assessment": "既存の native 図（p3 ひし形、p6/p7 有向・無向、p8 重み、p9 隣接リスト＋図、p16 層、p19 親の連鎖、p24/25 追跡表）は正確で、コードとも整合している。不足は、初めての学生が『頂点・辺』を名前だけの箱として受け取る入口（p4/p5）と、訪問済みを入れる時点で記録する理由（p18）。後者は3手順の状態変化を箇条書きだけで伝えている。p11 は2つの表現を比べるのに、どちらの実物も示していない。演習の架空校内マップ（入口A・受付B・図書室C・演習室D・別棟X）は DEMO_GRAPH と同じ形なので、身近な具体例として使える。生成画像は2枚、精密な比較は native 図で補う。",
+      "deficits": [
+        {
+          "page": 4,
+          "concept": "頂点と辺",
+          "current_problem": "題材・頂点・辺の表だけで、実物と抽象の対応を目で追えない。",
+          "recommended_change": "表は残す。直後の p5 に、校内図からグラフへの対応画像を置いて接続する。",
+          "priority": "medium"
+        },
+        {
+          "page": 5,
+          "concept": "モデルの境界（1通路=1辺）",
+          "current_problem": "文章のみ。『各辺を1区間として数える』が何を数えるのか、実物で示していない。",
+          "recommended_change": "生成画像 05-campus-map-to-graph を本文の下に挿入する。",
+          "priority": "high"
+        },
+        {
+          "page": 10,
+          "concept": "出次数・入次数",
+          "current_problem": "コードと文章だけで、矢印の出入りを数える絵がない。",
+          "recommended_change": "native の Graph05 directed 版（A→B→D）に頂点ごとの出／入次数ラベルを付けて再利用する。",
+          "priority": "low"
+        },
+        {
+          "page": 11,
+          "concept": "隣接リストと隣接行列の比較",
+          "current_problem": "比較表だけで、どちらの表現の実物も示していない。",
+          "recommended_change": "native 図を追加：同じ5頂点の隣接リストと 5x5 行列を並べる（画像生成では升目と0/1が崩れやすいため native にする）。",
+          "priority": "medium"
+        },
+        {
+          "page": 12,
+          "concept": "辺数と頂点数",
+          "current_problem": "『辺数2・頂点数3』を文章で述べるだけ。第6回 p19 の『同駅で移動数1』の誤りにつながる。",
+          "recommended_change": "第6回 p5 の生成画像（経路リストと移動数）で扱う。05 では既存の Graph05 diamond の A-B-D に辺番号 1・2 を付ける native 注記に留める。",
+          "priority": "low"
+        },
+        {
+          "page": 14,
+          "concept": "連結成分・到達可能性",
+          "current_problem": "文章のみ。graphs.py の接続成分出力と図が結び付いていない。",
+          "recommended_change": "native の Graph05 adjacency に成分の囲み {A,B,C,D} と {X} を描いて再利用する。",
+          "priority": "low"
+        },
+        {
+          "page": 18,
+          "concept": "キューへ入れた時点で発見済みにする理由",
+          "current_problem": "B と C の両方から D を見つける状態変化を箇条書き3行だけで述べており、queue と parent の変化が見えない。",
+          "recommended_change": "生成画像 05-discovered-once-ledger（3コマ）を挿入する。p24 の追跡表の答えを先に出さないよう、queue は D だけ見せる。",
+          "priority": "high"
+        },
+        {
+          "page": 21,
+          "concept": "DFS を選ぶ場面",
+          "current_problem": "文章のみ。",
+          "recommended_change": "第7回 p8 の Figure07 で DFS の深さ優先を図示するため、05 では追加しない。",
+          "priority": "low"
+        }
+      ],
+      "retain_pages": [
+        {
+          "page": 3,
+          "reason": "ひし形の Graph05 が『同じ頂点へ複数経路』を十分に示している。"
+        },
+        {
+          "page": 6,
+          "reason": "有向辺の矢印で、向きの非対称が読める。"
+        },
+        {
+          "page": 7,
+          "reason": "入口—廊下—教室で、無向辺の具体例として足りている。"
+        },
+        {
+          "page": 8,
+          "reason": "2分＋2分と10分の比較で、辺数と時間の違いを示している。"
+        },
+        {
+          "page": 9,
+          "reason": "コードと図が同じ配置で、孤立頂点X（破線）も明示している。"
+        },
+        {
+          "page": 13,
+          "reason": "三角形で循環の定義には足りる。"
+        },
+        {
+          "page": 16,
+          "reason": "距離の列でBFSの層が読める。"
+        },
+        {
+          "page": 19,
+          "reason": "親の札・たどる向き・reverse の前後が、コードと1対1で対応している。"
+        },
+        {
+          "page": 24,
+          "reason": "空欄の追跡表は、予想を書かせる意図的な設計。埋めない。"
+        },
+        {
+          "page": 25,
+          "reason": "追跡表の答え合わせで、graphs.py の取り出し時判定と一致している。"
+        }
+      ],
+      "planned_images": [
+        {
+          "asset": "05-campus-map-to-graph.png",
+          "width": 1280,
+          "height": 400,
+          "learning_goal": "実際の場所と通路が頂点と辺にどう対応するかを、第5回演習の架空校内マップで目で追える。『1本の通路を1辺と数える』前提と、孤立頂点Xが辺を持たないことを、実物と抽象の両方で確認できる。",
+          "target_in_baseline": "p5「モデルの境界」本文最終行「要求を確認してから、必要なデータを決めます。」の直下"
+        },
+        {
+          "asset": "05-discovered-once-ledger.png",
+          "width": 1280,
+          "height": 400,
+          "learning_goal": "B を処理した時点で D が parent に記録され、C から D を再び見つけても queue に入れず親 B を保つ、という状態変化を3コマで追える。parent が『発見済みの判定』と『直前の頂点』を兼ねることも見える。",
+          "target_in_baseline": "p18「訪問済みを記録する理由」番号付きリスト1〜3の直下、最終文の上"
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "educational_assessment": "実装演習の回で、StageStrip06 の段階表示、RouteGraph06、CliOutcome06、p13 の空欄状態シートが学習導線として機能している。p13 は自分の実装を追わせる意図的な空欄で、答えを示すページはない。ここを埋める画像は作ってはならない。新しい生成画像の価値があるのは、経路リストの長さと移動数（辺数）の取り違え（p19『同駅で移動数1』の原因）を、架空駅の実物で示す1枚だけ。他は native 注記で足りる。",
+      "deficits": [
+        {
+          "page": 5,
+          "concept": "経路リストと移動数（len(path) - 1）",
+          "current_problem": "『経路A,B,D・移動数2』を文字で述べるだけで、頂点数3と辺数2の違いが見えない。p14 の式と p19 の症状が、具体物とつながっていない。",
+          "recommended_change": "生成画像 06-path-list-vs-moves を p5 本文の下に挿入し、p14 本文から参照する。",
+          "priority": "medium"
+        },
+        {
+          "page": 12,
+          "concept": "停止の時点",
+          "current_problem": "文章のみ。ただし『自分の実装に合わせて説明』させる開いた設計。",
+          "recommended_change": "図を追加しない。発見時停止と取り出し時停止のどちらかを教える図は作らない（reference は取り出し時に判定する）。",
+          "priority": "low"
+        },
+        {
+          "page": 13,
+          "concept": "A D の状態の追跡",
+          "current_problem": "空欄。意図どおり。",
+          "recommended_change": "変更しない。答えの画像も作らない。",
+          "priority": "low"
+        },
+        {
+          "page": 16,
+          "concept": "到達不能と入力エラーの区別",
+          "current_problem": "コマンドと文章のみ。",
+          "recommended_change": "p6 の CliOutcome06 で表示と終了コードが見えるため、本文に『p6の表と照合』を1行足すだけにする。",
+          "priority": "low"
+        },
+        {
+          "page": 18,
+          "concept": "駅グラフの循環 A B D E C A",
+          "current_problem": "文章のみで、循環が図のどこにあるか示していない。",
+          "recommended_change": "native の RouteGraph06 で循環の辺5本を太線にした variant を置く。queue や parent の状態は描かない。",
+          "priority": "low"
+        }
+      ],
+      "retain_pages": [
+        {
+          "page": 3,
+          "reason": "StageStrip06 full で、演習段階と講義段階の対応が読める。"
+        },
+        {
+          "page": 4,
+          "reason": "RouteGraph06 が route_data.py の辺と孤立Xを正しく表している。"
+        },
+        {
+          "page": 6,
+          "reason": "CliOutcome06 が関数結果・CLI表示・終了コードを route_reference.py と一致して示している。"
+        },
+        {
+          "page": 9,
+          "reason": "段階の現在地の強調が、戻り読みの導線になる。"
+        },
+        {
+          "page": 10,
+          "reason": "初期状態のコード2行と段階表示で足りる。"
+        },
+        {
+          "page": 11,
+          "reason": "発見のコードが段階表示と対応している。"
+        },
+        {
+          "page": 12,
+          "reason": "停止時点を学生に説明させる開いた設計を保つ。"
+        },
+        {
+          "page": 13,
+          "reason": "意図的な空欄の状態シート。答えを示すページはない。"
+        },
+        {
+          "page": 14,
+          "reason": "復元コードと len(path) - 1 の式は本文に必須で、p5 の画像で補う。"
+        }
+      ],
+      "planned_images": [
+        {
+          "asset": "06-path-list-vs-moves.png",
+          "width": 1280,
+          "height": 400,
+          "learning_goal": "経路リスト ['A', 'B', 'D'] は駅3つ、移動（辺）は2回であり、移動数 = len(path) - 1 になることを列車の乗車で実感できる。同じ駅 ['A'] では移動0になることも並べて確認できる。",
+          "target_in_baseline": "p5「入力と出力」本文最終行『引数を省略するとAからDを使います。…』の直下"
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "educational_assessment": "Figure07 の4図（p4 講評用グラフ、p8 DFS の呼出し、p10 BFS の層と previous、p12 復元）は、flawed_route.py と improved_route.py を手で追った値と一致する。visited={A,B,E,F}、取り出し順 A B C E D、D を取り出す前の queue [D, F] を確認した。足りないのは、同じグラフに2本の経路（4辺と2辺）を重ねた比較（p6/p14）と、『区別できる条件』を持つテストの選び方（p16、文章のみ）。p16 に生成画像1枚、p6/p14 は正確なグラフが必要なので native の重ね描きで補う。",
+      "deficits": [
+        {
+          "page": 6,
+          "concept": "反例：経路の妥当性と最少性",
+          "current_problem": "A C D（2辺）と A B E F D（4辺）を文字で並べるだけで、p4 のグラフ上に重ねていない。",
+          "recommended_change": "native の Figure07 index3 に2経路を線種で重ねる variant を置く。",
+          "priority": "high"
+        },
+        {
+          "page": 14,
+          "concept": "入力変更による確認（A–C を削除）",
+          "current_problem": "文章のみで、変更後のグラフがない。",
+          "recommended_change": "native の Figure07 で A–C を点線と×で消した variant と、残る A B E F D の太線を示す。",
+          "priority": "medium"
+        },
+        {
+          "page": 16,
+          "concept": "区別できる条件を持つテスト",
+          "current_problem": "『A→B では DFS も BFS も1辺』『奥の4辺と近い2辺が違いを出す』を文章だけで述べている。テスト選択の判断が見えない。",
+          "recommended_change": "生成画像 07-distinguishing-test を本文の下に挿入する。",
+          "priority": "high"
+        },
+        {
+          "page": 13,
+          "concept": "仕様に戻る説明",
+          "current_problem": "文章のみ。",
+          "recommended_change": "p10 の層図を本文から参照すれば足りる。追加しない。",
+          "priority": "low"
+        },
+        {
+          "page": 19,
+          "concept": "講評文の書き方",
+          "current_problem": "例文のみ。",
+          "recommended_change": "例文そのものが教材なので図は追加しない。",
+          "priority": "low"
+        }
+      ],
+      "retain_pages": [
+        {
+          "page": 4,
+          "reason": "講評用グラフ（Figure07 index3）が review_data.py の辺と孤立Xを正しく示している。"
+        },
+        {
+          "page": 7,
+          "reason": "DFS の進行表が p8 の図への予想として機能している。"
+        },
+        {
+          "page": 8,
+          "reason": "visit の呼出しと visited {A,B,E,F}、C が未実行であることを、flawed_route.py どおりに示している。"
+        },
+        {
+          "page": 9,
+          "reason": "層の表が p10 の図への予想として機能している。"
+        },
+        {
+          "page": 10,
+          "reason": "previous の矢印、取り出し順 A B C E D、D を取り出す前の queue [D, F] が improved_route.py と一致する。"
+        },
+        {
+          "page": 12,
+          "reason": "cursor・append・path[::-1]・len(path)-1 がコードと1対1で対応している。"
+        }
+      ],
+      "planned_images": [
+        {
+          "asset": "07-distinguishing-test.png",
+          "width": 1280,
+          "height": 400,
+          "learning_goal": "テスト A→B では DFS と BFS の結果が同じ（1辺）で、誤りを検出できない。A→D では 4辺と2辺に分かれ、最少性の違いが見える。数より『区別できる条件』で入力を選ぶ判断を、2枚のテストカードの比較として目で追える。",
+          "target_in_baseline": "p16「テストの不足」本文最終行『この例では、奥の4辺と近い2辺を持つ入力が…』の直下"
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "status": "代表単元の最終43頁レビュー合格・公開検証済み",
+      "educational_assessment": "Figure08 の7図（p6 パイプライン、p12 AST、p20/p21 部分木の受け渡し、p23 左結合、p27 評価の帰り道、p30 停止段階）は calculator.py と一致する（2 + * 3 の column 5、2 @ 3 の column 3 を確認した）。p14〜p21 の表と図で pos の追跡も十分。足りないのは2点。字句解析の入口（p7〜p9）は表と文章だけで、空白を読み飛ばすこと、offset が空白でずれること、未知の文字で止まることが見えない。p13 の EBNF は、3段の規則の入れ子がなぜ優先順位になるのかが見えない。生成画像2枚（p9 は2段組、p13 は分割）と、(2+3)*4 の木の native 図・表記の修正で補う。",
+      "deficits": [
+        {
+          "page": 7,
+          "concept": "トークンと開始位置（offset）",
+          "current_problem": "表は正確だが、文字の並びと offset の目盛りの対応、空白がトークンにならないことが見えない。",
+          "recommended_change": "表は残す。p9 の生成画像で、同じ読み方を3つの入力に適用して示す。",
+          "priority": "medium"
+        },
+        {
+          "page": 8,
+          "concept": "数字をまとめる",
+          "current_problem": "文字の追跡のみ。",
+          "recommended_change": "本文の追跡は正確なので残す。図は追加しない（p9 の画像でトークンカードの見え方を共有する）。",
+          "priority": "low"
+        },
+        {
+          "page": 9,
+          "concept": "空白の読み飛ばしと字句エラー",
+          "current_problem": "3行の文字列例だけで、『同じトークン列でも offset が違う』『@ で止まり取り除かない』が見えない。",
+          "recommended_change": "2段組にし、右に生成画像 08-tokenize-offsets-three-inputs を置く。",
+          "priority": "high"
+        },
+        {
+          "page": 13,
+          "concept": "優先順位を文法の入れ子で表す",
+          "current_problem": "EBNF と2行の説明だけ。expression・term・factor の入れ子が 3*4 を先にまとめる理由が見えず、p12 の木と結び付かない。",
+          "recommended_change": "p13 を分割し、直後のページに生成画像 08-grammar-nested-trays を置く。p13 本体は変更しない。",
+          "priority": "high"
+        },
+        {
+          "page": 25,
+          "concept": "単項マイナスの木",
+          "current_problem": "Binary(\"*\", Unary(\"-\", Number(3)), Number(2)) と表記している。p17 と calculator.py は float（Number(3.0)）で不整合。",
+          "recommended_change": "本文を Binary(\"*\", Unary(\"-\", Number(3.0)), Number(2.0)) に直す。",
+          "priority": "low"
+        },
+        {
+          "page": 37,
+          "concept": "括弧の役割は木の形に残る",
+          "current_problem": "(2+3)*4 の木を文章で説明するだけ。p34 で描かせた木の答え合わせになる図がない。",
+          "recommended_change": "native の Figure08 で 2+3*4 と (2+3)*4 の木を並べる（値 14 と 20 を根の脇に置く）。",
+          "priority": "medium"
+        },
+        {
+          "page": 24,
+          "concept": "括弧の扱い",
+          "current_problem": "疑似手順のみ。",
+          "recommended_change": "p37 に追加する native の木で補う。p24 には追加しない。",
+          "priority": "low"
+        }
+      ],
+      "retain_pages": [
+        {
+          "page": 6,
+          "reason": "字句→構文→評価のパイプラインが一目で読める。"
+        },
+        {
+          "page": 12,
+          "reason": "2 + 3 * 4 の AST が正確で、p13 の分割ページの右側の木と同形。"
+        },
+        {
+          "page": 14,
+          "reason": "トークンの添字と offset の表は正確な状態表で、本文に必須。"
+        },
+        {
+          "page": 16,
+          "reason": "current と take の pos の表は精密な追跡で、本文に必須。"
+        },
+        {
+          "page": 19,
+          "reason": "途中1の表が parser のコードと一致している。"
+        },
+        {
+          "page": 20,
+          "reason": "pos 2→5 の3コマが右の term の未評価の木を示している。"
+        },
+        {
+          "page": 21,
+          "reason": "左の木と右の木を Binary('+') でつなぐ受け渡しが明確。"
+        },
+        {
+          "page": 23,
+          "reason": "while で node を包み直す3コマで、左結合が見える。"
+        },
+        {
+          "page": 27,
+          "reason": "評価順 1〜5 と 14.0 が evaluate のコードと一致している。"
+        },
+        {
+          "page": 30,
+          "reason": "段階ごとの停止、column 3/5、exit 0/1 が calculator.py の CLI と一致している。"
+        }
+      ],
+      "planned_images": [
+        {
+          "asset": "08-cards-to-tree.png",
+          "width": 1280,
+          "height": 640,
+          "learning_goal": "Students can see that the string '2+3*4' becomes 6 cards (including eof), that the * subtree (3, 4) is assembled first and hung under the right of +, and that evaluating the tree gives 12 and then 14. The goal is that they can name the root (+), the token count (6), and the return value of term (a tree, not 12).",
+          "target_in_final_pdf": 7
+        },
+        {
+          "asset": "08-three-stops.png",
+          "width": 1280,
+          "height": 640,
+          "learning_goal": "For three inputs, students can tell what each one produced before it stopped: '2 @ 3' never becomes a card (字句), '2 + * 3' has all its cards but no tree can be built (構文), and '1 / 0' has a tree but no value (評価). They can also see that the column number counts spaces as characters (3文字目 / 5文字目).",
+          "target_in_final_pdf": 31
+        }
+      ],
+      "implementation_note": "先行代表設計を採用。全回監査の代替2案は未実装として保持せず、実際に追加した2画像を記録する。"
+    },
+    {
+      "id": "09",
+      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "educational_assessment": "p11・p14・p22 のnative図はpos・評価順・tryの位置を正確に追えていて、残すべき図なのよ。足りないのは、新しい考え方を初めて出す頁かしら。p3（中置記法と前置記法の比較）は文章だけで、括弧が電卓の優先順位の代わりをするという今回の要点が目に見えないわ。p7 は字句解析・読取・評価・表示の段階名だけが並ぶ表で、同じ入力が各段階で何に変わるかが描かれていないのよ。そのため、p8 のトークン列・p9 の木・p5 の値7 が1本の流れとしてつながらないかしら。誤りが起きる段階（p17・p18）と可変長演算の左畳み込み（p16）も、実際の出力がないまま予想だけを求めていて、答え合わせをする材料が本文にないのよ。",
+      "deficits": [
+        {
+          "page": 3,
+          "concept": "中置記法の優先順位と、前置記法の括弧によるまとまり",
+          "current_problem": "`1 + 2 * 3` と `(+ 1 (* 2 3))` を比べると書くだけで、両者が同じ木になること、そして括弧が優先順位の規則の代わりになることが図で示されていない。",
+          "recommended_change": "生成画像 09-infix-prefix-same-tree を本文の下に入れる。本文3行は残す。",
+          "priority": "high"
+        },
+        {
+          "page": 7,
+          "concept": "読取と評価の4段階",
+          "current_problem": "段階名と仕事を並べただけの表で、同じ入力が各段階で何になるかが描かれていない。名前だけの箱の状態。",
+          "recommended_change": "表は残し、次頁へ案内する1行を足す。p8 に生成画像 09-read-eval-print-pipeline を入れ、同じ入力を4段階で追えるようにする。",
+          "priority": "high"
+        },
+        {
+          "page": 6,
+          "concept": "リストの先頭と残り",
+          "current_problem": "「先頭と残りに分けます」が文章だけで、具体的なデータがない。",
+          "recommended_change": "1行を足す: `(+ 1 2)` は先頭 `+`、残り `(1 2)`。画像は作らない。",
+          "priority": "low"
+        },
+        {
+          "page": 16,
+          "concept": "可変長の減算・除算を左から順に計算すること",
+          "current_problem": "結果の 5 と 2 だけが書かれ、途中の値がない。",
+          "recommended_change": "2行の追跡表を足す（native_changes 参照）。",
+          "priority": "medium"
+        },
+        {
+          "page": 17,
+          "concept": "評価時の失敗（ゼロ除算）",
+          "current_problem": "実際の診断文がなく、構文エラーとの違いを出力で確かめられない。",
+          "recommended_change": "p21 に、参照版の診断文を並べた表を足す（native_changes 参照）。",
+          "priority": "medium"
+        },
+        {
+          "page": 18,
+          "concept": "括弧の不足と余分な括弧を検出する段階",
+          "current_problem": "予想を求めるだけで、答え合わせの頁がない。",
+          "recommended_change": "p21 の表で答え合わせをする。p18 は予想の頁として、そのまま残す。",
+          "priority": "medium"
+        },
+        {
+          "page": 19,
+          "concept": "REPL の4つの文字",
+          "current_problem": "名前と役割を並べただけの表。",
+          "recommended_change": "画像は作らない。p22 のnative図で足りるので、p19 には「p20の3入力をp22の図で追います」の1行だけ足す。",
+          "priority": "low"
+        }
+      ],
+      "retain_pages": [
+        1,
+        2,
+        4,
+        5,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        20,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29
+      ],
+      "planned_images": [
+        {
+          "asset": "09-infix-prefix-same-tree.png",
+          "width": 1280,
+          "height": 440,
+          "learning_goal": "電卓の式とLispの式が同じ計算の木を表すこと、そしてLispでは優先順位の規則ではなく括弧がまとまりを示すことを、1枚の絵で対応づける。",
+          "target_in_baseline": "p3 前回との接続（本文3行の直下）"
+        },
+        {
+          "asset": "09-read-eval-print-pipeline.png",
+          "width": 1280,
+          "height": 440,
+          "learning_goal": "p7 の4段階の名前を、同じ入力 (+ 1 (* 2 3)) が「文字列→トークン9個→入れ子のリスト→値7→表示7」と変わる具体的なデータに結び付け、参照版の関数名とも対応させる。",
+          "target_in_baseline": "p8 トークン列（コードブロックと本文1行の直下）。p7 の表の下に「次頁で同じ入力を4段階で追います」の1行を足す"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "educational_assessment": "初めて出会う構造（環境・特殊形式・クロージャ・再帰）が一番多く、生成画像の効果が一番大きい回なのよ。p9（define）、p23（同名の引数）、p26（if）のnative図は、分岐と検索が止まる場所を正確に示していて、そのまま残せるかしら。弱いのは2か所。p6・p7 の環境は表と文章だけで、定義の前後で何が変わるか、検索に失敗するとどうなるかが動きとして見えないわ。p18〜21 のmake-adderの4状態は、細い四角と矢印が1頁ずつ並ぶだけなのよ。「呼出しが終わってもE5を使える」理由が「参照が残る」という言葉頼みで、値のコピーと誤解されやすいかしら。既存の closure-environments.png は非表示で、内容もnative図と同じ箱と矢印なのよ。",
+      "deficits": [
+        {
+          "page": 6,
+          "concept": "環境（名前→値の表と、外側への参照）",
+          "current_problem": "静的な表だけで、検索という動きが描かれていない。",
+          "recommended_change": "表は残す。p7 に生成画像 10-define-adds-binding を入れる。",
+          "priority": "high"
+        },
+        {
+          "page": 7,
+          "concept": "記号の評価は環境の検索で、見つからなければ診断になる",
+          "current_problem": "文章3行だけで、具体的な診断文も、定義の前後の状態変化もない。",
+          "recommended_change": "生成画像 10-define-adds-binding（定義前→define→定義後の3コマ）を本文の下に入れる。",
+          "priority": "high"
+        },
+        {
+          "page": 10,
+          "concept": "特殊形式",
+          "current_problem": "文章だけ。",
+          "recommended_change": "画像は作らない。p9 のnative図で足りる。",
+          "priority": "low"
+        },
+        {
+          "page": 12,
+          "concept": "Closure が保持する3つのフィールド",
+          "current_problem": "dataclass のコードはあるが、具体例の C5 との対応がない。",
+          "recommended_change": "p17 の画像のキャプションで「C5 は parameters=(y)、body=((+ x y))、environment=E5」と対応づける。p12 自体は変えない。",
+          "priority": "medium"
+        },
+        {
+          "page": 15,
+          "concept": "引数個数の診断",
+          "current_problem": "実際の診断文がない。",
+          "recommended_change": "native_changes で診断文を足す。",
+          "priority": "medium"
+        },
+        {
+          "page": 17,
+          "concept": "クロージャの4状態の全体像",
+          "current_problem": "コードと文章だけで、この後のp18〜21で何を追うのかの地図がない。",
+          "recommended_change": "生成画像 10-closure-keeps-e5（p19〜21に対応する3コマ）をp17の本文の下に入れる。",
+          "priority": "high"
+        },
+        {
+          "page": 20,
+          "concept": "呼出しが終わってもE5への参照が残る",
+          "current_problem": "native図は1行の箱で、「参照が残る」の意味をコピーと区別できない。",
+          "recommended_change": "native図は残す。p17 の画像のコマ3で、紐の形により参照を示す。",
+          "priority": "high"
+        },
+        {
+          "page": 27,
+          "concept": "quote は評価を止める",
+          "current_problem": "2式の結果が書かれていない。",
+          "recommended_change": "native_changes で結果を足す。",
+          "priority": "medium"
+        },
+        {
+          "page": 30,
+          "concept": "再帰の下降と復帰",
+          "current_problem": "native図は下降だけを描き、戻り値の流れが p31 の表と別の頁に分かれている。",
+          "recommended_change": "Figure10 index 8 に戻り値の矢印を足す（native_changes 参照）。生成画像は作らない。",
+          "priority": "medium"
+        },
+        {
+          "page": 20,
+          "concept": "既存の非表示画像",
+          "current_problem": "closure-environments.png が v-if=false で2か所から参照され、内容はnative図と同じ。",
+          "recommended_change": "新しい画像が受入を通るまで、非表示のまま残す。ファイルの削除は確認してから行う。",
+          "priority": "low"
+        }
+      ],
+      "retain_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        8,
+        9,
+        11,
+        13,
+        14,
+        16,
+        18,
+        19,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        28,
+        29,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ],
+      "planned_images": [
+        {
+          "asset": "10-define-adds-binding.png",
+          "width": 1280,
+          "height": 420,
+          "learning_goal": "記号の評価は大域環境Gを探すこと、見つからなければ unknown symbol の診断になること、define がGに束縛を1つ追加して後の検索を成功させることを、同じ掲示板の状態変化で示す。",
+          "target_in_baseline": "p7 名前の評価（本文3行の直下）"
+        },
+        {
+          "asset": "10-closure-keeps-e5.png",
+          "width": 1280,
+          "height": 400,
+          "learning_goal": "make-adder の呼出しが終わった後も、関数値C5が保存環境E5を参照しているので x = 5 を使えること、そして (add5 3) では新しいE3の外側がE5になることを、値のコピーと誤解されない形で示す。",
+          "target_in_baseline": "p17 クロージャの例（コードブロックと本文2行の直下）"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "educational_assessment": "lexer の状態（p12〜14）、list と quote（p17）、car・cdr・cons（p19）、read_all の失敗位置（p26）、実行の層（p29）、式の分解（p31）は、native図と追跡表で具体的に追えて、十分なのよ。不足は主経路の「複数式が1つの大域環境を共有する」部分かしら。p6〜p9 は文章と表だけで、ファイルの式・共有するG・呼出しごとの局所環境・端末出力という4つの物の対応が見えないわ。各呼出しのxは別の環境という大事な区別も、文章1行だけなのよ。",
+      "deficits": [
+        {
+          "page": 8,
+          "concept": "スクリプト内の式が1つの大域環境を共有すること",
+          "current_problem": "文章3行だけで、定義を引き継ぐ様子と、環境を作り直す反例が描かれていない。",
+          "recommended_change": "生成画像 11-script-shared-global を本文の下に入れる。",
+          "priority": "high"
+        },
+        {
+          "page": 9,
+          "concept": "大域環境と、呼出しごとの局所環境",
+          "current_problem": "表は正確だが、x=5 と x=7 が別の環境であることが文章1行だけ。",
+          "recommended_change": "表は残す。p8 の画像で2つの局所環境を見せ、p9 は表で答え合わせする頁にする。",
+          "priority": "medium"
+        },
+        {
+          "page": 7,
+          "concept": "読取器の反復",
+          "current_problem": "文章だけ。",
+          "recommended_change": "画像は作らない。p26 のnative図（read_all→sequence）で足りる。",
+          "priority": "low"
+        },
+        {
+          "page": 13,
+          "concept": "文字列内の状態を1文字ずつ追うこと",
+          "current_problem": "表で追えるが、文字の位置と状態は直接対応していない。",
+          "recommended_change": "今回は画像を作らない。p12 の状態図と p13・p14 の表の組合せで足りる。頁の余白がなく、入れると分割が必要になるため。",
+          "priority": "low"
+        },
+        {
+          "page": 20,
+          "concept": "空リストの car の診断",
+          "current_problem": "「診断も決めておきます」とあるだけで、参照版の診断文がない。",
+          "recommended_change": "native_changes で診断文を足す。",
+          "priority": "low"
+        },
+        {
+          "page": 24,
+          "concept": "入出力と言語の境界",
+          "current_problem": "文章だけ。",
+          "recommended_change": "画像は作らない。p29 の層の図で足りる。",
+          "priority": "low"
+        }
+      ],
+      "retain_pages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        21,
+        22,
+        23,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30,
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38
+      ],
+      "planned_images": [
+        {
+          "asset": "11-script-shared-global.png",
+          "width": 1280,
+          "height": 440,
+          "learning_goal": "ファイルの5式が順に1つのGを共有すること、1式目の define が登録した square を2式目と4式目が見つけること、呼出しごとに別の局所環境（x = 5、x = 7）ができること、端末に 25・49・() が出ることを、物の対応で示す。式ごとにGを作り直す反例も小さく添える。",
+          "target_in_baseline": "p8 環境の共有（本文3行の直下）"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "educational_assessment": "m-eval の分岐順（p8）、if（p16）、算術の委譲（p18）、env の構造（p24）、eval と apply（p28）のnative図は、evaluator.lisp の分岐と一致していて精密追跡に必要なのよ。保持すべきかしら。弱いのは、この回で一番新しい「ホストと対象の2つの環境」を説明する p4 が文章3行だけな点なのよ。評価器が同じLispで書かれていて、対象環境は () で空、primitive だけが橋になる、という関係が見えないわ。二重quote（p11〜p13）も表だけで、2枚の quote がどの層で外れるかという動きが追いにくいのよ。p26・p27・p29・p30 は第14回へ向けた設計の文章で、今ここで絵にすると未実装の動作を教えてしまうから、画像にはしないかしら。",
+      "deficits": [
+        {
+          "page": 4,
+          "concept": "ホスト言語と対象言語の、2つの環境",
+          "current_problem": "文章3行だけ。同じLispなのに環境が別であることが見えない。",
+          "recommended_change": "生成画像 12-host-and-target-environments を本文の下に入れる。",
+          "priority": "high"
+        },
+        {
+          "page": 6,
+          "concept": "ホスト側の機能と評価器での用途",
+          "current_problem": "名前だけの表。",
+          "recommended_change": "表は残す。p4 の画像のホスト環境のカードと対応させる。",
+          "priority": "medium"
+        },
+        {
+          "page": 9,
+          "concept": "文字列とS式の2種類の入力",
+          "current_problem": "文章だけ。",
+          "recommended_change": "p4 の画像の『ホストの reader』の矢印で対応する。p9 は変えない。",
+          "priority": "low"
+        },
+        {
+          "page": 12,
+          "concept": "二重quoteがどの層で外れるか",
+          "current_problem": "コード1行と文章だけで、外側の quote と内側の quote が別々に外れる動きが見えない。",
+          "recommended_change": "生成画像 12-double-quote-layers を本文の下に入れる。p13 の表は追跡用に残す。",
+          "priority": "high"
+        },
+        {
+          "page": 19,
+          "concept": "primitive への委譲を + - * / だけに限ること",
+          "current_problem": "文章だけ。",
+          "recommended_change": "p4 の画像の『primitive (+ - * / だけ)』の窓で示す。p19 は変えない。",
+          "priority": "medium"
+        },
+        {
+          "page": 26,
+          "concept": "ホストの名前と対象の名前",
+          "current_problem": "文章だけで、「図に書いてください」と求めている。",
+          "recommended_change": "1行を足す: 「p4 の図の2つの環境で考えます。」画像は作らない（対象の define は第14回の範囲）。",
+          "priority": "medium"
+        },
+        {
+          "page": 33,
+          "concept": "最小評価器の反例",
+          "current_problem": "未定義名・未知の演算子・型の違いを試すよう書くだけで、出力がない。",
+          "recommended_change": "native_changes で出力を足す。",
+          "priority": "medium"
+        },
+        {
+          "page": 29,
+          "concept": "対象のクロージャ・環境の共有（第14回へ）",
+          "current_problem": "文章だけ。",
+          "recommended_change": "画像は作らない。第12回の参照版にない動作を絵にしないため。",
+          "priority": "low"
+        }
+      ],
+      "retain_pages": [
+        1,
+        2,
+        3,
+        5,
+        7,
+        8,
+        10,
+        11,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        27,
+        28,
+        30,
+        31,
+        32,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39
+      ],
+      "planned_images": [
+        {
+          "asset": "12-host-and-target-environments.png",
+          "width": 1280,
+          "height": 440,
+          "learning_goal": "--meta では、Python製ホストの上で evaluator.lisp の m-eval が動くこと、対象の式は reader が作ったデータとして渡されること、対象環境は第12回では () で空であること、ホストの機能は primitive（+ - * / だけ）を通してしか使わないことを、2つの環境として区別させる。",
+          "target_in_baseline": "p4 対象言語とホスト（本文3行の直下）"
+        },
+        {
+          "asset": "12-double-quote-layers.png",
+          "width": 1280,
+          "height": 360,
+          "learning_goal": "外側の quote はホストが外し、内側の quote は対象の m-eval が car・cdr で分解して外すこと、そして結果のリスト (+ 1 2) は表示されるだけで再評価されず、3 にならないことを、2重の封筒が順に開く動きで示す。",
+          "target_in_baseline": "p12 二重quoteを渡すホストの呼出し（コードと本文3行の直下）"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "educational_assessment": "前回の技術検査は、図が描画され内容が実装と一致することの確認だった。教育効果の観点では不足がある。28頁のうち native 図は p10・p13・p18 の3枚だけで、この3枚は評価順・字句スコープ・meta ログを十分に説明している。一方、授業の中心活動である『予測→観察→説明→更新』(p4・p5・p21・p25)と、議論1の『読取と評価の区別』(p6・p7)は、短い文章の指示だけで終わっている。初学者は、何を書けば記録になるのか、quote がどの段で評価を止めるのかを絵で確かめられない。クロージャ(p11-p12)と名前の隠蔽(p14-p15)は、第10回の4状態図・同名引数図で既に視覚化されているので、新しい画像ではなく参照導線で補う。二重の評価(p19)も第12回 p13 の表で答え合わせできる。不具合の分類(p23)には、実際の最小入力と表示文言がない。",
+      "deficits": [
+        {
+          "page": 4,
+          "concept": "議論の進め方(予測・観察・説明・更新の循環)",
+          "current_problem": "4文の手順だけで、1つの式で回したときに何を記録するか見えない。exercises/13.md の受入条件(予測・観察・説明・更新)とも視覚的に結び付いていない",
+          "recommended_change": "直後に分割ページを1枚追加し、生成画像 l13-discussion-cycle-if を置く。p4 本文はそのまま残す",
+          "priority": "high"
+        },
+        {
+          "page": 5,
+          "concept": "証拠の持ち寄り(入力・期待・実際・関連コード・コマンド)",
+          "current_problem": "記録の項目名が並ぶだけで、記入例がない",
+          "recommended_change": "新規画像は作らない。l13-discussion-cycle-if の『② 観察』パネルを記入例として参照する1行を追加",
+          "priority": "low"
+        },
+        {
+          "page": 7,
+          "concept": "読取と評価の区別、quote による評価の停止",
+          "current_problem": "『(quote missing) は成功するか』を問うが、答え合わせの図がない。第10回 p27 も文章だけで、名前を探すのが評価段だけだと目で追えない",
+          "recommended_change": "p7 は問いのページとして残し、直後に diagram-page を分割追加して生成画像 l13-quote-read-vs-eval を置く",
+          "priority": "high"
+        },
+        {
+          "page": 11,
+          "concept": "make-adder のクロージャで x が残る場所",
+          "current_problem": "『x がどこに残るかを図にしてください』に対して、13回の中に答え合わせの導線がない",
+          "recommended_change": "第10回『クロージャの例』〜『4 add5の呼出し』の4状態図(closure-environments.png と Figure10 index 4-7)への参照を p12 に1行追加。新画像は作らない",
+          "priority": "medium"
+        },
+        {
+          "page": 15,
+          "concept": "共有と分離(単一辞書案が外側の x を壊す)",
+          "current_problem": "検証後の説明を照合する図がない",
+          "recommended_change": "第10回『x は近い環境で止まる』(Figure10 index 1)への参照を1行追加。第15回 p11 で同じ反例を再び扱うことも明記",
+          "priority": "low"
+        },
+        {
+          "page": 19,
+          "concept": "二重の評価で quote が外れる層",
+          "current_problem": "問いだけで答え合わせ先がない",
+          "recommended_change": "第12回『データは各層でどう変わるか』の表で答え合わせする旨を1行追加。新画像は作らない",
+          "priority": "medium"
+        },
+        {
+          "page": 20,
+          "concept": "セルフホスティングで残るホスト依存",
+          "current_problem": "『読取・eval・入出力を別々に確かめる』とあるが、担当の対応が書かれていない",
+          "recommended_change": "1行追加: 読取は read_all(Python)、式の意味は m-eval(Lisp)、算術は primitive(Python)。第14回 p8 の新図で詳しく扱う",
+          "priority": "low"
+        },
+        {
+          "page": 23,
+          "concept": "不具合の3分類",
+          "current_problem": "『構文が読めない/名前がない/適用できない』の名前だけで、最小入力と実際の表示がない",
+          "recommended_change": "native の3行表を同じページに追加(native_changes 参照)",
+          "priority": "medium"
+        },
+        {
+          "page": 25,
+          "concept": "理解の記録",
+          "current_problem": "記録の形の例がない",
+          "recommended_change": "l13-discussion-cycle-if を参照する1行を追加",
+          "priority": "low"
+        }
+      ],
+      "retain_pages": [
+        {
+          "page": 10,
+          "reason": "関数 my-if と特殊形式 if を2レーンで比べ、途中と結果(division by zero / 8)まで示している。figures13.json の verification の値と一致"
+        },
+        {
+          "page": 13,
+          "reason": "定義時の G と呼出し元 E99 を対比し、『動的なら100』の反実仮想まで描いている。p12 の問いの答えとして十分"
+        },
+        {
+          "page": 18,
+          "reason": "meta 行の depth 別展開と、ログに出ない情報(戻り値・環境・host行)を分けて示しており、p17 の問いに直接答えている"
+        },
+        {
+          "page": 24,
+          "reason": "AI回答の検討。AI時代の学習行為は第03回の主題なので、ここでは現状の短い指示を保つ"
+        },
+        {
+          "page": 2,
+          "reason": "到達目標。図は不要"
+        },
+        {
+          "page": 26,
+          "reason": "到達の確認。図は不要"
+        },
+        {
+          "page": 28,
+          "reason": "参考。図は不要"
+        }
+      ],
+      "planned_images": [
+        {
+          "asset": "l13-quote-read-vs-eval.png",
+          "width": 1280,
+          "height": 720,
+          "learning_goal": "読取は文字をリストや記号のデータにするだけで、名前を探さない。評価で先頭が quote なら引数をそのまま返し、環境を探さない。quote のない missing は評価段で環境を探して失敗する。この違いを2レーンで目で追えるようにする",
+          "target_in_baseline": "lectures/13.md『議論1 評価の停止』(PDF p7)の直後に diagram-page を分割追加"
+        },
+        {
+          "asset": "l13-discussion-cycle-if.png",
+          "width": 1280,
+          "height": 720,
+          "learning_goal": "1つの式について、予測・観察・説明・更新(反例)の4記録をペアで回す様子を見て、自分の議論記録に同じ形を作れるようにする。最初の予測が外れても、反例で説明を更新するのが目的だと伝える",
+          "target_in_baseline": "lectures/13.md『議論の進め方』(PDF p4)の直後に分割ページを追加"
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "educational_assessment": "native 図8枚と生成画像1枚(p33)があり、対象環境・apply・REPL の各段階には図が付いている。ただし、学生がつまずく箇所が2つ残る。(1) p7『本日の実行構成』は名前だけの箱で、p8 の `--meta --eval \"(+ 1 (* 2 3))\"` が層をどう往復して 7 になるかを、値で追えない。読取・算術・表示がホスト、意味の判断が Lisp という目標3の中心が抽象語のままになっている。(2) p15-p16 の共有セルは、native 図のラベルが『(car G) (prims)』『((fact C) prims)』と記号的である。そのため、なぜコピーではだめで、参照なら後から定義した fact が見つかるのかという動機が伝わらない(第12回 p30 で予告済みの論点)。square の適用(p17-p24)と REPL(p28-p33)は表・図・既存画像で十分に追える。ホスト環境と対象環境の区別は、p41 に実在する名前の例を1文足せば足り、新しい画像は不要と判断する。",
+      "deficits": [
+        {
+          "page": 8,
+          "concept": "評価器だけの起動で、値が層を往復する流れ",
+          "current_problem": "コマンドと結果 7 だけがあり、read_all→m-eval→primitive→print の担当と途中の値 (2 3)→6、(1 6)→7 が見えない。p7 の native 図は概観で、具体値がない",
+          "recommended_change": "p8 の同じページに生成画像 l14-meta-eval-layers-7 を挿入する(新ページなし)。p7 の native 図は概観として残す",
+          "priority": "high"
+        },
+        {
+          "page": 15,
+          "concept": "クロージャは G のコピーでなく参照を保存し、m-define が同じ frame-cell を差し替える",
+          "current_problem": "文章4行と予測の問いのみ。p16 の native 図は正確だが記号的で、コピー案との比較(なぜ参照が必要か)がない",
+          "recommended_change": "p15(問い)と p16(native 詳細)の間に分割ページを1枚追加し、生成画像 l14-closure-shared-env-vs-copy を置く",
+          "priority": "high"
+        },
+        {
+          "page": 10,
+          "concept": "対象式の分類と分岐順",
+          "current_problem": "3文のみ。分岐順の図は第12回 p8 にあるが参照導線がない",
+          "recommended_change": "第12回『m-eval の分岐順』への参照を1行追加し、define・lambda・begin が特殊形式の分岐に加わったことを明記する",
+          "priority": "low"
+        },
+        {
+          "page": 26,
+          "concept": "make-adder の保存環境",
+          "current_problem": "コードと『説明してください』だけ。第10回の同じ例(add5)の4状態図への導線がない",
+          "recommended_change": "『第10回の4状態図を、G・E5・E3 を対象環境として読み直します』と1行追加(exercises/14.md の記述と一致させる)",
+          "priority": "medium"
+        },
+        {
+          "page": 41,
+          "concept": "対象環境とホスト環境の探索先",
+          "current_problem": "ホストに x = 100 がある仮定の説明だけで、実在する名前の具体例がない",
+          "recommended_change": "native の1文を追加(native_changes 参照)",
+          "priority": "medium"
+        },
+        {
+          "page": 43,
+          "concept": "達成範囲とホスト依存の列挙",
+          "current_problem": "依存先の列挙だけで、どの段階の処理かを図と結び付けていない",
+          "recommended_change": "『p8 の図の下段が、ここで挙げたホスト依存です』と1行で参照する",
+          "priority": "low"
+        }
+      ],
+      "retain_pages": [
+        {
+          "page": 7,
+          "reason": "全体の概観として残す。具体値の流れは p8 の新画像が受け持つ"
+        },
+        {
+          "page": 11,
+          "reason": "env/frame-cell/bindings/parent の構造を README と同じ表現で示している"
+        },
+        {
+          "page": 13,
+          "reason": "E→G の外側探索を、本文の y=3、x=5 と一致して示している"
+        },
+        {
+          "page": 16,
+          "reason": "set-car! による同じ cell の差し替えと、E4→G での発見を正確に追える。新画像の後に詳細版として残す"
+        },
+        {
+          "page": 18,
+          "reason": "クロージャの4要素が表で正確に示されている"
+        },
+        {
+          "page": 20,
+          "reason": "適用前の値を表で正確に示している"
+        },
+        {
+          "page": 21,
+          "reason": "E6 の外側が保存環境 G であることを示している"
+        },
+        {
+          "page": 23,
+          "reason": "m-eval と m-apply の往復、primitive への (6 6)、36 の戻りまで示している"
+        },
+        {
+          "page": 24,
+          "reason": "本文と戻り値の表。E6 と G の検索先が明確"
+        },
+        {
+          "page": 28,
+          "reason": "同じ env を渡す呼出し連鎖を示している"
+        },
+        {
+          "page": 32,
+          "reason": "REPL 1回分のホストと Lisp の担当を、(/ 1 0) から次の行の 8 まで示している"
+        },
+        {
+          "page": 33,
+          "reason": "既存の生成画像 repl-error-continuation.png。正常・失敗・正常と、共有環境 x = 5 の継続が一目で分かる"
+        }
+      ],
+      "planned_images": [
+        {
+          "asset": "l14-meta-eval-layers-7.png",
+          "width": 1280,
+          "height": 640,
+          "learning_goal": "`--meta --eval \"(+ 1 (* 2 3))\"` で、文字をデータにするのは Python の read_all、名前の検索と評価順を決めるのは Lisp の m-eval、掛け算と足し算の計算は Python の primitive、表示は Python の print であることを、途中の値 (2 3)→6、(1 6)→7 で追えるようにする",
+          "target_in_baseline": "lectures/14.md『評価器だけの起動』(PDF p8)に同じページで挿入"
+        },
+        {
+          "asset": "l14-closure-shared-env-vs-copy.png",
+          "width": 1280,
+          "height": 720,
+          "learning_goal": "lambda を評価した時点の G に fact はまだない。それでも (fact 4) の中で fact が見つかるのは、クロージャが G のコピーではなく同じ G(frame-cell)への参照を持ち、m-define がその中身を set-car! で差し替えるからである。仮のコピー案では見つからないことと比べて理解する",
+          "target_in_baseline": "lectures/14.md『定義と共有セル』(PDF p15)と『共有セルの差し替え』(PDF p16)の間に分割ページを追加"
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "status": "教育監査・画像設計済み。教材への反映と最終検証は未完了。",
+      "educational_assessment": "講評回のため、新しい概念は少ない。native 図3枚(p11 例B、p14 層と委譲、p16 fixture 経路)は正確で、p11 と p14 は十分に役立っている。不足は2つ。(1) 中心活動である作者と聞き手の1往復(p5、p17-p19)が文章だけで、『事実と提案を分けて記録する』姿が見えない。(2) p15『証拠の比較』は4種類の証拠を抽象名で並べた表で、1つの動作を4つの証拠で確かめる具体例がない。p16 の fixture 図は代表例が '() で、エラー系を診断語の一部で比較する規則を示せていない。p21 のデータ構造との接続は文章だけなので、native 表で前半との対応を示す。",
+      "deficits": [
+        {
+          "page": 5,
+          "concept": "講評の進め方(作者と聞き手の役割、事実と提案の分離)",
+          "current_problem": "4文の手順だけで、聞き手がどんな小さな反例を出し、どう記録するかの具体像がない",
+          "recommended_change": "直後に分割ページを1枚追加し、生成画像 l15-review-pair-example-b を置く",
+          "priority": "high"
+        },
+        {
+          "page": 15,
+          "concept": "証拠の種類と、それぞれが答える問い",
+          "current_problem": "『実行ログ/受入例/環境図/コード』と『分かること』の抽象表だけで、同じ動作に当てはめた例がない",
+          "recommended_change": "p14 と p15 の間に分割ページを1枚追加し、生成画像 l15-four-evidence-add10 を置く。p15 の表は抽象化のまとめとして残す",
+          "priority": "high"
+        },
+        {
+          "page": 16,
+          "concept": "互換 fixture の PASS 条件(正常系は表示値、エラー系は診断語の一部)",
+          "current_problem": "代表例が '() → () の正常系だけで、エラー系の部分一致比較という README の規則が図に出てこない",
+          "recommended_change": "figures15.json index 2 の代表例をケース04に替える(native_changes 参照)",
+          "priority": "medium"
+        },
+        {
+          "page": 21,
+          "concept": "前半のデータ構造・探索との接続",
+          "current_problem": "3文のみで、構文木や環境探索が評価器のどこに現れるかの対応がない",
+          "recommended_change": "native の3行表を同じページに追加(native_changes 参照)",
+          "priority": "low"
+        },
+        {
+          "page": 17,
+          "concept": "自分の実装の紹介",
+          "current_problem": "手順の文章だけ",
+          "recommended_change": "新規画像は作らない。l15-review-pair-example-b と l15-four-evidence-add10 を参照する1行を追加",
+          "priority": "low"
+        }
+      ],
+      "retain_pages": [
+        {
+          "page": 11,
+          "reason": "正しい実装と例Bを3段階で並べ、x → 100 と x → 4 の差が明確"
+        },
+        {
+          "page": 14,
+          "reason": "対象プログラム・Lisp製・ホストの3層と委譲先が、README の列挙と一致して示されている"
+        },
+        {
+          "page": 16,
+          "reason": "経路の構造は適切。代表例だけを差し替えれば足りる"
+        },
+        {
+          "page": 4,
+          "reason": "『正式な点数配分ではありません』を含む運用上の明記。図は不要"
+        },
+        {
+          "page": 23,
+          "reason": "AI利用の振り返り。第03回の主題を繰り返さず、短い指示のまま保つ"
+        },
+        {
+          "page": 26,
+          "reason": "成果物の整理と、正式な提出先・締切・採点運用への言及。変更しない"
+        },
+        {
+          "page": 27,
+          "reason": "全体の総括。図は不要"
+        }
+      ],
+      "planned_images": [
+        {
+          "asset": "l15-review-pair-example-b.png",
+          "width": 1280,
+          "height": 720,
+          "learning_goal": "作者が動く例を示し、聞き手が小さな反例を出し、作者が予測してから実行し、観察した事実と改善の提案を分けて記録する1往復を、架空の例Bで具体的に見る",
+          "target_in_baseline": "lectures/15.md『講評の進め方』(PDF p5)の直後に分割ページを追加"
+        },
+        {
+          "asset": "l15-four-evidence-add10.png",
+          "width": 1280,
+          "height": 720,
+          "learning_goal": "同じ動作 (add10 3) → 13 を、実行ログ(何が起きたか)・受入例(何を守るか)・環境図(なぜ x = 10 か)・コード(どこで実装したか)の4つの証拠で確かめ、それぞれが別の問いに答えることを見る",
+          "target_in_baseline": "lectures/15.md『参照実装の層と委譲』(PDF p14)と『証拠の比較』(PDF p15)の間に分割ページを追加"
+        }
+      ]
+    }
+  ]
+}

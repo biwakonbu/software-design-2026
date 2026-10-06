@@ -1,0 +1,192 @@
+{
+  "baseline_commit": "f039575096af34c092c6ba2691854e0e745bd0eb",
+  "lesson": "08",
+  "pdf": {
+    "file": "output/pdf/08-calculator.pdf",
+    "pages": 43,
+    "size_bytes": 2126184,
+    "sha256": "7346598721a20b3409fc4307812fff56ba93560d62c1c85a311116974c773caa"
+  },
+  "generated_images": {
+    "lectures/assets/illustrations/08-cards-to-tree.png": "6ba76923d05a072bbe07846a0439c202d508af5b5871f1dfe5110dac933c6923",
+    "lectures/assets/illustrations/08-three-stops.png": "923a2d008b719667af7e8231cba3f4d7b8d79b8c037dea85510b38051d7d9c3e"
+  },
+  "image_generation": "Codex組み込みimage_gen。返却結果に厳密なバックエンドモデルIDなし。生成後は機械的resize/containのみ。",
+  "independent_review": {
+    "model": "claude-opus-5-5",
+    "provider": "Claude Code CLI",
+    "duration_ms": 226810,
+    "verdict": "pass",
+    "actual_pdf_image_pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43
+    ],
+    "previous_review": "revise,284082ms; 木の構築と評価順、eof説明を修正",
+    "scope_limit": "全ラベル48pxの設計値は未達。補助ラベルおおむね25〜30px相当。入力7セルの文字は18〜20px相当だが、同内容を大きい見出しと本文に併記。"
+  },
+  "own_image_review": {
+    "pages": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43
+    ],
+    "final_pixel_recheck": [
+      7,
+      17,
+      28,
+      31
+    ],
+    "other_39_pages": "既に実画像確認した候補と画素一致"
+  },
+  "browser": {
+    "viewport": [
+      1280,
+      720
+    ],
+    "pages": 43,
+    "problems": 0,
+    "static_build": "passed"
+  },
+  "code": {
+    "python": [
+      "3.12.13",
+      "3.14.7"
+    ],
+    "regression_tests_each": 213,
+    "runner_tests_each": 21,
+    "compatibility_fixtures_each": 15,
+    "gist_tests_each": 4,
+    "gist_arithmetic_checks": 3375,
+    "gist_division_checks": 72
+  },
+  "gist": {
+    "url": "https://gist.github.com/biwakonbu/f6214b0649b0581842fb41cba2fc21e7",
+    "owner": "biwakonbu",
+    "public": true,
+    "files": [
+      {
+        "file": "README.md",
+        "sha256": "eb114c96c5bfab5edf6c2015c6eeb51c7cd4153366680039336702784a4bbc91",
+        "bytes": 2334,
+        "baseline_matches": true
+      },
+      {
+        "file": "calculator.py",
+        "sha256": "678b9c5cfd7f07be6af501600950ab2811968e2ae714a0fc7ff9094c7d3b14cf",
+        "bytes": 4088,
+        "baseline_matches": true
+      },
+      {
+        "file": "test_calculator.py",
+        "sha256": "bd017bf596bffcb7bffffb10e9a1b7c2338e31d0ba1e3f326d28d9e4b7e4ad42",
+        "bytes": 2683,
+        "baseline_matches": true
+      }
+    ],
+    "tests": [
+      {
+        "runtime": "python3.12",
+        "exit": 0,
+        "tests": 4,
+        "checks": "3375 arithmetic comparisons,72 divisions, AST and CLI contracts"
+      },
+      {
+        "runtime": "python3.14",
+        "exit": 0,
+        "tests": 4,
+        "checks": "3375 arithmetic comparisons,72 divisions, AST and CLI contracts"
+      }
+    ],
+    "updated": false,
+    "reason": "Same validated sample reused; no duplicate Gist created."
+  },
+  "protection": {
+    "baseline_files": 271,
+    "all_original_fenced_blocks_08": "byte-identical",
+    "all_code_exercises_instructor_dependencies": "byte-identical",
+    "original_tables_urls_Figure08": "retained",
+    "legacy_prose_structure_gate": "false: intentionally added pages, headings, HTML, table and progress documentation; unchanged checker",
+    "new_pngs": "reviewed individually by path and SHA; unknown or changed binary still fails"
+  }
+}

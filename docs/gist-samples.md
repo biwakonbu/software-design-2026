@@ -234,3 +234,14 @@ buggy: None corrected: 0
 | README.md | `0b3405e15970c80aced8eadf8e9ded30435e2571a33fbcf56b578ad93cc73c32` |
 | lisp.py | `bf314839008e505ee1f6ca74e88ae42b808cbe076a9141723b8b33f697113bea` |
 | test_lisp.py | `5cc3c97cff9a05a6675ad16a56ebabb3a26133533a9d7d68cbb5bdc5e359f2ec` |
+
+
+## 第10〜11回：環境・クロージャ・複数式
+
+[検証済み公開Gist](https://gist.github.com/biwakonbu/f66824f69d4b2dd127e19d0c3cea8866)。本人所有・public、保存後の全3ファイルSHAをreadbackしました。Python3.12.13/3.14.7で5テスト、fact0〜7と364整数リストの独立期待値、保存環境/parent、正常・境界・失敗のscript/REPL/CLIを照合しました。READMEの実行例はstdout100/8・stderr空・終了0です。実Opus5.5の公開前レビュー合格（42,994ms）、参考ページの実PDFリンク差分レビュー合格（35,371ms）。公開済み自作の第11回referenceはbyte一致で、第10/11回を一つのセットにまとめました。有限範囲・数値/再帰・STAGE11制約を明記し、既存非公開Gist、未公開資料、学生情報、教員専用解答を転載していません。
+
+| ファイル | SHA-256 |
+|---|---|
+| README.md | `d85814b15a0433f77d15572d94b4d172aa98a77a40b0ed39d8514b8bc48a895d` |
+| lisp.py | `9e5734eb0a57f2f0ccbe7adaeeb2f984e93b3f67569253d43e743f6c8602fccb` |
+| test_flow.py | `99123c34d6aef73ee14fea163c304fa79e7f96a554e209d6463567f3447f5f0d` |

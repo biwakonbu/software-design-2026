@@ -1,0 +1,1027 @@
+[
+  {
+    "anchor": "defineの評価",
+    "prediction": "`(define width (+ 2 3))` を評価したとき、REPL に表示される値を予想してください。",
+    "verification": "幾何: flow の最終区間は 80/80。args[0] のラベル矩形は 185..318×192..228、そのまま返す は 499..681×253..289 で、どちらもノード・他の線・群見出しと交わらない。値: define 分岐の env[args[0]] = self.evaluate(args[1]); return args[0] と一致する。observations どおり (define width (+ 2 3)) → width、width → 5。",
+    "new_title": "define は右辺だけ評価",
+    "explanation": "define は名前を探さず、右辺の値だけを G に登録して名前を返します。",
+    "footer_check": "別入力: `height` を評価 → `(define height 3)` → 再評価して比べます。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "d1",
+        "x": 15,
+        "y": 80,
+        "w": 330,
+        "h": 90,
+        "label": "head = define",
+        "detail": "特殊形式の分岐"
+      },
+      {
+        "id": "nm",
+        "x": 15,
+        "y": 250,
+        "w": 330,
+        "h": 90,
+        "label": "width",
+        "detail": "評価しない",
+        "kind": "skipped"
+      },
+      {
+        "id": "rhs",
+        "x": 425,
+        "y": 80,
+        "w": 330,
+        "h": 90,
+        "label": "(+ 2 3)",
+        "detail": "args[1] → 5"
+      },
+      {
+        "id": "G",
+        "x": 835,
+        "y": 80,
+        "w": 330,
+        "h": 90,
+        "label": "G: width = 5",
+        "detail": "env[args[0]]"
+      },
+      {
+        "id": "ret",
+        "x": 835,
+        "y": 250,
+        "w": 330,
+        "h": 90,
+        "label": "戻り値 width",
+        "detail": "REPL 表示 width"
+      }
+    ],
+    "groups": [
+      {
+        "id": "s1",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 400,
+        "label": "1 先頭を判定"
+      },
+      {
+        "id": "s2",
+        "x": 410,
+        "y": 0,
+        "w": 360,
+        "h": 400,
+        "label": "2 右辺を評価"
+      },
+      {
+        "id": "s3",
+        "x": 820,
+        "y": 0,
+        "w": 360,
+        "h": 400,
+        "label": "3 G に登録"
+      }
+    ],
+    "edges": [
+      {
+        "from": "d1",
+        "to": "rhs",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            345,
+            125
+          ],
+          [
+            425,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "d1",
+        "to": "nm",
+        "label": "args[0]",
+        "type": "contains",
+        "points": [
+          [
+            180,
+            170
+          ],
+          [
+            180,
+            250
+          ]
+        ],
+        "labelAt": [
+          192,
+          220
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "rhs",
+        "to": "G",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            755,
+            125
+          ],
+          [
+            835,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "nm",
+        "to": "ret",
+        "label": "そのまま返す",
+        "type": "reference",
+        "points": [
+          [
+            345,
+            295
+          ],
+          [
+            835,
+            295
+          ]
+        ],
+        "labelAt": [
+          590,
+          281
+        ],
+        "labelAnchor": "middle"
+      }
+    ]
+  },
+  {
+    "anchor": "同名の引数",
+    "prediction": "`(f 4)` の本文で `x` を探すとき、検索が止まる環境を予想してください。",
+    "verification": "幾何: 最終区間は 80/80/80。保存 は 185..255、x はここ は 595..727(y はどちらも 192..228)。値: call() の Env(dict(zip(params,args)), function.environment) と Env.find が親へ進む処理に一致する。(f 4) → 5、x → 100、(g 4) → 104(observations)。",
+    "new_title": "x は近い環境で止まる",
+    "explanation": "呼出しごとに E4 を作り、その外側を f の保存環境 G にします。",
+    "footer_check": "別入力: `(define g (lambda (y) (+ x y)))` 後の `(g 4)` の値を予想します。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "G1",
+        "x": 15,
+        "y": 80,
+        "w": 330,
+        "h": 90,
+        "label": "G: x = 100",
+        "detail": "f も G に"
+      },
+      {
+        "id": "C",
+        "x": 15,
+        "y": 250,
+        "w": 330,
+        "h": 90,
+        "label": "f = Closure",
+        "detail": "保存環境 G"
+      },
+      {
+        "id": "E4",
+        "x": 425,
+        "y": 80,
+        "w": 330,
+        "h": 90,
+        "label": "E4: x = 4",
+        "detail": "外側は G"
+      },
+      {
+        "id": "L",
+        "x": 425,
+        "y": 250,
+        "w": 330,
+        "h": 90,
+        "label": "(+ x 1) → 5",
+        "detail": "x は E4、+ は G"
+      },
+      {
+        "id": "G3",
+        "x": 835,
+        "y": 80,
+        "w": 330,
+        "h": 90,
+        "label": "x を評価",
+        "detail": "G で 100"
+      }
+    ],
+    "groups": [
+      {
+        "id": "s1",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 400,
+        "label": "1 定義後"
+      },
+      {
+        "id": "s2",
+        "x": 410,
+        "y": 0,
+        "w": 360,
+        "h": 400,
+        "label": "2 (f 4) の本文"
+      },
+      {
+        "id": "s3",
+        "x": 820,
+        "y": 0,
+        "w": 360,
+        "h": 400,
+        "label": "3 戻った後"
+      }
+    ],
+    "edges": [
+      {
+        "from": "C",
+        "to": "G1",
+        "label": "保存",
+        "type": "reference",
+        "points": [
+          [
+            180,
+            250
+          ],
+          [
+            180,
+            170
+          ]
+        ],
+        "labelAt": [
+          192,
+          220
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "E4",
+        "to": "G1",
+        "label": "",
+        "type": "reference",
+        "points": [
+          [
+            425,
+            125
+          ],
+          [
+            345,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "L",
+        "to": "E4",
+        "label": "x はここ",
+        "type": "reference",
+        "points": [
+          [
+            590,
+            250
+          ],
+          [
+            590,
+            170
+          ]
+        ],
+        "labelAt": [
+          602,
+          220
+        ],
+        "labelAnchor": "start"
+      }
+    ]
+  },
+  {
+    "anchor": "ifの評価",
+    "prediction": "`(if 0 (/ 1 0) 7)` の結果を予想してください。",
+    "verification": "幾何: edge ラベルは0件、最終区間はすべて 80。最も幅の要るノード文字列 evaluate (/ 1 0) は 296px 必要で、w=330 に収まる。値: branch = args[2] if evaluate(args[0]) is False else args[1]。(if #f (/ 1 0) 7) → 7、(if 0 (/ 1 0) 7) → error: division by zero(observations)。",
+    "new_title": "#f のときだけ else 側",
+    "explanation": "条件の値が #f のときだけ3番目、それ以外は2番目の枝だけを評価します。",
+    "footer_check": "確認: `(if 0 (/ 1 0) 7)` を REPL で実行し、0 が真として扱われることを確かめます。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "cf",
+        "x": 15,
+        "y": 80,
+        "w": 330,
+        "h": 90,
+        "label": "(if #f …)",
+        "detail": "条件 → #f"
+      },
+      {
+        "id": "c0",
+        "x": 15,
+        "y": 250,
+        "w": 330,
+        "h": 90,
+        "label": "(if 0 …)",
+        "detail": "条件 → 0"
+      },
+      {
+        "id": "sf",
+        "x": 425,
+        "y": 80,
+        "w": 330,
+        "h": 90,
+        "label": "args[2] を選ぶ",
+        "detail": "is False"
+      },
+      {
+        "id": "s0",
+        "x": 425,
+        "y": 250,
+        "w": 330,
+        "h": 90,
+        "label": "args[1] を選ぶ",
+        "detail": "0 は真"
+      },
+      {
+        "id": "rf",
+        "x": 835,
+        "y": 80,
+        "w": 330,
+        "h": 90,
+        "label": "evaluate 7",
+        "detail": "(/ 1 0) は未評価"
+      },
+      {
+        "id": "r0",
+        "x": 835,
+        "y": 250,
+        "w": 330,
+        "h": 90,
+        "label": "evaluate (/ 1 0)",
+        "detail": "division by zero"
+      }
+    ],
+    "groups": [
+      {
+        "id": "s1",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 400,
+        "label": "1 条件を評価"
+      },
+      {
+        "id": "s2",
+        "x": 410,
+        "y": 0,
+        "w": 360,
+        "h": 400,
+        "label": "2 is False か"
+      },
+      {
+        "id": "s3",
+        "x": 820,
+        "y": 0,
+        "w": 360,
+        "h": 400,
+        "label": "3 選んだ枝だけ"
+      }
+    ],
+    "edges": [
+      {
+        "from": "cf",
+        "to": "sf",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            345,
+            125
+          ],
+          [
+            425,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "sf",
+        "to": "rf",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            755,
+            125
+          ],
+          [
+            835,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "c0",
+        "to": "s0",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            345,
+            295
+          ],
+          [
+            425,
+            295
+          ]
+        ]
+      },
+      {
+        "from": "s0",
+        "to": "r0",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            755,
+            295
+          ],
+          [
+            835,
+            295
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "new_title": "呼出し環境の外側は定義時の環境",
+    "explanation": "呼出しで x = 6 の環境を作り、その外側を square が保存した環境にします。",
+    "footer_check": "確認: (square 6) の本文で x と * がどの環境で見つかるかを説明します。",
+    "viewBox": "0 0 1180 300",
+    "nodes": [
+      {
+        "id": "C",
+        "x": 20,
+        "y": 60,
+        "w": 390,
+        "h": 180,
+        "label": "呼出し環境",
+        "detail": "x = 6"
+      },
+      {
+        "id": "G",
+        "x": 660,
+        "y": 40,
+        "w": 500,
+        "h": 90,
+        "label": "定義時の環境",
+        "detail": "square = Closure"
+      },
+      {
+        "id": "B",
+        "x": 660,
+        "y": 170,
+        "w": 500,
+        "h": 90,
+        "label": "本文 (* x x)",
+        "detail": "x はここ、* は外側"
+      }
+    ],
+    "groups": [],
+    "edges": [
+      {
+        "from": "C",
+        "to": "G",
+        "label": "外側",
+        "type": "reference",
+        "points": [
+          [
+            410,
+            85
+          ],
+          [
+            660,
+            85
+          ]
+        ],
+        "labelAt": [
+          535,
+          71
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "C",
+        "to": "B",
+        "label": "本文を評価",
+        "type": "flow",
+        "points": [
+          [
+            410,
+            215
+          ],
+          [
+            660,
+            215
+          ]
+        ],
+        "labelAt": [
+          535,
+          201
+        ],
+        "labelAnchor": "middle"
+      }
+    ],
+    "verification": "幾何: 区間長 250/250。外側 は 500..570×43..79、本文を評価 は 458..612×173..209。値: call() は Env({x:6}, function.environment) を作り、sequence(body, local)。--eval '(begin (define square (lambda (x) (* x x))) (square 6))' → 36。"
+  },
+  {
+    "new_title": "C0 は G を保存する",
+    "explanation": "make-adder の定義では関数値 C0 を作り、定義時の環境 G を保存します。",
+    "footer_check": "確認: この時点で x = 5 の環境がまだ無い理由を説明します。",
+    "viewBox": "0 0 1180 200",
+    "nodes": [
+      {
+        "id": "C0",
+        "x": 20,
+        "y": 50,
+        "w": 440,
+        "h": 100,
+        "label": "C0: make-adder の関数値",
+        "detail": "仮引数 (x)・本文は未評価"
+      },
+      {
+        "id": "G",
+        "x": 720,
+        "y": 50,
+        "w": 440,
+        "h": 100,
+        "label": "G: make-adder = C0",
+        "detail": "大域環境"
+      }
+    ],
+    "groups": [],
+    "edges": [
+      {
+        "from": "C0",
+        "to": "G",
+        "label": "保存した環境",
+        "type": "reference",
+        "points": [
+          [
+            460,
+            100
+          ],
+          [
+            720,
+            100
+          ]
+        ],
+        "labelAt": [
+          590,
+          86
+        ],
+        "labelAnchor": "middle"
+      }
+    ],
+    "verification": "幾何: 区間長 260、ラベル 499..681×58..94。C0 のラベルは 391px 必要で w=440 に収まる。値: learning_trace.py closure の 1行目『define make-adder: captured=G』と一致する。"
+  },
+  {
+    "new_title": "C5 は E5 を保存する",
+    "explanation": "(make-adder 5) は E5 で内側の lambda を評価し、E5 を保存した C5 を返します。",
+    "footer_check": "確認: C5 を作る時点で (+ x y) が計算されない理由を説明します。",
+    "viewBox": "0 0 1180 200",
+    "nodes": [
+      {
+        "id": "C5",
+        "x": 10,
+        "y": 50,
+        "w": 300,
+        "h": 100,
+        "label": "C5: 内側の関数値",
+        "detail": "(lambda (y) …)"
+      },
+      {
+        "id": "E5",
+        "x": 450,
+        "y": 50,
+        "w": 240,
+        "h": 100,
+        "label": "E5: x = 5",
+        "detail": "呼出し環境"
+      },
+      {
+        "id": "G",
+        "x": 830,
+        "y": 50,
+        "w": 340,
+        "h": 100,
+        "label": "G: make-adder = C0",
+        "detail": "大域環境"
+      }
+    ],
+    "groups": [],
+    "edges": [
+      {
+        "from": "C5",
+        "to": "E5",
+        "label": "保存環境",
+        "type": "reference",
+        "points": [
+          [
+            310,
+            100
+          ],
+          [
+            450,
+            100
+          ]
+        ],
+        "labelAt": [
+          380,
+          86
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "E5",
+        "to": "G",
+        "label": "外側",
+        "type": "reference",
+        "points": [
+          [
+            690,
+            100
+          ],
+          [
+            830,
+            100
+          ]
+        ],
+        "labelAt": [
+          760,
+          86
+        ],
+        "labelAnchor": "middle"
+      }
+    ],
+    "verification": "幾何: 区間長 140/140。保存環境 は 317..443、外側 は 725..795。値: learning_trace.py closure の『call make-adder(5): E5 x=5, parent=G』と一致する。"
+  },
+  {
+    "new_title": "返された関数は E5 への参照を残す",
+    "explanation": "外側の呼出しは終わっても、add5 の値 C5 から E5 への参照が残ります。",
+    "footer_check": "確認: E5 を捨てる実装だと (add5 3) がどう失敗するか説明します。",
+    "viewBox": "0 0 1180 200",
+    "nodes": [
+      {
+        "id": "C5",
+        "x": 10,
+        "y": 50,
+        "w": 280,
+        "h": 100,
+        "label": "関数値",
+        "detail": "add5 = C5"
+      },
+      {
+        "id": "E5",
+        "x": 470,
+        "y": 50,
+        "w": 220,
+        "h": 100,
+        "label": "E5",
+        "detail": "x = 5"
+      },
+      {
+        "id": "G",
+        "x": 830,
+        "y": 50,
+        "w": 340,
+        "h": 124,
+        "label": "G",
+        "detail": "make-adder = C0\nadd5 = C5"
+      }
+    ],
+    "groups": [],
+    "edges": [
+      {
+        "from": "C5",
+        "to": "E5",
+        "label": "参照が残る",
+        "type": "reference",
+        "points": [
+          [
+            290,
+            100
+          ],
+          [
+            470,
+            100
+          ]
+        ],
+        "labelAt": [
+          380,
+          86
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "E5",
+        "to": "G",
+        "label": "外側",
+        "type": "reference",
+        "points": [
+          [
+            690,
+            100
+          ],
+          [
+            830,
+            100
+          ]
+        ],
+        "labelAt": [
+          760,
+          86
+        ],
+        "labelAnchor": "middle"
+      }
+    ],
+    "verification": "幾何: 区間長 180/140。参照が残る は 303..457×58..94。G の detail は2行なので h=124。値: learning_trace.py closure の『returned add5: captured=E5; make-adder call finished』と一致し、画像の文字列(関数値 add5 = C5 / E5: x = 5 / G: make-adder = C0, add5 = C5)とも同じ内容。"
+  },
+  {
+    "new_title": "E3 から外側へ名前を探す",
+    "explanation": "(add5 3) は E5 を外側にした E3 を作り、y・x・+ を近い順に探します。",
+    "footer_check": "確認: add7 を別に作っても x が混ざらない理由を、E5 と E7 で説明します。",
+    "viewBox": "0 0 1180 360",
+    "nodes": [
+      {
+        "id": "E3",
+        "x": 20,
+        "y": 70,
+        "w": 300,
+        "h": 100,
+        "label": "E3: y = 3",
+        "detail": "y を発見"
+      },
+      {
+        "id": "E5",
+        "x": 450,
+        "y": 70,
+        "w": 300,
+        "h": 100,
+        "label": "E5: x = 5",
+        "detail": "x を発見"
+      },
+      {
+        "id": "G",
+        "x": 870,
+        "y": 70,
+        "w": 290,
+        "h": 100,
+        "label": "G: + の束縛",
+        "detail": "+ を発見"
+      },
+      {
+        "id": "R",
+        "x": 20,
+        "y": 240,
+        "w": 300,
+        "h": 100,
+        "label": "本文 (+ x y)",
+        "detail": "結果 8"
+      }
+    ],
+    "groups": [
+      {
+        "id": "g",
+        "x": 0,
+        "y": 0,
+        "w": 1180,
+        "h": 360,
+        "label": "C5 の保存環境 E5 を E3 の外側に"
+      }
+    ],
+    "edges": [
+      {
+        "from": "E3",
+        "to": "E5",
+        "label": "外側",
+        "type": "reference",
+        "points": [
+          [
+            320,
+            120
+          ],
+          [
+            450,
+            120
+          ]
+        ],
+        "labelAt": [
+          385,
+          106
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "E5",
+        "to": "G",
+        "label": "外側",
+        "type": "reference",
+        "points": [
+          [
+            750,
+            120
+          ],
+          [
+            870,
+            120
+          ]
+        ],
+        "labelAt": [
+          810,
+          106
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "R",
+        "to": "E3",
+        "label": "検索開始",
+        "type": "reference",
+        "points": [
+          [
+            170,
+            240
+          ],
+          [
+            170,
+            170
+          ]
+        ],
+        "labelAt": [
+          182,
+          215
+        ],
+        "labelAnchor": "start"
+      }
+    ],
+    "verification": "幾何: 群見出しは 16..483×7..43 で、ノードの上端 y=70 より上。区間長 130/120/70。検索開始 は 175..301×187..223。値: learning_trace.py closure の『call add5(3): E3 y=3, parent=E5』『lookup x: E5=5; lookup y: E3=3』『result: 8』と一致する。"
+  },
+  {
+    "new_title": "fact 2 の下降と共通の G",
+    "explanation": "呼出しごとに別の n の環境を作り、どれも外側の G で fact を探します。",
+    "footer_check": "確認: learning_trace.py fact の call 行と、この図の順を照合します。",
+    "viewBox": "0 0 1180 370",
+    "nodes": [
+      {
+        "id": "E2",
+        "x": 20,
+        "y": 50,
+        "w": 300,
+        "h": 100,
+        "label": "fact 2: n = 2",
+        "detail": "乗算を待つ"
+      },
+      {
+        "id": "E1",
+        "x": 440,
+        "y": 50,
+        "w": 300,
+        "h": 100,
+        "label": "fact 1: n = 1",
+        "detail": "乗算を待つ"
+      },
+      {
+        "id": "E0",
+        "x": 860,
+        "y": 50,
+        "w": 300,
+        "h": 100,
+        "label": "fact 0: n = 0",
+        "detail": "1 を返す"
+      },
+      {
+        "id": "G",
+        "x": 20,
+        "y": 250,
+        "w": 1140,
+        "h": 100,
+        "label": "G: fact の定義",
+        "detail": "どの呼出しも fact をここで探す"
+      }
+    ],
+    "groups": [],
+    "edges": [
+      {
+        "from": "E2",
+        "to": "E1",
+        "label": "呼出し",
+        "type": "flow",
+        "points": [
+          [
+            320,
+            100
+          ],
+          [
+            440,
+            100
+          ]
+        ],
+        "labelAt": [
+          380,
+          86
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "E1",
+        "to": "E0",
+        "label": "呼出し",
+        "type": "flow",
+        "points": [
+          [
+            740,
+            100
+          ],
+          [
+            860,
+            100
+          ]
+        ],
+        "labelAt": [
+          800,
+          86
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "E2",
+        "to": "G",
+        "label": "外側",
+        "type": "reference",
+        "points": [
+          [
+            170,
+            150
+          ],
+          [
+            170,
+            250
+          ]
+        ],
+        "labelAt": [
+          182,
+          210
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "E1",
+        "to": "G",
+        "label": "外側",
+        "type": "reference",
+        "points": [
+          [
+            590,
+            150
+          ],
+          [
+            590,
+            250
+          ]
+        ],
+        "labelAt": [
+          602,
+          210
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "E0",
+        "to": "G",
+        "label": "外側",
+        "type": "reference",
+        "points": [
+          [
+            1010,
+            150
+          ],
+          [
+            1010,
+            250
+          ]
+        ],
+        "labelAt": [
+          1022,
+          210
+        ],
+        "labelAnchor": "start"
+      }
+    ],
+    "verification": "幾何: 区間長 120/120/100/100/100。ラベル矩形は 331..429、751..849(y 58..94)、175..245、595..665、1015..1085(y 182..218)。値: learning_trace.py fact の call n=2 → 1 → 0、return n=0 => 1 と一致する。"
+  }
+]

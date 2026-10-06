@@ -49,9 +49,9 @@
   },
   {
     "file": "output/pdf/10-lisp-functions.pdf",
-    "pages": 37,
-    "size_bytes": 1620972,
-    "sha256": "7ce1038a7cfe04a90b93e8ce5c24bfa673ed7e9d40371dcd8873dfee2e0ee318"
+    "pages": 40,
+    "size_bytes": 274715,
+    "sha256": "e202f6d13fbeda7ec7439131c7ea6bc631206843964edce534fe558440eb8ed8"
   },
   {
     "file": "output/pdf/11-lisp-scripts.pdf",

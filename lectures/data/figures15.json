@@ -1,0 +1,612 @@
+[
+  {
+    "anchor": "例Bの反例",
+    "prediction": "例Bの単一表の案で、`(f 4)` の後に `x` を評価した値を予想してください。",
+    "new_title": "例B: 単一表は外側を壊す",
+    "explanation": "正しい実装は呼出しごとに子環境を作り、例Bは同じ表に x=4 を書きます。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "ok1",
+        "x": 28,
+        "y": 84,
+        "w": 330,
+        "h": 96,
+        "label": "正: G",
+        "detail": "x = 100"
+      },
+      {
+        "id": "bad1",
+        "x": 28,
+        "y": 244,
+        "w": 330,
+        "h": 96,
+        "label": "例B: 表",
+        "detail": "x = 100",
+        "kind": "counterfactual"
+      },
+      {
+        "id": "ok2",
+        "x": 425,
+        "y": 84,
+        "w": 330,
+        "h": 96,
+        "label": "正: E4 → G",
+        "detail": "E4 に x = 4"
+      },
+      {
+        "id": "bad2",
+        "x": 425,
+        "y": 244,
+        "w": 330,
+        "h": 96,
+        "label": "例B: 表",
+        "detail": "x = 4 で上書き",
+        "kind": "counterfactual"
+      },
+      {
+        "id": "ok3",
+        "x": 822,
+        "y": 84,
+        "w": 330,
+        "h": 96,
+        "label": "x → 100",
+        "detail": ""
+      },
+      {
+        "id": "bad3",
+        "x": 822,
+        "y": 244,
+        "w": 330,
+        "h": 96,
+        "label": "x → 4",
+        "detail": "",
+        "kind": "counterfactual"
+      }
+    ],
+    "edges": [
+      {
+        "from": "ok1",
+        "to": "ok2",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            358,
+            132
+          ],
+          [
+            425,
+            132
+          ]
+        ]
+      },
+      {
+        "from": "ok2",
+        "to": "ok3",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            755,
+            132
+          ],
+          [
+            822,
+            132
+          ]
+        ]
+      },
+      {
+        "from": "bad1",
+        "to": "bad2",
+        "label": "",
+        "type": "flow",
+        "kind": "counterfactual",
+        "points": [
+          [
+            358,
+            292
+          ],
+          [
+            425,
+            292
+          ]
+        ]
+      },
+      {
+        "from": "bad2",
+        "to": "bad3",
+        "label": "",
+        "type": "flow",
+        "kind": "counterfactual",
+        "points": [
+          [
+            755,
+            292
+          ],
+          [
+            822,
+            292
+          ]
+        ]
+      }
+    ],
+    "groups": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 386,
+        "h": 400,
+        "label": "1 定義後"
+      },
+      {
+        "x": 397,
+        "y": 0,
+        "w": 386,
+        "h": 400,
+        "label": "2 (f 4) は両方 5"
+      },
+      {
+        "x": 794,
+        "y": 0,
+        "w": 386,
+        "h": 400,
+        "label": "3 戻った後の x"
+      }
+    ],
+    "footer_check": "別入力: 例Bを見落とさないテストを1つ作り、作者役に結果を予想させてから実行します。",
+    "verification": "lisp.py の call() は Env(..., function.environment) で子環境を作る。--eval '(begin (define x 100) (define f (lambda (x) (+ x 1))) (f 4) x)' で 100、--meta でも 100。例Bは架空案で、参照コードの欠陥ではない (Codex実行照合)"
+  },
+  {
+    "anchor": "例Cへの問い",
+    "prediction": "参照実装で『ホストへの依存』に当たる処理を1つ予想してください。",
+    "new_title": "参照実装の層と委譲",
+    "explanation": "式の意味は Lisp 側が決め、読取・算術・入出力・保護・反復はホストです。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "t",
+        "x": 695,
+        "y": 52,
+        "w": 330,
+        "h": 56,
+        "label": "(if #f (/ 1 0) 42)",
+        "detail": ""
+      },
+      {
+        "id": "l3",
+        "x": 60,
+        "y": 172,
+        "w": 665,
+        "h": 86,
+        "label": "m-repl: 循環",
+        "detail": "m-sequence で m-eval へ"
+      },
+      {
+        "id": "l1",
+        "x": 770,
+        "y": 172,
+        "w": 180,
+        "h": 86,
+        "label": "m-eval",
+        "detail": "分類・if"
+      },
+      {
+        "id": "l2",
+        "x": 990,
+        "y": 172,
+        "w": 180,
+        "h": 86,
+        "label": "m-apply",
+        "detail": "適用"
+      },
+      {
+        "id": "h1",
+        "x": 60,
+        "y": 310,
+        "w": 180,
+        "h": 86,
+        "label": "read-line",
+        "detail": "read-all",
+        "kind": "host"
+      },
+      {
+        "id": "h2",
+        "x": 255,
+        "y": 310,
+        "w": 165,
+        "h": 86,
+        "label": "guard",
+        "detail": "エラー保護",
+        "kind": "host"
+      },
+      {
+        "id": "h3",
+        "x": 435,
+        "y": 310,
+        "w": 130,
+        "h": 86,
+        "label": "while",
+        "detail": "反復",
+        "kind": "host"
+      },
+      {
+        "id": "h4",
+        "x": 580,
+        "y": 310,
+        "w": 145,
+        "h": 86,
+        "label": "display",
+        "detail": "newline",
+        "kind": "host"
+      },
+      {
+        "id": "h5",
+        "x": 990,
+        "y": 310,
+        "w": 180,
+        "h": 86,
+        "label": "primitive",
+        "detail": "算術・list",
+        "kind": "host"
+      }
+    ],
+    "edges": [
+      {
+        "from": "t",
+        "to": "l1",
+        "label": "データ",
+        "type": "flow",
+        "points": [
+          [
+            860,
+            108
+          ],
+          [
+            860,
+            172
+          ]
+        ],
+        "labelAt": [
+          872,
+          152
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "l3",
+        "to": "l1",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            725,
+            215
+          ],
+          [
+            770,
+            215
+          ]
+        ]
+      },
+      {
+        "from": "l1",
+        "to": "l2",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            950,
+            215
+          ],
+          [
+            990,
+            215
+          ]
+        ]
+      },
+      {
+        "from": "l2",
+        "to": "h5",
+        "label": "委譲",
+        "type": "reference",
+        "points": [
+          [
+            1080,
+            258
+          ],
+          [
+            1080,
+            310
+          ]
+        ],
+        "labelAt": [
+          1092,
+          298
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "l3",
+        "to": "h1",
+        "label": "",
+        "type": "reference",
+        "points": [
+          [
+            150,
+            258
+          ],
+          [
+            150,
+            310
+          ]
+        ]
+      },
+      {
+        "from": "l3",
+        "to": "h2",
+        "label": "",
+        "type": "reference",
+        "points": [
+          [
+            337,
+            258
+          ],
+          [
+            337,
+            310
+          ]
+        ]
+      },
+      {
+        "from": "l3",
+        "to": "h3",
+        "label": "",
+        "type": "reference",
+        "points": [
+          [
+            500,
+            258
+          ],
+          [
+            500,
+            310
+          ]
+        ]
+      },
+      {
+        "from": "l3",
+        "to": "h4",
+        "label": "",
+        "type": "reference",
+        "points": [
+          [
+            652,
+            258
+          ],
+          [
+            652,
+            310
+          ]
+        ]
+      }
+    ],
+    "groups": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 1180,
+        "h": 120,
+        "label": "1 対象プログラム"
+      },
+      {
+        "x": 0,
+        "y": 120,
+        "w": 1180,
+        "h": 142,
+        "label": "2 Lisp製: evaluator / repl"
+      },
+      {
+        "x": 0,
+        "y": 262,
+        "w": 1180,
+        "h": 138,
+        "label": "3 ホスト"
+      }
+    ],
+    "footer_check": "確認: 作者は自分の実装で同じ層の図を描き、ホストへ委譲した処理を1つずつ指します。",
+    "verification": "examples/15-showcase/README の委譲の列挙(read/read-all、算術/list primitive、read-line/display/newline、guard、while)と、evaluator.lisp/repl.lisp の関数名に一致。--meta --eval '(if #f (/ 1 0) 42)' で 42 (Codex実行照合)"
+  },
+  {
+    "anchor": "証拠の比較",
+    "prediction": "同じ fixture をホストと Lisp製評価器で実行したとき、PASS になる条件を予想してください。",
+    "new_title": "互換 fixture の確認経路",
+    "explanation": "1件ごとに新しい Interpreter で host と meta を実行し、両方一致で PASS です。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "src",
+        "x": 15,
+        "y": 130,
+        "w": 240,
+        "h": 96,
+        "label": "'()",
+        "detail": "expected ()"
+      },
+      {
+        "id": "host",
+        "x": 330,
+        "y": 60,
+        "w": 300,
+        "h": 96,
+        "label": "execute",
+        "detail": "→ ()",
+        "kind": "host"
+      },
+      {
+        "id": "meta",
+        "x": 330,
+        "y": 200,
+        "w": 300,
+        "h": 96,
+        "label": "meta_evaluate",
+        "detail": "→ ()"
+      },
+      {
+        "id": "judge",
+        "x": 830,
+        "y": 60,
+        "w": 330,
+        "h": 96,
+        "label": "format_value 比較",
+        "detail": "両方一致で PASS"
+      },
+      {
+        "id": "total",
+        "x": 830,
+        "y": 270,
+        "w": 330,
+        "h": 96,
+        "label": "15/15",
+        "detail": "compatible cases"
+      }
+    ],
+    "edges": [
+      {
+        "from": "src",
+        "to": "host",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            255,
+            160
+          ],
+          [
+            290,
+            160
+          ],
+          [
+            290,
+            108
+          ],
+          [
+            330,
+            108
+          ]
+        ]
+      },
+      {
+        "from": "src",
+        "to": "meta",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            255,
+            196
+          ],
+          [
+            290,
+            196
+          ],
+          [
+            290,
+            248
+          ],
+          [
+            330,
+            248
+          ]
+        ]
+      },
+      {
+        "from": "host",
+        "to": "judge",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            630,
+            100
+          ],
+          [
+            830,
+            100
+          ]
+        ]
+      },
+      {
+        "from": "meta",
+        "to": "judge",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            630,
+            248
+          ],
+          [
+            740,
+            248
+          ],
+          [
+            740,
+            140
+          ],
+          [
+            830,
+            140
+          ]
+        ]
+      },
+      {
+        "from": "judge",
+        "to": "total",
+        "label": "全件",
+        "type": "flow",
+        "points": [
+          [
+            995,
+            156
+          ],
+          [
+            995,
+            270
+          ]
+        ],
+        "labelAt": [
+          1007,
+          222
+        ],
+        "labelAnchor": "start"
+      }
+    ],
+    "groups": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 270,
+        "h": 400,
+        "label": "1 fixture 1件"
+      },
+      {
+        "x": 270,
+        "y": 0,
+        "w": 520,
+        "h": 400,
+        "label": "2 毎回新しい Interpreter"
+      },
+      {
+        "x": 800,
+        "y": 0,
+        "w": 380,
+        "h": 400,
+        "label": "3 判定と集計"
+      }
+    ],
+    "footer_check": "別入力: fixture の `(car (list))` で、host と meta が出す診断語を予想し実行で照合します。",
+    "verification": "check_compatibility.py: for meta in (False, True): machine = Interpreter() → expected は format_value 一致、error は部分文字列一致 → passed = all(outcomes)。python3 examples/15-showcase/check_compatibility.py の末尾行は '15/15 compatible cases' と予測(Codexが実行して照合し、違えば実際の値に合わせる)。(car (list)) は両方の層で 'car: empty list' を含む"
+  }
+]

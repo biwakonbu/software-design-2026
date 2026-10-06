@@ -79,9 +79,9 @@
   },
   {
     "file": "output/pdf/15-showcase.pdf",
-    "pages": 25,
-    "size_bytes": 207875,
-    "sha256": "551a7f651e7f11506ecd06dcc605a1c649fdfe35a683d81723d05a3607160cb6"
+    "pages": 28,
+    "size_bytes": 254243,
+    "sha256": "b538cadb371c6e02251e1a8e04ed99d68a4d982dc622624e253bcb573cdc903e"
   },
   {
     "file": "output/pdf/instructor-notes.pdf",

@@ -1,0 +1,629 @@
+[
+  {
+    "anchor": "DFSの処理順",
+    "prediction": "このDFSで、頂点Cの隣接リストが一度でも調べられるか予想してください。",
+    "new_title": "DFSの呼出し: Cは呼ばれない",
+    "explanation": "visit は B 側へ深く潜り、D に入った時点でその経路を返します。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "A",
+        "x": 10,
+        "y": 90,
+        "w": 200,
+        "h": 90,
+        "label": "visit(A)",
+        "detail": "[A]"
+      },
+      {
+        "id": "B",
+        "x": 240,
+        "y": 90,
+        "w": 190,
+        "h": 90,
+        "label": "visit(B)",
+        "detail": "[A,B]"
+      },
+      {
+        "id": "E",
+        "x": 460,
+        "y": 90,
+        "w": 190,
+        "h": 90,
+        "label": "visit(E)",
+        "detail": "[A,B,E]"
+      },
+      {
+        "id": "F",
+        "x": 680,
+        "y": 90,
+        "w": 190,
+        "h": 90,
+        "label": "visit(F)",
+        "detail": "[A,B,E,F]"
+      },
+      {
+        "id": "D",
+        "x": 920,
+        "y": 90,
+        "w": 250,
+        "h": 90,
+        "label": "visit(D)",
+        "detail": "goalで返す"
+      },
+      {
+        "id": "C",
+        "x": 10,
+        "y": 250,
+        "w": 200,
+        "h": 90,
+        "label": "visit(C)",
+        "detail": "未実行",
+        "kind": "skipped"
+      },
+      {
+        "id": "V",
+        "x": 240,
+        "y": 250,
+        "w": 420,
+        "h": 90,
+        "label": "visited",
+        "detail": "{A,B,E,F}"
+      },
+      {
+        "id": "R",
+        "x": 920,
+        "y": 250,
+        "w": 250,
+        "h": 90,
+        "label": "A B E F D",
+        "detail": "移動数 4"
+      }
+    ],
+    "edges": [
+      {
+        "from": "A",
+        "to": "B",
+        "label": "先頭のB",
+        "type": "flow",
+        "labelAt": [
+          225,
+          80
+        ]
+      },
+      {
+        "from": "B",
+        "to": "E",
+        "label": "",
+        "type": "flow"
+      },
+      {
+        "from": "E",
+        "to": "F",
+        "label": "",
+        "type": "flow"
+      },
+      {
+        "from": "F",
+        "to": "D",
+        "label": "",
+        "type": "flow"
+      },
+      {
+        "from": "D",
+        "to": "R",
+        "label": "path",
+        "type": "return"
+      },
+      {
+        "from": "A",
+        "to": "C",
+        "label": "呼ばれない",
+        "type": "reference",
+        "kind": "counterfactual"
+      }
+    ],
+    "groups": [
+      {
+        "id": "g1",
+        "label": "1 Aから",
+        "x": 0,
+        "y": 0,
+        "w": 225,
+        "h": 400,
+        "members": [
+          "A",
+          "C"
+        ]
+      },
+      {
+        "id": "g2",
+        "label": "2 B側の奥へ",
+        "x": 225,
+        "y": 0,
+        "w": 680,
+        "h": 400,
+        "members": [
+          "B",
+          "E",
+          "F",
+          "V"
+        ]
+      },
+      {
+        "id": "g3",
+        "label": "3 Dで返す",
+        "x": 905,
+        "y": 0,
+        "w": 275,
+        "h": 400,
+        "members": [
+          "D",
+          "R"
+        ]
+      }
+    ],
+    "footer_check": "別入力: 作業コピーで隣接順を A:[C,B] にしたとき、返る経路を予想して実行します。",
+    "verification": "flawed_route.find_route は visit(D) で visited.add の前に path を返し、C のループは実行されない。cd examples/07-review; python3 -c \"from review_data import GRAPH; from flawed_route import find_route; print(find_route(GRAPH,'A','D'))\" で ['A','B','E','F','D']。A:[C,B] のコピーでは ['A','C','D'] (Codex実行照合)"
+  },
+  {
+    "anchor": "BFSの処理順",
+    "prediction": "Dを取り出す直前に、キューに残っている頂点を予想してください。",
+    "new_title": "BFSの層と previous",
+    "explanation": "辺数の層ごとに発見し、最初に見つけた直前の頂点を previous に記録します。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "A",
+        "x": 20,
+        "y": 180,
+        "w": 180,
+        "h": 90,
+        "label": "A",
+        "detail": "直前 None"
+      },
+      {
+        "id": "B",
+        "x": 240,
+        "y": 100,
+        "w": 240,
+        "h": 90,
+        "label": "B",
+        "detail": "直前 A"
+      },
+      {
+        "id": "C",
+        "x": 240,
+        "y": 250,
+        "w": 240,
+        "h": 90,
+        "label": "C",
+        "detail": "直前 A"
+      },
+      {
+        "id": "E",
+        "x": 520,
+        "y": 100,
+        "w": 240,
+        "h": 90,
+        "label": "E",
+        "detail": "直前 B"
+      },
+      {
+        "id": "D",
+        "x": 520,
+        "y": 250,
+        "w": 240,
+        "h": 90,
+        "label": "D",
+        "detail": "直前 C"
+      },
+      {
+        "id": "F",
+        "x": 800,
+        "y": 100,
+        "w": 170,
+        "h": 90,
+        "label": "F",
+        "detail": "直前 E"
+      },
+      {
+        "id": "Q",
+        "x": 800,
+        "y": 250,
+        "w": 370,
+        "h": 90,
+        "label": "取り出し順 A B C E D",
+        "detail": "D 取出し前 queue [D, F]"
+      }
+    ],
+    "edges": [
+      {
+        "from": "B",
+        "to": "A",
+        "label": "previous",
+        "type": "reference",
+        "labelAt": [
+          220,
+          80
+        ]
+      },
+      {
+        "from": "C",
+        "to": "A",
+        "label": "",
+        "type": "reference"
+      },
+      {
+        "from": "E",
+        "to": "B",
+        "label": "",
+        "type": "reference"
+      },
+      {
+        "from": "D",
+        "to": "C",
+        "label": "",
+        "type": "reference"
+      },
+      {
+        "from": "F",
+        "to": "E",
+        "label": "",
+        "type": "reference"
+      }
+    ],
+    "groups": [
+      {
+        "id": "L0",
+        "label": "層0",
+        "x": 0,
+        "y": 0,
+        "w": 220,
+        "h": 400,
+        "members": [
+          "A"
+        ]
+      },
+      {
+        "id": "L1",
+        "label": "層1",
+        "x": 220,
+        "y": 0,
+        "w": 280,
+        "h": 400,
+        "members": [
+          "B",
+          "C"
+        ]
+      },
+      {
+        "id": "L2",
+        "label": "層2",
+        "x": 500,
+        "y": 0,
+        "w": 280,
+        "h": 400,
+        "members": [
+          "E",
+          "D"
+        ]
+      },
+      {
+        "id": "L3",
+        "label": "層3と順序",
+        "x": 780,
+        "y": 0,
+        "w": 400,
+        "h": 400,
+        "members": [
+          "F",
+          "Q"
+        ]
+      }
+    ],
+    "footer_check": "別入力: `improved_route.py A F` の経路と移動数を、層から予想して実行します。",
+    "verification": "improved_route.py は popleft 後に goal 判定し、未登録の neighbor だけ previous に記録する。GRAPH の隣接順で previous={A:None,B:A,C:A,E:B,D:C,F:E}、E 処理後の queue は [D,F]。A D で 'A -> C -> D'/'移動数: 2'、A F で 'A -> B -> E -> F'/'移動数: 3' (Codex実行照合)"
+  },
+  {
+    "anchor": "改善版の照合",
+    "prediction": "previous から経路を戻すとき、最初に path へ入る頂点を予想してください。",
+    "new_title": "previous を逆にたどって復元",
+    "explanation": "goal から previous をたどり、None で止めて逆順にします。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "c1",
+        "x": 10,
+        "y": 94,
+        "w": 265,
+        "h": 70,
+        "label": "cursor = D",
+        "detail": ""
+      },
+      {
+        "id": "p1",
+        "x": 10,
+        "y": 220,
+        "w": 265,
+        "h": 70,
+        "label": "path [D]",
+        "detail": ""
+      },
+      {
+        "id": "c2",
+        "x": 307,
+        "y": 94,
+        "w": 265,
+        "h": 70,
+        "label": "cursor = C",
+        "detail": ""
+      },
+      {
+        "id": "p2",
+        "x": 307,
+        "y": 220,
+        "w": 265,
+        "h": 70,
+        "label": "[D, C]",
+        "detail": ""
+      },
+      {
+        "id": "c3",
+        "x": 604,
+        "y": 94,
+        "w": 265,
+        "h": 70,
+        "label": "cursor = A",
+        "detail": ""
+      },
+      {
+        "id": "p3",
+        "x": 604,
+        "y": 220,
+        "w": 265,
+        "h": 70,
+        "label": "[D, C, A]",
+        "detail": ""
+      },
+      {
+        "id": "r4",
+        "x": 901,
+        "y": 94,
+        "w": 265,
+        "h": 100,
+        "label": "path[::-1]",
+        "detail": "[A, C, D]"
+      },
+      {
+        "id": "m4",
+        "x": 901,
+        "y": 230,
+        "w": 265,
+        "h": 100,
+        "label": "移動数 2",
+        "detail": "len(path)-1"
+      }
+    ],
+    "edges": [
+      {
+        "from": "c1",
+        "to": "c2",
+        "label": "previous",
+        "type": "flow",
+        "labelAt": [
+          291.0,
+          80
+        ]
+      },
+      {
+        "from": "c2",
+        "to": "c3",
+        "label": "previous",
+        "type": "flow",
+        "labelAt": [
+          588.0,
+          80
+        ]
+      },
+      {
+        "from": "c3",
+        "to": "r4",
+        "label": "None",
+        "type": "flow",
+        "labelAt": [
+          885.0,
+          80
+        ]
+      },
+      {
+        "from": "p1",
+        "to": "p2",
+        "label": "append",
+        "type": "flow",
+        "labelAt": [
+          291.0,
+          205
+        ]
+      },
+      {
+        "from": "p2",
+        "to": "p3",
+        "label": "append",
+        "type": "flow",
+        "labelAt": [
+          588.0,
+          205
+        ]
+      },
+      {
+        "from": "r4",
+        "to": "m4",
+        "label": "",
+        "type": "flow"
+      }
+    ],
+    "groups": [
+      {
+        "id": "s1",
+        "label": "1 cursor = D",
+        "x": 0,
+        "y": 0,
+        "w": 289,
+        "h": 400,
+        "members": [
+          "c1",
+          "p1"
+        ]
+      },
+      {
+        "id": "s2",
+        "label": "2 previous[D]",
+        "x": 297,
+        "y": 0,
+        "w": 289,
+        "h": 400,
+        "members": [
+          "c2",
+          "p2"
+        ]
+      },
+      {
+        "id": "s3",
+        "label": "3 previous[C]",
+        "x": 594,
+        "y": 0,
+        "w": 289,
+        "h": 400,
+        "members": [
+          "c3",
+          "p3"
+        ]
+      },
+      {
+        "id": "s4",
+        "label": "4 None で停止",
+        "x": 891,
+        "y": 0,
+        "w": 289,
+        "h": 400,
+        "members": [
+          "r4",
+          "m4"
+        ]
+      }
+    ],
+    "footer_check": "別入力: A X では previous に X が入らず None になる理由を、実行前に説明します。",
+    "verification": "improved_route.py の while cursor is not None: path.append(cursor); cursor = previous[cursor]; return path[::-1] と1対1。A D で 'A -> C -> D'・'移動数: 2'・exit 0、A X で '経路なし'・exit 2 (Codex実行照合)"
+  },
+  {
+    "viewBox": "0 0 1180 300",
+    "nodes": [
+      {
+        "id": "A",
+        "x": 20,
+        "y": 114,
+        "w": 120,
+        "h": 72,
+        "label": "A"
+      },
+      {
+        "id": "B",
+        "x": 270,
+        "y": 24,
+        "w": 120,
+        "h": 72,
+        "label": "B"
+      },
+      {
+        "id": "E",
+        "x": 530,
+        "y": 24,
+        "w": 120,
+        "h": 72,
+        "label": "E"
+      },
+      {
+        "id": "F",
+        "x": 790,
+        "y": 24,
+        "w": 120,
+        "h": 72,
+        "label": "F"
+      },
+      {
+        "id": "D",
+        "x": 1040,
+        "y": 114,
+        "w": 120,
+        "h": 72,
+        "label": "D"
+      },
+      {
+        "id": "C",
+        "x": 530,
+        "y": 204,
+        "w": 120,
+        "h": 72,
+        "label": "C"
+      },
+      {
+        "id": "X",
+        "x": 20,
+        "y": 214,
+        "w": 170,
+        "h": 72,
+        "label": "孤立 X",
+        "kind": "skipped"
+      }
+    ],
+    "groups": [],
+    "new_title": "講評専用の架空グラフ",
+    "explanation": "",
+    "footer_check": "",
+    "edges": [
+      {
+        "from": "A",
+        "to": "B",
+        "type": "contains",
+        "label": "",
+        "width": 3
+      },
+      {
+        "from": "B",
+        "to": "E",
+        "type": "contains",
+        "label": "",
+        "width": 3
+      },
+      {
+        "from": "E",
+        "to": "F",
+        "type": "contains",
+        "label": "",
+        "width": 3
+      },
+      {
+        "from": "F",
+        "to": "D",
+        "type": "contains",
+        "label": "",
+        "width": 3
+      },
+      {
+        "from": "A",
+        "to": "C",
+        "type": "contains",
+        "label": "",
+        "width": 3
+      },
+      {
+        "from": "C",
+        "to": "D",
+        "type": "contains",
+        "label": "",
+        "width": 3
+      }
+    ]
+  }
+]

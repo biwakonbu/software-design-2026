@@ -31,9 +31,9 @@
   },
   {
     "file": "output/pdf/07-review.pdf",
-    "pages": 24,
-    "size_bytes": 295688,
-    "sha256": "fc1321932f8f37cdaf07bd1832d532f2da47bc5d4533c51add72937dd921dbe9"
+    "pages": 27,
+    "size_bytes": 286271,
+    "sha256": "13c48102943e3ccc3acb096555b7127d9faef8d2616a71a11ff1a3c6d75fc4c1"
   },
   {
     "file": "output/pdf/08-calculator.pdf",

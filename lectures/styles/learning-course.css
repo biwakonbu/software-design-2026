@@ -1,0 +1,10 @@
+.slidev-layout.learning-course { padding:34px 50px 66px; }
+.slidev-layout.learning-course h1 { margin-bottom:18px; }
+.slidev-layout.learning-course p { margin:12px 0; line-height:1.45; }
+.slidev-layout.learning-course pre { margin:12px 0!important; padding:14px 22px!important; }
+.slidev-layout.learning-course pre code, .slidev-layout.learning-course .slidev-code { font-size:26px!important; line-height:1.4!important; white-space:pre; }
+.slidev-layout.learning-course .course-diagram { display:block; overflow:visible; max-width:100%; }
+.slidev-layout.learning-course .course-diagram, .slidev-layout.learning-course .course-diagram text { font-family:'Noto Sans JP'; font-size:28px; }
+.slidev-layout.learning-course .course-check { border-left:5px solid #a6561b; padding-left:14px; }
+.slidev-layout.learning-course.diagram-page h1 { font-size:42px; }
+.slidev-layout.learning-course .course-diagram .diagram-tokens text { font-family:'JetBrains Mono'; font-size:28px; }

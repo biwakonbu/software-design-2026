@@ -1,0 +1,969 @@
+[
+  {
+    "anchor": "リストの生成",
+    "prediction": "`(list (+ 1 2) 4)` と `(quote ((+ 1 2) 4))` の表示を予想してください。",
+    "verification": "幾何: 最終区間は 75/65/75/65、edge ラベルは0件。b1 は 347px 必要で w=350 に収まる。値: quote 分岐は args[0] を返し、list は Builtin。--eval '(list (+ 1 2) 4)' → (3 4)、'(quote ((+ 1 2) 4))' → ((+ 1 2) 4)、'(list? (car (quote ((+ 1 2) 4))))' → #t(observations)。",
+    "new_title": "list は評価、quote は停止",
+    "explanation": "list は引数を評価してから呼び、quote は読んだ式をデータのまま返します。",
+    "footer_check": "別入力: `(car (quote ((+ 1 2) 4)))` の値と型を予想し、`list?` で確かめます。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "a1",
+        "x": 15,
+        "y": 80,
+        "w": 350,
+        "h": 90,
+        "label": "(list (+ 1 2) 4)",
+        "detail": "通常の適用"
+      },
+      {
+        "id": "b1",
+        "x": 15,
+        "y": 250,
+        "w": 350,
+        "h": 90,
+        "label": "(quote ((+ 1 2) 4))",
+        "detail": "特殊形式"
+      },
+      {
+        "id": "a2",
+        "x": 440,
+        "y": 80,
+        "w": 310,
+        "h": 90,
+        "label": "引数を先に評価",
+        "detail": "(+ 1 2) → 3"
+      },
+      {
+        "id": "b2",
+        "x": 440,
+        "y": 250,
+        "w": 310,
+        "h": 90,
+        "label": "args[0] を返す",
+        "detail": "中を評価しない"
+      },
+      {
+        "id": "a3",
+        "x": 815,
+        "y": 80,
+        "w": 350,
+        "h": 90,
+        "label": "(3 4)",
+        "detail": "list(3, 4) の値"
+      },
+      {
+        "id": "b3",
+        "x": 815,
+        "y": 250,
+        "w": 350,
+        "h": 90,
+        "label": "((+ 1 2) 4)",
+        "detail": "読取時のデータ"
+      }
+    ],
+    "groups": [
+      {
+        "id": "s1",
+        "x": 0,
+        "y": 0,
+        "w": 380,
+        "h": 400,
+        "label": "1 読み取った式"
+      },
+      {
+        "id": "s2",
+        "x": 425,
+        "y": 0,
+        "w": 340,
+        "h": 400,
+        "label": "2 評価の分岐"
+      },
+      {
+        "id": "s3",
+        "x": 800,
+        "y": 0,
+        "w": 380,
+        "h": 400,
+        "label": "3 結果"
+      }
+    ],
+    "edges": [
+      {
+        "from": "a1",
+        "to": "a2",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            365,
+            125
+          ],
+          [
+            440,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "a2",
+        "to": "a3",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            750,
+            125
+          ],
+          [
+            815,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "b1",
+        "to": "b2",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            365,
+            295
+          ],
+          [
+            440,
+            295
+          ]
+        ]
+      },
+      {
+        "from": "b2",
+        "to": "b3",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            750,
+            295
+          ],
+          [
+            815,
+            295
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "anchor": "失敗の位置",
+    "prediction": "2式目に閉じ括弧の不足があるファイルで、1式目の display が表示されるか予想してください。",
+    "verification": "幾何: 最終区間はすべて 70。ノード文字列の必要幅は ok 220/225、e3 262/265 で収まる。値: main で args.script.read_text が失敗すると OSError/UnicodeError で exit 1。execute は read_all(source) を先に通してから sequence に入る。'(display 1)\\n(+ 1' のファイルは stdout が空のまま error: read error at offset 12: unclosed ( で exit 1(observations の '(display 25)(+ 1' と同じ offset)。lesson11.lisp は 25、49、() を出して exit 0。",
+    "new_title": "全体を読んでから評価",
+    "explanation": "ファイル全体を read_all で読み終えてから、同じ G で順に評価します。",
+    "footer_check": "別入力: `(display 1)` と `(+ 1` の2式で、表示と終了コードを確認します。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "op",
+        "x": 15,
+        "y": 80,
+        "w": 250,
+        "h": 90,
+        "label": "read_text",
+        "detail": "UTF-8"
+      },
+      {
+        "id": "e1",
+        "x": 15,
+        "y": 240,
+        "w": 250,
+        "h": 124,
+        "label": "OSError",
+        "detail": "読取前\nexit 1"
+      },
+      {
+        "id": "rd",
+        "x": 335,
+        "y": 80,
+        "w": 250,
+        "h": 90,
+        "label": "read_all",
+        "detail": "全式のリスト"
+      },
+      {
+        "id": "e2",
+        "x": 335,
+        "y": 240,
+        "w": 250,
+        "h": 124,
+        "label": "read error",
+        "detail": "評価0件\nexit 1"
+      },
+      {
+        "id": "sq",
+        "x": 655,
+        "y": 80,
+        "w": 510,
+        "h": 90,
+        "label": "sequence(forms, G)",
+        "detail": "前の定義を共有"
+      },
+      {
+        "id": "ok",
+        "x": 655,
+        "y": 240,
+        "w": 225,
+        "h": 124,
+        "label": "最後の値を表示",
+        "detail": "exit 0"
+      },
+      {
+        "id": "e3",
+        "x": 900,
+        "y": 240,
+        "w": 265,
+        "h": 124,
+        "label": "unknown symbol",
+        "detail": "前の出力は残る\nexit 1"
+      }
+    ],
+    "groups": [
+      {
+        "id": "s1",
+        "x": 0,
+        "y": 0,
+        "w": 280,
+        "h": 400,
+        "label": "1 開く"
+      },
+      {
+        "id": "s2",
+        "x": 320,
+        "y": 0,
+        "w": 280,
+        "h": 400,
+        "label": "2 全体を読む"
+      },
+      {
+        "id": "s3",
+        "x": 640,
+        "y": 0,
+        "w": 540,
+        "h": 400,
+        "label": "3 同じ G で順に"
+      }
+    ],
+    "edges": [
+      {
+        "from": "op",
+        "to": "rd",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            265,
+            125
+          ],
+          [
+            335,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "rd",
+        "to": "sq",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            585,
+            125
+          ],
+          [
+            655,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "op",
+        "to": "e1",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            140,
+            170
+          ],
+          [
+            140,
+            240
+          ]
+        ]
+      },
+      {
+        "from": "rd",
+        "to": "e2",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            460,
+            170
+          ],
+          [
+            460,
+            240
+          ]
+        ]
+      },
+      {
+        "from": "sq",
+        "to": "ok",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            767,
+            170
+          ],
+          [
+            767,
+            240
+          ]
+        ]
+      },
+      {
+        "from": "sq",
+        "to": "e3",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            1032,
+            170
+          ],
+          [
+            1032,
+            240
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "anchor": "必要機能の棚卸し",
+    "prediction": "`(quote (+ 1 2))` の値に `car` を使うと、どの型の値が得られるか予想してください。",
+    "verification": "幾何: reference の最終区間は 45/55。木の縦線 x=285 と x=595 は群の隙間(270..300、580..610)を通る。y=125 の線は one(170..260)の上を通り抜ける。edge ラベルは0件。note のラベルは 233px 必要で w=240 に収まる。値: car は value[0]、cdr は value[1:]。--eval '(car (quote (+ 1 2)))' → +、'(cdr (quote (+ 1 2)))' → (1 2)、'(symbol? (car (quote (+ 1 2))))' → #t、'(list? (car (cdr (quote (* (+ 1 2) 4)))))' → #t(observations)。",
+    "new_title": "式をデータとして分解",
+    "explanation": "quote で止めた式はリストなので、car/cdr と型判定で部品に分けられます。",
+    "footer_check": "別入力: `(quote (* (+ 1 2) 4))` で、2番目の要素の型を予想し `list?` で確かめます。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "root",
+        "x": 15,
+        "y": 160,
+        "w": 240,
+        "h": 90,
+        "label": "(+ 1 2)",
+        "detail": "list? #t"
+      },
+      {
+        "id": "plus",
+        "x": 315,
+        "y": 80,
+        "w": 250,
+        "h": 90,
+        "label": "car: +",
+        "detail": "symbol? #t"
+      },
+      {
+        "id": "rest",
+        "x": 315,
+        "y": 290,
+        "w": 250,
+        "h": 90,
+        "label": "cdr: (1 2)",
+        "detail": "list? #t"
+      },
+      {
+        "id": "one",
+        "x": 625,
+        "y": 170,
+        "w": 250,
+        "h": 90,
+        "label": "car: 1",
+        "detail": "number? #t"
+      },
+      {
+        "id": "rest2",
+        "x": 625,
+        "y": 290,
+        "w": 250,
+        "h": 90,
+        "label": "cdr: (2)",
+        "detail": "list? #t"
+      },
+      {
+        "id": "note",
+        "x": 930,
+        "y": 170,
+        "w": 240,
+        "h": 124,
+        "label": "第12回 m-eval",
+        "detail": "先頭 + で分岐\n引数を評価"
+      }
+    ],
+    "groups": [
+      {
+        "id": "s1",
+        "x": 0,
+        "y": 0,
+        "w": 270,
+        "h": 400,
+        "label": "1 quote で停止"
+      },
+      {
+        "id": "s2",
+        "x": 300,
+        "y": 0,
+        "w": 280,
+        "h": 400,
+        "label": "2 car と cdr"
+      },
+      {
+        "id": "s3",
+        "x": 610,
+        "y": 0,
+        "w": 280,
+        "h": 400,
+        "label": "3 残りを分解"
+      },
+      {
+        "id": "s4",
+        "x": 920,
+        "y": 0,
+        "w": 260,
+        "h": 400,
+        "label": "4 評価器へ"
+      }
+    ],
+    "edges": [
+      {
+        "from": "root",
+        "to": "plus",
+        "label": "",
+        "type": "contains",
+        "points": [
+          [
+            255,
+            205
+          ],
+          [
+            285,
+            205
+          ],
+          [
+            285,
+            125
+          ],
+          [
+            315,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "root",
+        "to": "rest",
+        "label": "",
+        "type": "contains",
+        "points": [
+          [
+            255,
+            205
+          ],
+          [
+            285,
+            205
+          ],
+          [
+            285,
+            335
+          ],
+          [
+            315,
+            335
+          ]
+        ]
+      },
+      {
+        "from": "rest",
+        "to": "one",
+        "label": "",
+        "type": "contains",
+        "points": [
+          [
+            565,
+            335
+          ],
+          [
+            595,
+            335
+          ],
+          [
+            595,
+            215
+          ],
+          [
+            625,
+            215
+          ]
+        ]
+      },
+      {
+        "from": "rest",
+        "to": "rest2",
+        "label": "",
+        "type": "contains",
+        "points": [
+          [
+            565,
+            335
+          ],
+          [
+            625,
+            335
+          ]
+        ]
+      },
+      {
+        "from": "plus",
+        "to": "note",
+        "label": "",
+        "type": "reference",
+        "points": [
+          [
+            565,
+            125
+          ],
+          [
+            1050,
+            125
+          ],
+          [
+            1050,
+            170
+          ]
+        ]
+      },
+      {
+        "from": "one",
+        "to": "note",
+        "label": "",
+        "type": "reference",
+        "points": [
+          [
+            875,
+            215
+          ],
+          [
+            930,
+            215
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "new_title": "lexer の3つの状態",
+    "explanation": "引用符で文字列内へ、セミコロンでコメント内へ入り、閉じる引用符と改行で外側へ戻ります。",
+    "footer_check": "確認: (display \"a (b); c\") ; memo を左から追い、状態が変わる文字を指します。",
+    "viewBox": "0 0 1180 360",
+    "nodes": [
+      {
+        "id": "st",
+        "x": 20,
+        "y": 80,
+        "w": 140,
+        "h": 60,
+        "label": "開始",
+        "detail": ""
+      },
+      {
+        "id": "out",
+        "x": 290,
+        "y": 60,
+        "w": 600,
+        "h": 100,
+        "label": "外側",
+        "detail": "括弧・記号を確定"
+      },
+      {
+        "id": "str",
+        "x": 10,
+        "y": 250,
+        "w": 440,
+        "h": 100,
+        "label": "文字列内",
+        "detail": "空白・;・( も蓄積"
+      },
+      {
+        "id": "com",
+        "x": 730,
+        "y": 250,
+        "w": 440,
+        "h": 100,
+        "label": "コメント内",
+        "detail": "行末まで捨てる"
+      }
+    ],
+    "groups": [],
+    "edges": [
+      {
+        "from": "st",
+        "to": "out",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            160,
+            110
+          ],
+          [
+            290,
+            110
+          ]
+        ]
+      },
+      {
+        "from": "out",
+        "to": "str",
+        "label": "開く引用符",
+        "type": "flow",
+        "points": [
+          [
+            330,
+            160
+          ],
+          [
+            330,
+            250
+          ]
+        ],
+        "labelAt": [
+          245,
+          215
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "str",
+        "to": "out",
+        "label": "閉じる引用符",
+        "type": "flow",
+        "points": [
+          [
+            410,
+            250
+          ],
+          [
+            410,
+            160
+          ]
+        ],
+        "labelAt": [
+          422,
+          215
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "out",
+        "to": "com",
+        "label": "セミコロン",
+        "type": "flow",
+        "points": [
+          [
+            770,
+            160
+          ],
+          [
+            770,
+            250
+          ]
+        ],
+        "labelAt": [
+          686,
+          215
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "com",
+        "to": "out",
+        "label": "改行",
+        "type": "flow",
+        "points": [
+          [
+            850,
+            250
+          ],
+          [
+            850,
+            160
+          ]
+        ],
+        "labelAt": [
+          862,
+          215
+        ],
+        "labelAnchor": "start"
+      }
+    ],
+    "verification": "幾何: 区間長 130/90/90/90/90。ラベル矩形は y がすべて 187..223 で、x は 168..322 / 415..597 / 609..763 / 855..925 と重ならない。それぞれ自分の線から 7〜8px 離れていて、他の線は横切らない。縦線の x=330 と 410 は out と str の両方に、x=770 と 850 は out と com の両方に入っている。値: tokenize の '\"' による内側ループ、';' で行末まで飛ばす処理、エスケープの扱いと一致する。--eval '(display \"a (b); c\")' は a (b); c を表示する。"
+  },
+  {
+    "new_title": "car・cdr・cons は元を変えない",
+    "explanation": "car は先頭を取り出し、cdr と cons は新しいリストを返します。",
+    "footer_check": "確認: (cons 5 (cdr xs)) の後に xs を評価し、(10 20 30) のままか確かめます。",
+    "viewBox": "0 0 1180 330",
+    "nodes": [
+      {
+        "id": "X",
+        "x": 20,
+        "y": 120,
+        "w": 320,
+        "h": 90,
+        "label": "xs = (10 20 30)",
+        "detail": "元のまま"
+      },
+      {
+        "id": "A",
+        "x": 500,
+        "y": 30,
+        "w": 260,
+        "h": 90,
+        "label": "10",
+        "detail": "先頭"
+      },
+      {
+        "id": "B",
+        "x": 500,
+        "y": 210,
+        "w": 260,
+        "h": 90,
+        "label": "(20 30)",
+        "detail": "新しいリスト"
+      },
+      {
+        "id": "C",
+        "x": 900,
+        "y": 210,
+        "w": 260,
+        "h": 90,
+        "label": "(5 20 30)",
+        "detail": "新しいリスト"
+      }
+    ],
+    "groups": [],
+    "edges": [
+      {
+        "from": "X",
+        "to": "A",
+        "label": "car",
+        "type": "flow",
+        "points": [
+          [
+            340,
+            150
+          ],
+          [
+            420,
+            150
+          ],
+          [
+            420,
+            75
+          ],
+          [
+            500,
+            75
+          ]
+        ],
+        "labelAt": [
+          460,
+          61
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "X",
+        "to": "B",
+        "label": "cdr",
+        "type": "flow",
+        "points": [
+          [
+            340,
+            180
+          ],
+          [
+            420,
+            180
+          ],
+          [
+            420,
+            255
+          ],
+          [
+            500,
+            255
+          ]
+        ],
+        "labelAt": [
+          460,
+          241
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "B",
+        "to": "C",
+        "label": "cons 5",
+        "type": "flow",
+        "points": [
+          [
+            760,
+            255
+          ],
+          [
+            900,
+            255
+          ]
+        ],
+        "labelAt": [
+          830,
+          241
+        ],
+        "labelAnchor": "middle"
+      }
+    ],
+    "verification": "幾何: 最終区間は 80/80/140。car は 427..493×33..69、cdr は 427..493×213..249、cons 5 は 772..888×213..249。縦線 x=420 の2本は y 75..150 と 180..255 で重ならない。値: cdr は value[1:]、cons は [x]+list で、どちらも新しいリスト。--eval '(cons 5 (cdr (quote (10 20 30))))' → (5 20 30)(exercises/11.md 段階3 と一致)。"
+  },
+  {
+    "new_title": "実行の4つの層",
+    "explanation": "対象の式は評価器へデータとして渡り、評価器は Python 製ホストの上で動きます。",
+    "footer_check": "確認: display と read がどの層からどの層へ頼むかを、矢印で指して説明します。",
+    "viewBox": "0 0 1180 420",
+    "nodes": [
+      {
+        "id": "L",
+        "x": 200,
+        "y": 10,
+        "w": 780,
+        "h": 64,
+        "label": "対象の Lisp 式",
+        "detail": ""
+      },
+      {
+        "id": "M",
+        "x": 200,
+        "y": 124,
+        "w": 780,
+        "h": 64,
+        "label": "Lisp で書く評価器(第12回から)",
+        "detail": ""
+      },
+      {
+        "id": "H",
+        "x": 200,
+        "y": 238,
+        "w": 780,
+        "h": 64,
+        "label": "Python 製 Lisp ホスト(lisp.py)",
+        "detail": "",
+        "kind": "host"
+      },
+      {
+        "id": "O",
+        "x": 200,
+        "y": 352,
+        "w": 780,
+        "h": 64,
+        "label": "OS の読取・入出力",
+        "detail": ""
+      }
+    ],
+    "groups": [],
+    "edges": [
+      {
+        "from": "L",
+        "to": "M",
+        "label": "データとして渡す",
+        "type": "flow",
+        "points": [
+          [
+            590,
+            74
+          ],
+          [
+            590,
+            124
+          ]
+        ],
+        "labelAt": [
+          602,
+          109
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "M",
+        "to": "H",
+        "label": "ホスト上で動く",
+        "type": "flow",
+        "points": [
+          [
+            590,
+            188
+          ],
+          [
+            590,
+            238
+          ]
+        ],
+        "labelAt": [
+          602,
+          223
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "H",
+        "to": "O",
+        "label": "入出力を依頼",
+        "type": "flow",
+        "points": [
+          [
+            590,
+            302
+          ],
+          [
+            590,
+            352
+          ]
+        ],
+        "labelAt": [
+          602,
+          337
+        ],
+        "labelAnchor": "start"
+      }
+    ],
+    "verification": "幾何: 区間長はすべて 50。ラベル矩形は 595..833×81..117、595..805×195..231、595..777×309..345 で、上下のノード(74/124、188/238、302/352)の間に入る。値: 第11回の時点では評価器は準備段階で、evaluator.lisp は第12回から。display・read-line・read_text が Python ホストを通って OS の入出力に届くことと一致する。"
+  }
+]

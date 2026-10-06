@@ -55,9 +55,9 @@
   },
   {
     "file": "output/pdf/11-lisp-scripts.pdf",
-    "pages": 35,
-    "size_bytes": 380213,
-    "sha256": "f1d12f8bb7a27740290c7c22a3c9b15f670af522283efbe653241dde85b54599"
+    "pages": 38,
+    "size_bytes": 301849,
+    "sha256": "358646d038b4a125d0566bab11bb61ec68f31497ec79d31e57bd4a6c77d7c911"
   },
   {
     "file": "output/pdf/12-meta-evaluator.pdf",

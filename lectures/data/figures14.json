@@ -1,0 +1,1049 @@
+[
+  {
+    "anchor": "定義と共有セル",
+    "prediction": "fact のクロージャを作った時点の G に、まだ fact の束縛があるか予想してください。",
+    "new_title": "共有セルの差し替え",
+    "explanation": "closure は G への参照を持ち、m-define が同じ cell の中身を差し替えます。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "G",
+        "x": 24,
+        "y": 100,
+        "w": 150,
+        "h": 96,
+        "label": "G",
+        "detail": "env"
+      },
+      {
+        "id": "cell1",
+        "x": 214,
+        "y": 100,
+        "w": 158,
+        "h": 96,
+        "label": "(car G)",
+        "detail": "(prims)"
+      },
+      {
+        "id": "C",
+        "x": 24,
+        "y": 260,
+        "w": 348,
+        "h": 96,
+        "label": "closure (n)",
+        "detail": "保存環境 G"
+      },
+      {
+        "id": "cell2",
+        "x": 425,
+        "y": 100,
+        "w": 330,
+        "h": 96,
+        "label": "同じ cell",
+        "detail": "((fact C) prims)"
+      },
+      {
+        "id": "E4",
+        "x": 822,
+        "y": 100,
+        "w": 330,
+        "h": 96,
+        "label": "E4: n = 4",
+        "detail": "外側 G"
+      },
+      {
+        "id": "look",
+        "x": 822,
+        "y": 260,
+        "w": 330,
+        "h": 96,
+        "label": "fact を検索",
+        "detail": "E4 → G で C"
+      }
+    ],
+    "edges": [
+      {
+        "from": "G",
+        "to": "cell1",
+        "label": "",
+        "type": "contains",
+        "points": [
+          [
+            174,
+            148
+          ],
+          [
+            214,
+            148
+          ]
+        ]
+      },
+      {
+        "from": "C",
+        "to": "G",
+        "label": "保存",
+        "type": "reference",
+        "points": [
+          [
+            99,
+            260
+          ],
+          [
+            99,
+            196
+          ]
+        ],
+        "labelAt": [
+          111,
+          236
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "cell1",
+        "to": "cell2",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            372,
+            148
+          ],
+          [
+            425,
+            148
+          ]
+        ]
+      },
+      {
+        "from": "E4",
+        "to": "G",
+        "label": "外側",
+        "type": "reference",
+        "points": [
+          [
+            1040,
+            100
+          ],
+          [
+            1040,
+            58
+          ],
+          [
+            99,
+            58
+          ],
+          [
+            99,
+            100
+          ]
+        ],
+        "labelAt": [
+          900,
+          78
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "look",
+        "to": "cell2",
+        "label": "ここで発見",
+        "type": "reference",
+        "points": [
+          [
+            822,
+            308
+          ],
+          [
+            590,
+            308
+          ],
+          [
+            590,
+            196
+          ]
+        ],
+        "labelAt": [
+          700,
+          296
+        ],
+        "labelAnchor": "middle"
+      }
+    ],
+    "groups": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 386,
+        "h": 400,
+        "label": "1 lambda を評価"
+      },
+      {
+        "x": 397,
+        "y": 0,
+        "w": 386,
+        "h": 400,
+        "label": "2 set-car! で差替え"
+      },
+      {
+        "x": 794,
+        "y": 0,
+        "w": 386,
+        "h": 400,
+        "label": "3 (fact 4)"
+      }
+    ],
+    "footer_check": "別入力: `(define g (lambda () n))`、`(define n 1)`、`(g)` の順で、最後の値を予想して確かめます。",
+    "verification": "evaluator.lisp(14): m-define は (set-car! (car env) ...)、lambda は (list 'closure (car args) (cdr args) env)。--meta --eval '(begin (define fact (lambda (n) (if (= n 0) 1 (* n (fact (- n 1)))))) (fact 4))' で 24、'(begin (define g (lambda () n)) (define n 1) (g))' で 1 (Codex実行照合)"
+  },
+  {
+    "anchor": "適用の実装",
+    "prediction": "`(square 6)` の評価で、ホストの primitive に初めて渡る値の列を予想してください。",
+    "new_title": "eval と apply の往復",
+    "explanation": "m-eval と m-apply が往復し、算術の primitive だけがホストへ渡ります。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "p1",
+        "x": 30,
+        "y": 80,
+        "w": 229,
+        "h": 134,
+        "label": "(square 6)",
+        "detail": "closure と\n(6) を得る"
+      },
+      {
+        "id": "p2",
+        "x": 327,
+        "y": 80,
+        "w": 229,
+        "h": 134,
+        "label": "m-apply",
+        "detail": "E6: x = 6\n外側は G"
+      },
+      {
+        "id": "p3",
+        "x": 624,
+        "y": 80,
+        "w": 229,
+        "h": 134,
+        "label": "(* x x)",
+        "detail": "* は G\nx は E6"
+      },
+      {
+        "id": "p4",
+        "x": 906,
+        "y": 80,
+        "w": 259,
+        "h": 134,
+        "label": "(primitive *)",
+        "detail": "apply (6 6)",
+        "kind": "host"
+      },
+      {
+        "id": "r",
+        "x": 10,
+        "y": 300,
+        "w": 1160,
+        "h": 70,
+        "label": "36 が m-apply → m-eval → 呼出し元へ",
+        "detail": ""
+      }
+    ],
+    "edges": [
+      {
+        "from": "p1",
+        "to": "p2",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            259,
+            147
+          ],
+          [
+            327,
+            147
+          ]
+        ]
+      },
+      {
+        "from": "p2",
+        "to": "p3",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            556,
+            147
+          ],
+          [
+            624,
+            147
+          ]
+        ]
+      },
+      {
+        "from": "p3",
+        "to": "p4",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            853,
+            147
+          ],
+          [
+            906,
+            147
+          ]
+        ]
+      },
+      {
+        "from": "p4",
+        "to": "r",
+        "label": "36",
+        "type": "return",
+        "points": [
+          [
+            1035,
+            214
+          ],
+          [
+            1035,
+            300
+          ]
+        ],
+        "labelAt": [
+          1047,
+          290
+        ],
+        "labelAnchor": "start"
+      }
+    ],
+    "groups": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 289,
+        "h": 250,
+        "label": "1 m-eval"
+      },
+      {
+        "x": 297,
+        "y": 0,
+        "w": 289,
+        "h": 250,
+        "label": "2 m-apply"
+      },
+      {
+        "x": 594,
+        "y": 0,
+        "w": 289,
+        "h": 250,
+        "label": "3 本文を m-eval"
+      },
+      {
+        "x": 891,
+        "y": 0,
+        "w": 289,
+        "h": 250,
+        "label": "4 ホストへ"
+      }
+    ],
+    "footer_check": "別入力: `((lambda (x y) (+ x y)) 2 3)` で、新しい環境と primitive への値の列を書いてから実行します。",
+    "verification": "evaluator.lisp(14) の m-apply: closure 分岐(m-arity → m-new-env (m-fourth f) → m-bind → m-sequence)と primitive 分岐 (apply (primitive name) values)。checkpoints.py closure の期待出力(argument values: (6) / observation E6: x=6, parent=G / lookup * in E6 => (primitive *) / body (* x x) => 36)と一致。--meta --eval '((lambda (x y) (+ x y)) 2 3)' で 5 (Codex実行照合)"
+  },
+  {
+    "anchor": "guardの範囲",
+    "prediction": "`(/ 1 0)` の後、次の入力 `(+ x 3)` で使う環境と結果を予想してください。",
+    "new_title": "REPL 1回分の層",
+    "explanation": "読取・保護・表示・反復はホスト、式の意味は m-sequence と m-eval が決めます。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "rl",
+        "x": 8,
+        "y": 52,
+        "w": 180,
+        "h": 84,
+        "label": "read-line",
+        "detail": "(/ 1 0)",
+        "kind": "host"
+      },
+      {
+        "id": "ra",
+        "x": 228,
+        "y": 52,
+        "w": 280,
+        "h": 84,
+        "label": "read-all",
+        "detail": "((/ 1 0))",
+        "kind": "host"
+      },
+      {
+        "id": "ms",
+        "x": 228,
+        "y": 174,
+        "w": 280,
+        "h": 84,
+        "label": "m-sequence",
+        "detail": "m-eval (/ 1 0)"
+      },
+      {
+        "id": "ap",
+        "x": 228,
+        "y": 296,
+        "w": 280,
+        "h": 84,
+        "label": "apply /",
+        "detail": "LispError を送出",
+        "kind": "host"
+      },
+      {
+        "id": "oc",
+        "x": 550,
+        "y": 296,
+        "w": 410,
+        "h": 84,
+        "label": "outcome",
+        "detail": "(#f 診断)"
+      },
+      {
+        "id": "out",
+        "x": 540,
+        "y": 52,
+        "w": 420,
+        "h": 84,
+        "label": "display → stdout",
+        "detail": "error: division by zero",
+        "kind": "host"
+      },
+      {
+        "id": "wh",
+        "x": 1005,
+        "y": 52,
+        "w": 160,
+        "h": 84,
+        "label": "while",
+        "detail": "not done",
+        "kind": "host"
+      },
+      {
+        "id": "nx",
+        "x": 1005,
+        "y": 264,
+        "w": 160,
+        "h": 116,
+        "label": "(+ x 3)",
+        "detail": "同じ env\n→ 8"
+      }
+    ],
+    "edges": [
+      {
+        "from": "rl",
+        "to": "ra",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            188,
+            94
+          ],
+          [
+            228,
+            94
+          ]
+        ]
+      },
+      {
+        "from": "ra",
+        "to": "ms",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            368,
+            136
+          ],
+          [
+            368,
+            174
+          ]
+        ]
+      },
+      {
+        "from": "ms",
+        "to": "ap",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            368,
+            258
+          ],
+          [
+            368,
+            296
+          ]
+        ]
+      },
+      {
+        "from": "ap",
+        "to": "oc",
+        "label": "",
+        "type": "return",
+        "points": [
+          [
+            508,
+            338
+          ],
+          [
+            550,
+            338
+          ]
+        ]
+      },
+      {
+        "from": "oc",
+        "to": "out",
+        "label": "#f なので",
+        "type": "flow",
+        "points": [
+          [
+            750,
+            296
+          ],
+          [
+            750,
+            136
+          ]
+        ],
+        "labelAt": [
+          762,
+          230
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "out",
+        "to": "wh",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            960,
+            94
+          ],
+          [
+            1005,
+            94
+          ]
+        ]
+      },
+      {
+        "from": "wh",
+        "to": "nx",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            1085,
+            136
+          ],
+          [
+            1085,
+            264
+          ]
+        ]
+      }
+    ],
+    "groups": [
+      {
+        "x": 0,
+        "y": 0,
+        "w": 200,
+        "h": 400,
+        "label": "1 入力"
+      },
+      {
+        "x": 210,
+        "y": 0,
+        "w": 310,
+        "h": 400,
+        "label": "2 guard の内側"
+      },
+      {
+        "x": 530,
+        "y": 0,
+        "w": 450,
+        "h": 400,
+        "label": "3 結果を表示"
+      },
+      {
+        "x": 990,
+        "y": 0,
+        "w": 190,
+        "h": 400,
+        "label": "4 次の行"
+      }
+    ],
+    "footer_check": "別入力: `(define x 5)`、`(car (list))`、`(+ x 3)` を `--selfhost-repl` に入れ、2行目と3行目を確かめます。",
+    "verification": "repl.lisp: read-line → EOF/:quit 判定 → guard(lambda () display (m-sequence (read-all line) env 0) newline #t) → (car outcome) で分岐 → error: を display。printf '(define x 5)\\n(+ x 2)\\n(/ 1 0)\\n(+ x 3)\\n:quit\\n' | python3 examples/14-selfhosting/lisp.py --selfhost-repl で x / 7 / error: division by zero / 8 がすべて stdout に出る。別入力は x / error: car: empty list / 8 (Codex実行照合)"
+  },
+  {
+    "new_title": "本日の実行構成",
+    "explanation": "Lispの評価器とREPLがPython製ホスト上で動きます。",
+    "footer_check": "",
+    "viewBox": "0 0 1180 260",
+    "nodes": [
+      {
+        "id": "I",
+        "x": 10,
+        "y": 30,
+        "w": 230,
+        "h": 80,
+        "label": "利用者の入力",
+        "detail": ""
+      },
+      {
+        "id": "R",
+        "x": 310,
+        "y": 30,
+        "w": 230,
+        "h": 80,
+        "label": "ホストの読取",
+        "detail": "",
+        "kind": "host"
+      },
+      {
+        "id": "E",
+        "x": 610,
+        "y": 30,
+        "w": 230,
+        "h": 80,
+        "label": "Lisp製評価器",
+        "detail": ""
+      },
+      {
+        "id": "P",
+        "x": 910,
+        "y": 30,
+        "w": 260,
+        "h": 80,
+        "label": "ホストの入出力",
+        "detail": "",
+        "kind": "host"
+      },
+      {
+        "id": "H",
+        "x": 560,
+        "y": 170,
+        "w": 330,
+        "h": 80,
+        "label": "Python製Lispホスト",
+        "detail": "",
+        "kind": "host"
+      }
+    ],
+    "groups": [],
+    "edges": [
+      {
+        "from": "I",
+        "to": "R",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            240,
+            70
+          ],
+          [
+            310,
+            70
+          ]
+        ]
+      },
+      {
+        "from": "R",
+        "to": "E",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            540,
+            70
+          ],
+          [
+            610,
+            70
+          ]
+        ]
+      },
+      {
+        "from": "E",
+        "to": "P",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            840,
+            70
+          ],
+          [
+            910,
+            70
+          ]
+        ]
+      },
+      {
+        "from": "E",
+        "to": "H",
+        "label": "上で動く",
+        "type": "reference",
+        "points": [
+          [
+            725,
+            110
+          ],
+          [
+            725,
+            170
+          ]
+        ],
+        "labelAt": [
+          737,
+          150
+        ],
+        "labelAnchor": "start"
+      }
+    ]
+  },
+  {
+    "new_title": "対象環境の形",
+    "explanation": "参照版は束縛を入れたセルと外側への参照を持ちます。",
+    "footer_check": "環境の形式を、検索・定義・拡張の関数で隠します。",
+    "viewBox": "0 0 1180 250",
+    "nodes": [
+      {
+        "id": "E",
+        "x": 10,
+        "y": 85,
+        "w": 350,
+        "h": 96,
+        "label": "env",
+        "detail": "(frame-cell parent)"
+      },
+      {
+        "id": "F",
+        "x": 440,
+        "y": 20,
+        "w": 330,
+        "h": 96,
+        "label": "frame-cell",
+        "detail": "(bindings)"
+      },
+      {
+        "id": "B",
+        "x": 860,
+        "y": 20,
+        "w": 310,
+        "h": 96,
+        "label": "bindings",
+        "detail": "((x 5) (y 3))"
+      },
+      {
+        "id": "P",
+        "x": 440,
+        "y": 150,
+        "w": 330,
+        "h": 96,
+        "label": "parent",
+        "detail": "外側の対象環境"
+      }
+    ],
+    "groups": [],
+    "edges": [
+      {
+        "from": "E",
+        "to": "F",
+        "label": "",
+        "type": "contains",
+        "points": [
+          [
+            360,
+            110
+          ],
+          [
+            400,
+            110
+          ],
+          [
+            400,
+            68
+          ],
+          [
+            440,
+            68
+          ]
+        ]
+      },
+      {
+        "from": "F",
+        "to": "B",
+        "label": "",
+        "type": "contains",
+        "points": [
+          [
+            770,
+            68
+          ],
+          [
+            860,
+            68
+          ]
+        ]
+      },
+      {
+        "from": "E",
+        "to": "P",
+        "label": "",
+        "type": "reference",
+        "points": [
+          [
+            360,
+            156
+          ],
+          [
+            400,
+            156
+          ],
+          [
+            400,
+            198
+          ],
+          [
+            440,
+            198
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "new_title": "対象の名前検索",
+    "explanation": "Eで y を探すと 3 です。Eにない x はGで見つかり、5 になります。",
+    "footer_check": "どこにもない名前は診断します。ホスト環境からは探しません。",
+    "viewBox": "0 0 1180 120",
+    "nodes": [
+      {
+        "id": "E",
+        "x": 180,
+        "y": 20,
+        "w": 300,
+        "h": 80,
+        "label": "E: y = 3",
+        "detail": ""
+      },
+      {
+        "id": "G",
+        "x": 700,
+        "y": 20,
+        "w": 300,
+        "h": 80,
+        "label": "G: x = 5",
+        "detail": ""
+      }
+    ],
+    "groups": [],
+    "edges": [
+      {
+        "from": "E",
+        "to": "G",
+        "label": "外側",
+        "type": "reference",
+        "points": [
+          [
+            480,
+            60
+          ],
+          [
+            700,
+            60
+          ]
+        ],
+        "labelAt": [
+          590,
+          46
+        ],
+        "labelAnchor": "middle"
+      }
+    ]
+  },
+  {
+    "new_title": "新しい対象環境",
+    "explanation": "Gを外側に持つE6を作り、x = 6 を束縛します。",
+    "footer_check": "関数を呼び出した場所の環境へ付け替えません。",
+    "viewBox": "0 0 1180 260",
+    "nodes": [
+      {
+        "id": "E6",
+        "x": 10,
+        "y": 20,
+        "w": 330,
+        "h": 80,
+        "label": "E6: x = 6",
+        "detail": ""
+      },
+      {
+        "id": "C",
+        "x": 10,
+        "y": 170,
+        "w": 330,
+        "h": 80,
+        "label": "square のクロージャ",
+        "detail": ""
+      },
+      {
+        "id": "G",
+        "x": 740,
+        "y": 95,
+        "w": 420,
+        "h": 80,
+        "label": "G: square と * の束縛",
+        "detail": ""
+      }
+    ],
+    "groups": [],
+    "edges": [
+      {
+        "from": "E6",
+        "to": "G",
+        "label": "外側",
+        "type": "reference",
+        "points": [
+          [
+            340,
+            60
+          ],
+          [
+            640,
+            60
+          ],
+          [
+            640,
+            118
+          ],
+          [
+            740,
+            118
+          ]
+        ],
+        "labelAt": [
+          490,
+          46
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "C",
+        "to": "G",
+        "label": "保存した環境",
+        "type": "reference",
+        "points": [
+          [
+            340,
+            210
+          ],
+          [
+            640,
+            210
+          ],
+          [
+            640,
+            152
+          ],
+          [
+            740,
+            152
+          ]
+        ],
+        "labelAt": [
+          490,
+          196
+        ],
+        "labelAnchor": "middle"
+      }
+    ]
+  },
+  {
+    "new_title": "REPLへ渡す状態",
+    "explanation": "同じ対象環境を各入力へ渡します。",
+    "footer_check": "入力のたびに m-global を呼ぶと、前の定義が消えます。",
+    "viewBox": "0 0 1180 120",
+    "nodes": [
+      {
+        "id": "R",
+        "x": 10,
+        "y": 12,
+        "w": 240,
+        "h": 96,
+        "label": "m-repl",
+        "detail": "(env)"
+      },
+      {
+        "id": "S",
+        "x": 360,
+        "y": 12,
+        "w": 340,
+        "h": 96,
+        "label": "m-sequence",
+        "detail": "(forms, env, 0)"
+      },
+      {
+        "id": "E",
+        "x": 810,
+        "y": 12,
+        "w": 360,
+        "h": 96,
+        "label": "m-eval",
+        "detail": "(form, env, depth)"
+      }
+    ],
+    "groups": [],
+    "edges": [
+      {
+        "from": "R",
+        "to": "S",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            250,
+            60
+          ],
+          [
+            360,
+            60
+          ]
+        ]
+      },
+      {
+        "from": "S",
+        "to": "E",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            700,
+            60
+          ],
+          [
+            810,
+            60
+          ]
+        ]
+      }
+    ]
+  }
+]

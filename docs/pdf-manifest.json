@@ -73,9 +73,9 @@
   },
   {
     "file": "output/pdf/14-selfhosting.pdf",
-    "pages": 42,
-    "size_bytes": 1910889,
-    "sha256": "78e48654b19b63bea36e0ac451a973902491b0884458a6b95cda8430d121e8c7"
+    "pages": 45,
+    "size_bytes": 1809025,
+    "sha256": "32e85ae94c73fbfe0300dc73adc107ead99f23267dfe8e85fc0bcfeb90a5f479"
   },
   {
     "file": "output/pdf/15-showcase.pdf",

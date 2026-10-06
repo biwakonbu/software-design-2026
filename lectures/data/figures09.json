@@ -1,0 +1,588 @@
+[
+  {
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "S",
+        "x": 10,
+        "y": 10,
+        "w": 1160,
+        "h": 96,
+        "label": "( + 1 ( * 2 3 ) )",
+        "detail": "0 1 2 3 4 5 6 7 8",
+        "kind": "tokens"
+      },
+      {
+        "id": "a1",
+        "x": 20,
+        "y": 170,
+        "w": 346,
+        "h": 80,
+        "label": "pos 0 '(' → []"
+      },
+      {
+        "id": "a2",
+        "x": 20,
+        "y": 300,
+        "w": 346,
+        "h": 80,
+        "label": "+ と 1 を追加"
+      },
+      {
+        "id": "b1",
+        "x": 417,
+        "y": 170,
+        "w": 346,
+        "h": 80,
+        "label": "pos 3 '(' → read()"
+      },
+      {
+        "id": "b2",
+        "x": 417,
+        "y": 300,
+        "w": 346,
+        "h": 80,
+        "label": "[*, 2, 3] を返す"
+      },
+      {
+        "id": "c1",
+        "x": 814,
+        "y": 170,
+        "w": 346,
+        "h": 80,
+        "label": "pos 8 ')' で閉じる"
+      },
+      {
+        "id": "c2",
+        "x": 814,
+        "y": 300,
+        "w": 346,
+        "h": 80,
+        "label": "[+, 1, [*, 2, 3]]"
+      }
+    ],
+    "groups": [
+      {
+        "label": "1 外側の (",
+        "x": 0,
+        "y": 116,
+        "w": 386,
+        "h": 284
+      },
+      {
+        "label": "2 内側で再帰",
+        "x": 397,
+        "y": 116,
+        "w": 386,
+        "h": 284
+      },
+      {
+        "label": "3 外側を閉じる",
+        "x": 794,
+        "y": 116,
+        "w": 386,
+        "h": 284
+      }
+    ],
+    "new_title": "read の再帰と pos",
+    "explanation": "( を読むと read が自分を呼び、内側の ) で戻ってから外側を続けます。",
+    "footer_check": "別入力: `(+ 1 2))` で、余分な `)` のエラーが示す offset を予想してから実行します。",
+    "edges": [
+      {
+        "from": "a1",
+        "to": "a2",
+        "type": "flow",
+        "label": "",
+        "points": [
+          [
+            193,
+            250
+          ],
+          [
+            193,
+            300
+          ]
+        ]
+      },
+      {
+        "from": "a2",
+        "to": "b1",
+        "type": "flow",
+        "label": ""
+      },
+      {
+        "from": "b1",
+        "to": "b2",
+        "type": "flow",
+        "label": "* 2 3",
+        "points": [
+          [
+            590,
+            250
+          ],
+          [
+            590,
+            300
+          ]
+        ],
+        "labelAt": [
+          602,
+          286
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "b2",
+        "to": "c1",
+        "type": "return",
+        "label": ""
+      },
+      {
+        "from": "c1",
+        "to": "c2",
+        "type": "flow",
+        "label": "pos 9",
+        "points": [
+          [
+            987,
+            250
+          ],
+          [
+            987,
+            300
+          ]
+        ],
+        "labelAt": [
+          999,
+          286
+        ],
+        "labelAnchor": "start"
+      }
+    ]
+  },
+  {
+    "anchor": "演算の評価",
+    "prediction": "`+` の検索と `(* 2 3)` の計算は、どちらが先に起こるか予想してください。",
+    "new_title": "先頭→引数→適用の順",
+    "explanation": "先頭を環境で探し、引数を左から評価してから Builtin を呼びます。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "p1",
+        "x": 10,
+        "y": 90,
+        "w": 265,
+        "h": 100,
+        "label": "+ を検索",
+        "detail": "Builtin(+)"
+      },
+      {
+        "id": "p2",
+        "x": 307,
+        "y": 90,
+        "w": 265,
+        "h": 100,
+        "label": "1",
+        "detail": "→ 1"
+      },
+      {
+        "id": "p3",
+        "x": 604,
+        "y": 90,
+        "w": 265,
+        "h": 100,
+        "label": "(* 2 3)",
+        "detail": "同じ順で → 6"
+      },
+      {
+        "id": "p4",
+        "x": 901,
+        "y": 90,
+        "w": 265,
+        "h": 100,
+        "label": "plus(1, 6)",
+        "detail": "→ 7"
+      },
+      {
+        "id": "env",
+        "x": 10,
+        "y": 300,
+        "w": 1160,
+        "h": 80,
+        "label": "大域Env: + - * / → Builtin",
+        "detail": ""
+      }
+    ],
+    "edges": [
+      {
+        "from": "p1",
+        "to": "p2",
+        "label": "次に",
+        "type": "flow",
+        "labelAt": [
+          293,
+          74
+        ]
+      },
+      {
+        "from": "p2",
+        "to": "p3",
+        "label": "",
+        "type": "flow"
+      },
+      {
+        "from": "p3",
+        "to": "p4",
+        "label": "[1, 6]",
+        "type": "flow",
+        "labelAt": [
+          887,
+          74
+        ]
+      },
+      {
+        "from": "p1",
+        "to": "env",
+        "label": "lookup",
+        "type": "reference",
+        "labelAt": [
+          154,
+          255
+        ],
+        "points": [
+          [
+            142,
+            190
+          ],
+          [
+            142,
+            300
+          ]
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "p3",
+        "to": "env",
+        "label": "* も lookup",
+        "type": "reference",
+        "labelAt": [
+          790,
+          250
+        ]
+      }
+    ],
+    "groups": [
+      {
+        "id": "s1",
+        "label": "1 先頭",
+        "x": 0,
+        "y": 0,
+        "w": 289,
+        "h": 280,
+        "members": [
+          "p1"
+        ]
+      },
+      {
+        "id": "s2",
+        "label": "2 第1引数",
+        "x": 297,
+        "y": 0,
+        "w": 289,
+        "h": 280,
+        "members": [
+          "p2"
+        ]
+      },
+      {
+        "id": "s3",
+        "label": "3 第2引数",
+        "x": 594,
+        "y": 0,
+        "w": 289,
+        "h": 280,
+        "members": [
+          "p3"
+        ]
+      },
+      {
+        "id": "s4",
+        "label": "4 適用",
+        "x": 891,
+        "y": 0,
+        "w": 289,
+        "h": 280,
+        "members": [
+          "p4"
+        ]
+      }
+    ],
+    "footer_check": "別入力: `(- 10 2 3)` の評価順と値を同じ4コマで書き、実行の 5 と照合します。",
+    "verification": "Interpreter.evaluate(STAGE 9): function = self.evaluate(head) → values = [...] → self.call と一致。--eval '(+ 1 (* 2 3))' で 7、'(- 10 2 3)' で 5 (Codex実行照合)"
+  },
+  {
+    "anchor": "エラーからの回復",
+    "prediction": "`(/ 1 0)` で例外が起きた後、処理がどこへ戻るか予想してください。",
+    "new_title": "try はループの内側",
+    "explanation": "try は while の内側にあり、失敗はその1行で終わって次の行へ進みます。",
+    "viewBox": "0 0 1180 430",
+    "nodes": [
+      {
+        "id": "in1",
+        "x": 10,
+        "y": 94,
+        "w": 200,
+        "h": 70,
+        "label": "(+ 2 3)",
+        "detail": ""
+      },
+      {
+        "id": "out1",
+        "x": 10,
+        "y": 280,
+        "w": 200,
+        "h": 100,
+        "label": "stdout",
+        "detail": "5"
+      },
+      {
+        "id": "in2",
+        "x": 230,
+        "y": 94,
+        "w": 420,
+        "h": 70,
+        "label": "(/ 1 0)",
+        "detail": ""
+      },
+      {
+        "id": "out2",
+        "x": 230,
+        "y": 280,
+        "w": 420,
+        "h": 100,
+        "label": "stderr",
+        "detail": "error: division by zero"
+      },
+      {
+        "id": "in3",
+        "x": 670,
+        "y": 94,
+        "w": 250,
+        "h": 70,
+        "label": "(* 4 5)",
+        "detail": ""
+      },
+      {
+        "id": "out3",
+        "x": 670,
+        "y": 280,
+        "w": 250,
+        "h": 100,
+        "label": "stdout",
+        "detail": "20"
+      },
+      {
+        "id": "in4",
+        "x": 960,
+        "y": 94,
+        "w": 210,
+        "h": 100,
+        "label": "EOF",
+        "detail": "line == ''"
+      },
+      {
+        "id": "out4",
+        "x": 960,
+        "y": 280,
+        "w": 210,
+        "h": 100,
+        "label": "return 0",
+        "detail": "終了"
+      }
+    ],
+    "edges": [
+      {
+        "from": "in1",
+        "to": "out1",
+        "label": "execute",
+        "type": "flow"
+      },
+      {
+        "from": "out1",
+        "to": "in2",
+        "label": "while",
+        "type": "flow",
+        "labelAt": [
+          335,
+          245
+        ]
+      },
+      {
+        "from": "in2",
+        "to": "out2",
+        "label": "except",
+        "type": "flow"
+      },
+      {
+        "from": "out2",
+        "to": "in3",
+        "label": "while",
+        "type": "flow",
+        "labelAt": [
+          635,
+          245
+        ]
+      },
+      {
+        "from": "in3",
+        "to": "out3",
+        "label": "",
+        "type": "flow"
+      },
+      {
+        "from": "out3",
+        "to": "in4",
+        "label": "while",
+        "type": "flow",
+        "labelAt": [
+          955,
+          270
+        ]
+      },
+      {
+        "from": "in4",
+        "to": "out4",
+        "label": "",
+        "type": "flow"
+      }
+    ],
+    "groups": [
+      {
+        "id": "s1",
+        "label": "1 正常",
+        "x": 0,
+        "y": 0,
+        "w": 220,
+        "h": 430,
+        "members": [
+          "in1",
+          "out1"
+        ]
+      },
+      {
+        "id": "s2",
+        "label": "2 失敗を捕捉",
+        "x": 220,
+        "y": 0,
+        "w": 440,
+        "h": 430,
+        "members": [
+          "in2",
+          "out2"
+        ]
+      },
+      {
+        "id": "s3",
+        "label": "3 継続",
+        "x": 660,
+        "y": 0,
+        "w": 270,
+        "h": 430,
+        "members": [
+          "in3",
+          "out3"
+        ]
+      },
+      {
+        "id": "s4",
+        "label": "4 終了",
+        "x": 930,
+        "y": 0,
+        "w": 250,
+        "h": 430,
+        "members": [
+          "in4",
+          "out4"
+        ]
+      }
+    ],
+    "footer_check": "別入力: `(+ 1 2` の後に `(* 4 5)` を入力し、読取の失敗でも続くか確かめます。",
+    "verification": "lisp.py の repl(): while True / readline / try execute / except (LispError, RecursionError) → stderr と一致。printf '(+ 2 3)\\n(/ 1 0)\\n(* 4 5)\\n' | python3 examples/09-lisp-arithmetic/lisp.py で stdout は 5 と 20、stderr は error: division by zero、exit 0 (Codex実行照合)"
+  },
+  {
+    "viewBox": "0 0 1180 300",
+    "nodes": [
+      {
+        "id": "r",
+        "x": 530,
+        "y": 10,
+        "w": 120,
+        "h": 72,
+        "label": "+"
+      },
+      {
+        "id": "a",
+        "x": 330,
+        "y": 114,
+        "w": 120,
+        "h": 72,
+        "label": "1"
+      },
+      {
+        "id": "m",
+        "x": 730,
+        "y": 114,
+        "w": 120,
+        "h": 72,
+        "label": "*"
+      },
+      {
+        "id": "b",
+        "x": 630,
+        "y": 218,
+        "w": 120,
+        "h": 72,
+        "label": "2"
+      },
+      {
+        "id": "c",
+        "x": 830,
+        "y": 218,
+        "w": 120,
+        "h": 72,
+        "label": "3"
+      }
+    ],
+    "groups": [],
+    "new_title": "S式の構文木",
+    "explanation": "",
+    "footer_check": "",
+    "edges": [
+      {
+        "from": "r",
+        "to": "a",
+        "type": "contains",
+        "label": ""
+      },
+      {
+        "from": "r",
+        "to": "m",
+        "type": "contains",
+        "label": ""
+      },
+      {
+        "from": "m",
+        "to": "b",
+        "type": "contains",
+        "label": ""
+      },
+      {
+        "from": "m",
+        "to": "c",
+        "type": "contains",
+        "label": ""
+      }
+    ]
+  }
+]

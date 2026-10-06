@@ -223,3 +223,14 @@ buggy: None corrected: 0
 | README.md | `eb114c96c5bfab5edf6c2015c6eeb51c7cd4153366680039336702784a4bbc91` |
 | calculator.py | `678b9c5cfd7f07be6af501600950ab2811968e2ae714a0fc7ff9094c7d3b14cf` |
 | test_calculator.py | `bd017bf596bffcb7bffffb10e9a1b7c2338e31d0ba1e3f326d28d9e4b7e4ad42` |
+
+
+## 第09回：LispのREPLと四則演算
+
+[検証済み公開Gist](https://gist.github.com/biwakonbu/51af4a869e18e65cbe606c19274d5af7)。本人所有・publicで、保存後の全3ファイルSHAをreadbackしました。Python3.12.13/3.14.7で5テスト、375計算と72除算、正常・境界・失敗・CLIのstdout/stderr/終了コードを照合しました。実Opus5.5の公開前レビューは合格（37,366ms）。公開済み自作referenceはbyte一致で、READMEとテストを添えた自習用です。有限の検証範囲と数値の制約をREADMEに明記しました。既存の非公開Gist、授業契約・課題解答・学生情報を収録していません。
+
+| ファイル | SHA-256 |
+|---|---|
+| README.md | `0b3405e15970c80aced8eadf8e9ded30435e2571a33fbcf56b578ad93cc73c32` |
+| lisp.py | `bf314839008e505ee1f6ca74e88ae42b808cbe076a9141723b8b33f697113bea` |
+| test_lisp.py | `5cc3c97cff9a05a6675ad16a56ebabb3a26133533a9d7d68cbb5bdc5e359f2ec` |

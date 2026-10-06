@@ -43,9 +43,9 @@
   },
   {
     "file": "output/pdf/09-lisp-arithmetic.pdf",
-    "pages": 26,
-    "size_bytes": 234345,
-    "sha256": "4fd4451c063bcd820af3c1b0ff8bfcbe890ed2400ff2e5efe64f53e65c5864ba"
+    "pages": 29,
+    "size_bytes": 240304,
+    "sha256": "87c3f1425c35410cd4fe4f940de850a6a101052b36f38d0e73bb4f271569377d"
   },
   {
     "file": "output/pdf/10-lisp-functions.pdf",

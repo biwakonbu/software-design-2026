@@ -1,0 +1,845 @@
+[
+  {
+    "anchor": "当日の型判定",
+    "prediction": "第12回の m-eval に記号 `x` を渡すと、どの分岐で何が起こるか予想してください。",
+    "verification": "幾何: 最終区間は 60/44/44/45/45/45/45。違えば の矩形は 455..553×150..186 と 455..553×278..314 で、上下ノードの間に入る。幹線 x=665 は群の隙間 650..680 にあり、どのノードも通らない。群見出しの帯 y 7..43 とノード上端 y=60 は離れている。値: evaluator.lisp の number?→boolean?→string?→list?(null? ならエラー)→ quote → if → +-*/ → それ以外は error、記号は unknown symbol の順と一致し、env を引く分岐はない。--meta --eval '(quote x)' → x、'x' → error: stage 12 meta: unknown symbol、'(car (quote (1)))' → error: stage 12 meta: only arithmetic, quote, if(observations)。",
+    "new_title": "m-eval の分岐順(第12回)",
+    "explanation": "第12回の m-eval は型を上から判定し、リストは先頭で分けます。",
+    "footer_check": "別入力: `(quote x)` と `x` を第12回の `--meta` で実行し、分岐の違いを確かめます。",
+    "viewBox": "0 0 1180 420",
+    "nodes": [
+      {
+        "id": "r",
+        "x": 15,
+        "y": 60,
+        "w": 200,
+        "h": 84,
+        "label": "m-eval",
+        "detail": "expression"
+      },
+      {
+        "id": "self",
+        "x": 275,
+        "y": 60,
+        "w": 350,
+        "h": 84,
+        "label": "数値・真偽・文字列",
+        "detail": "そのまま返す"
+      },
+      {
+        "id": "lst",
+        "x": 275,
+        "y": 188,
+        "w": 350,
+        "h": 84,
+        "label": "list?",
+        "detail": "空ならエラー"
+      },
+      {
+        "id": "sym",
+        "x": 275,
+        "y": 316,
+        "w": 350,
+        "h": 84,
+        "label": "それ以外(記号)",
+        "detail": "unknown symbol"
+      },
+      {
+        "id": "q",
+        "x": 710,
+        "y": 60,
+        "w": 455,
+        "h": 66,
+        "label": "quote → (car args)",
+        "detail": ""
+      },
+      {
+        "id": "i",
+        "x": 710,
+        "y": 148,
+        "w": 455,
+        "h": 66,
+        "label": "if → 片方の枝だけ",
+        "detail": ""
+      },
+      {
+        "id": "a",
+        "x": 710,
+        "y": 236,
+        "w": 455,
+        "h": 66,
+        "label": "+ - * / → primitive",
+        "detail": "",
+        "kind": "host"
+      },
+      {
+        "id": "o",
+        "x": 710,
+        "y": 324,
+        "w": 455,
+        "h": 66,
+        "label": "その他 → error",
+        "detail": ""
+      }
+    ],
+    "groups": [
+      {
+        "id": "s1",
+        "x": 0,
+        "y": 0,
+        "w": 230,
+        "h": 420,
+        "label": "1 入口"
+      },
+      {
+        "id": "s2",
+        "x": 260,
+        "y": 0,
+        "w": 390,
+        "h": 420,
+        "label": "2 型を上から"
+      },
+      {
+        "id": "s3",
+        "x": 680,
+        "y": 0,
+        "w": 500,
+        "h": 420,
+        "label": "3 head を上から"
+      }
+    ],
+    "edges": [
+      {
+        "from": "r",
+        "to": "self",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            215,
+            102
+          ],
+          [
+            275,
+            102
+          ]
+        ]
+      },
+      {
+        "from": "self",
+        "to": "lst",
+        "label": "違えば",
+        "type": "flow",
+        "points": [
+          [
+            450,
+            144
+          ],
+          [
+            450,
+            188
+          ]
+        ],
+        "labelAt": [
+          462,
+          178
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "lst",
+        "to": "sym",
+        "label": "違えば",
+        "type": "flow",
+        "points": [
+          [
+            450,
+            272
+          ],
+          [
+            450,
+            316
+          ]
+        ],
+        "labelAt": [
+          462,
+          306
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "lst",
+        "to": "q",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            625,
+            230
+          ],
+          [
+            665,
+            230
+          ],
+          [
+            665,
+            93
+          ],
+          [
+            710,
+            93
+          ]
+        ]
+      },
+      {
+        "from": "lst",
+        "to": "i",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            625,
+            230
+          ],
+          [
+            665,
+            230
+          ],
+          [
+            665,
+            181
+          ],
+          [
+            710,
+            181
+          ]
+        ]
+      },
+      {
+        "from": "lst",
+        "to": "a",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            625,
+            230
+          ],
+          [
+            665,
+            230
+          ],
+          [
+            665,
+            269
+          ],
+          [
+            710,
+            269
+          ]
+        ]
+      },
+      {
+        "from": "lst",
+        "to": "o",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            625,
+            230
+          ],
+          [
+            665,
+            230
+          ],
+          [
+            665,
+            357
+          ],
+          [
+            710,
+            357
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "anchor": "ifの受入例",
+    "prediction": "対象の `(if #f (/ 1 0) 7)` で、m-eval が呼ばれる式をすべて予想してください。",
+    "verification": "幾何: 最終区間は 80/40/80/80。選ばない は 595..721×192..228。c→h の縦線 x=385 は群の隙間 360..410 を通る。値: evaluator.lisp 24 行 (m-eval (if (m-eval (car args) env (+ depth 1)) (car (cdr args)) (car (cdr (cdr args)))) env (+ depth 1)) と一致する。--meta --eval '(if #f (/ 1 0) 7)' → 7、'(if 0 7 (/ 1 0))' → 7(observations)。",
+    "new_title": "条件は m-eval、選択はホストの if",
+    "explanation": "条件は m-eval で値にし、ホストの if が枝を1つ選んで m-eval へ渡します。",
+    "footer_check": "別入力: `(if 0 7 (/ 1 0))` の結果を予想し、`--meta` で #f だけが偽か確かめます。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "e0",
+        "x": 15,
+        "y": 80,
+        "w": 330,
+        "h": 90,
+        "label": "(if #f (/ 1 0) 7)",
+        "detail": "depth 0"
+      },
+      {
+        "id": "c",
+        "x": 15,
+        "y": 250,
+        "w": 330,
+        "h": 90,
+        "label": "m-eval #f",
+        "detail": "(car args) → #f"
+      },
+      {
+        "id": "h",
+        "x": 425,
+        "y": 80,
+        "w": 330,
+        "h": 90,
+        "label": "ホストの if",
+        "detail": "#f → 3番目",
+        "kind": "host"
+      },
+      {
+        "id": "x",
+        "x": 425,
+        "y": 250,
+        "w": 330,
+        "h": 90,
+        "label": "(/ 1 0)",
+        "detail": "m-eval に渡さない",
+        "kind": "skipped"
+      },
+      {
+        "id": "r",
+        "x": 835,
+        "y": 80,
+        "w": 330,
+        "h": 90,
+        "label": "m-eval 7",
+        "detail": "→ 7"
+      }
+    ],
+    "groups": [
+      {
+        "id": "s1",
+        "x": 0,
+        "y": 0,
+        "w": 360,
+        "h": 400,
+        "label": "1 条件を m-eval"
+      },
+      {
+        "id": "s2",
+        "x": 410,
+        "y": 0,
+        "w": 360,
+        "h": 400,
+        "label": "2 ホストの if"
+      },
+      {
+        "id": "s3",
+        "x": 820,
+        "y": 0,
+        "w": 360,
+        "h": 400,
+        "label": "3 枝を m-eval"
+      }
+    ],
+    "edges": [
+      {
+        "from": "e0",
+        "to": "c",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            180,
+            170
+          ],
+          [
+            180,
+            250
+          ]
+        ]
+      },
+      {
+        "from": "c",
+        "to": "h",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            345,
+            295
+          ],
+          [
+            385,
+            295
+          ],
+          [
+            385,
+            125
+          ],
+          [
+            425,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "h",
+        "to": "r",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            755,
+            125
+          ],
+          [
+            835,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "h",
+        "to": "x",
+        "label": "選ばない",
+        "type": "reference",
+        "kind": "counterfactual",
+        "points": [
+          [
+            590,
+            170
+          ],
+          [
+            590,
+            250
+          ]
+        ],
+        "labelAt": [
+          602,
+          220
+        ],
+        "labelAnchor": "start"
+      }
+    ]
+  },
+  {
+    "anchor": "算術は引数の内側から評価する",
+    "prediction": "`(+ 1 (* 2 3))` で、ホストの primitive が最初に受け取る値の列を予想してください。",
+    "verification": "幾何: 最終区間は 50/60/80/80/60。(2 3) は 685..784×192..228 で x=820 の return 線より左。6 は 825..856×192..228。v2⇄h1 の2本はどちらも points を持つので、pairShift はかからない。上段の線はすべて y=125 で、どのノードも通らない。値: evaluator.lisp 27 行 (apply (primitive head) (m-values args env (+ depth 1)))。m-values は左から評価するので、primitive が受け取るのは (2 3) → (1 6) の順。--meta --eval '(+ 1 (* 2 3))' → 7(observations)。別入力の値の列は (1 2)、(9 4)、(3 5) で、結果は 15。",
+    "new_title": "順序は Lisp、算術はホスト",
+    "explanation": "Lisp 側が引数を再帰評価し、評価済みの値だけをホストの算術へ渡します。",
+    "footer_check": "別入力: `(* (+ 1 2) (- 9 4))` の primitive への値の列を予想します。",
+    "viewBox": "0 0 1180 400",
+    "nodes": [
+      {
+        "id": "p1",
+        "x": 15,
+        "y": 80,
+        "w": 250,
+        "h": 90,
+        "label": "(+ 1 (* 2 3))",
+        "detail": "+ は許可"
+      },
+      {
+        "id": "v1",
+        "x": 315,
+        "y": 80,
+        "w": 240,
+        "h": 90,
+        "label": "m-eval 1",
+        "detail": "→ 1"
+      },
+      {
+        "id": "v2",
+        "x": 615,
+        "y": 80,
+        "w": 270,
+        "h": 90,
+        "label": "m-eval (* 2 3)",
+        "detail": "→ 6"
+      },
+      {
+        "id": "h1",
+        "x": 615,
+        "y": 250,
+        "w": 270,
+        "h": 90,
+        "label": "apply *",
+        "detail": "(2 3) → 6",
+        "kind": "host"
+      },
+      {
+        "id": "h2",
+        "x": 945,
+        "y": 80,
+        "w": 220,
+        "h": 90,
+        "label": "apply +",
+        "detail": "(1 6) → 7",
+        "kind": "host"
+      }
+    ],
+    "groups": [
+      {
+        "id": "s1",
+        "x": 0,
+        "y": 0,
+        "w": 280,
+        "h": 400,
+        "label": "1 先頭 + を確認"
+      },
+      {
+        "id": "s2",
+        "x": 300,
+        "y": 0,
+        "w": 270,
+        "h": 400,
+        "label": "2 第1引数"
+      },
+      {
+        "id": "s3",
+        "x": 600,
+        "y": 0,
+        "w": 300,
+        "h": 400,
+        "label": "3 第2引数"
+      },
+      {
+        "id": "s4",
+        "x": 930,
+        "y": 0,
+        "w": 250,
+        "h": 400,
+        "label": "4 + をホストへ"
+      }
+    ],
+    "edges": [
+      {
+        "from": "p1",
+        "to": "v1",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            265,
+            125
+          ],
+          [
+            315,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "v1",
+        "to": "v2",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            555,
+            125
+          ],
+          [
+            615,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "v2",
+        "to": "h1",
+        "label": "(2 3)",
+        "type": "flow",
+        "points": [
+          [
+            680,
+            170
+          ],
+          [
+            680,
+            250
+          ]
+        ],
+        "labelAt": [
+          692,
+          220
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "h1",
+        "to": "v2",
+        "label": "6",
+        "type": "return",
+        "points": [
+          [
+            820,
+            250
+          ],
+          [
+            820,
+            170
+          ]
+        ],
+        "labelAt": [
+          832,
+          220
+        ],
+        "labelAnchor": "start"
+      },
+      {
+        "from": "v2",
+        "to": "h2",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            885,
+            125
+          ],
+          [
+            945,
+            125
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "new_title": "第14回参照の env から bindings へ",
+    "explanation": "env の先頭が frame-cell、その先頭が bindings で、2番目が親の env です。",
+    "footer_check": "確認: (car (car env)) が bindings を返す理由を、図の『先頭』2回で説明します。",
+    "viewBox": "0 0 1180 290",
+    "nodes": [
+      {
+        "id": "env",
+        "x": 15,
+        "y": 55,
+        "w": 295,
+        "h": 220,
+        "label": "env",
+        "detail": "2要素のリスト"
+      },
+      {
+        "id": "fc",
+        "x": 440,
+        "y": 55,
+        "w": 300,
+        "h": 90,
+        "label": "frame-cell",
+        "detail": "1要素のリスト"
+      },
+      {
+        "id": "b",
+        "x": 870,
+        "y": 55,
+        "w": 295,
+        "h": 90,
+        "label": "bindings",
+        "detail": "((x 3) (y 4))"
+      },
+      {
+        "id": "p",
+        "x": 440,
+        "y": 185,
+        "w": 420,
+        "h": 90,
+        "label": "parent env",
+        "detail": "親がなければ ()"
+      }
+    ],
+    "groups": [
+      {
+        "id": "g",
+        "x": 0,
+        "y": 0,
+        "w": 1180,
+        "h": 290,
+        "label": "第14回参照の env (第12回は ())"
+      }
+    ],
+    "edges": [
+      {
+        "from": "env",
+        "to": "fc",
+        "label": "先頭",
+        "type": "contains",
+        "points": [
+          [
+            310,
+            100
+          ],
+          [
+            440,
+            100
+          ]
+        ],
+        "labelAt": [
+          375,
+          86
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "env",
+        "to": "p",
+        "label": "2番目",
+        "type": "contains",
+        "points": [
+          [
+            310,
+            230
+          ],
+          [
+            440,
+            230
+          ]
+        ],
+        "labelAt": [
+          375,
+          216
+        ],
+        "labelAnchor": "middle"
+      },
+      {
+        "from": "fc",
+        "to": "b",
+        "label": "先頭",
+        "type": "contains",
+        "points": [
+          [
+            740,
+            100
+          ],
+          [
+            870,
+            100
+          ]
+        ],
+        "labelAt": [
+          805,
+          86
+        ],
+        "labelAnchor": "middle"
+      }
+    ],
+    "verification": "幾何: 群見出しは 16..478×7..43 で、ノード上端 y=55 より上。ラベルは 340..410×58..94、331..418×188..224、770..840×58..94。値: 12.md p23 の表(bindings ((x 3) (y 4)) / frame-cell 1要素 / env (frame-cell parent)、親なしは ())と exercises/12.md 段階4 に一致する。第12回の evaluator.lisp では m-global が '() を返し、env は使われない。"
+  },
+  {
+    "new_title": "eval と apply の往復(第14回の設計)",
+    "explanation": "eval が式を分類し、apply が関数を適用し、本文は新しい環境で再び eval されます。",
+    "footer_check": "確認: 第12回の算術分岐は、この往復のどこに当たるかを説明します。",
+    "viewBox": "0 0 1180 300",
+    "nodes": [
+      {
+        "id": "E",
+        "x": 20,
+        "y": 80,
+        "w": 330,
+        "h": 90,
+        "label": "eval",
+        "detail": "式を分類"
+      },
+      {
+        "id": "A",
+        "x": 440,
+        "y": 80,
+        "w": 330,
+        "h": 90,
+        "label": "apply",
+        "detail": "関数を適用"
+      },
+      {
+        "id": "B",
+        "x": 860,
+        "y": 80,
+        "w": 300,
+        "h": 90,
+        "label": "本文を eval",
+        "detail": "新しい環境で"
+      }
+    ],
+    "groups": [
+      {
+        "id": "g",
+        "x": 0,
+        "y": 0,
+        "w": 1180,
+        "h": 300,
+        "label": "第14回で統合する設計 (第12回は算術・quote・if)"
+      }
+    ],
+    "edges": [
+      {
+        "from": "E",
+        "to": "A",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            350,
+            125
+          ],
+          [
+            440,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "A",
+        "to": "B",
+        "label": "",
+        "type": "flow",
+        "points": [
+          [
+            770,
+            125
+          ],
+          [
+            860,
+            125
+          ]
+        ]
+      },
+      {
+        "from": "B",
+        "to": "E",
+        "label": "本文の式",
+        "type": "flow",
+        "points": [
+          [
+            1010,
+            170
+          ],
+          [
+            1010,
+            250
+          ],
+          [
+            185,
+            250
+          ],
+          [
+            185,
+            170
+          ]
+        ],
+        "labelAt": [
+          597,
+          236
+        ],
+        "labelAnchor": "middle"
+      }
+    ],
+    "verification": "幾何: 最終区間は 90/90/80。本文の式 は 534..660×208..244 で、y=250 の線の上。y=250 の戻り線はノードの下端 170 より下を通る。群見出しは約 16..702×7..43。値: 12.md p27/p29/p30 の『後続の設計』と第14回 evaluator の m-eval/m-apply の関係に一致する。第12回の evaluator.lisp に apply を経由する対象関数はなく、算術は primitive へ渡すだけなので、図の中で第14回の設計と明記した。"
+  }
+]

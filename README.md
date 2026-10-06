@@ -109,8 +109,10 @@ python3.12 scripts/render-pdfs.py
 
 render-pdfs.pyはPopplerのpdftoppmを使い、全ページをtmp/pdf-qaへ出力します。生成後は画像と実際のPDF/Slidevを確認してください。検証記録は[docs/verification.md](docs/verification.md)、再現可能な自動チェックは[GitHub Actions](.github/workflows/verify.yml)にあります。
 
-配布用の一式ZIPは `python3.12 scripts/package-course.py` で `tmp/software-design-2026.zip` に作成できます。Gitの公開対象だけを収録し、実行環境のキャッシュや原資料は含めません。
+リポジトリを配布の正本として参照してください。今回の全体調整ではZIPとLibraryを更新していません。
 
 ## 図解と公開サンプル
 
-[概念と図解の棚卸し](docs/visual-learning-map.md)と[第03回の公開Gist](docs/gist-samples.md)を追加しました。第03回は「AI時代の学び方」を主題に、疑問・予想・ヒント・検証・説明の5ステップを図と同じ例でたどります。主例と実行手順を公開Gistに収録し、[独立レビューと修正の記録](docs/lesson03-learning-review.md)を残しています。
+第03回の確定版を基準に、第04〜15回を「説明→予想・操作→検証→自分の説明・別入力」の流れで調整しました。[概念と図解の対応](docs/visual-learning-map.md)、[各回の完成記録](docs/course-rollout.md)、[検証済み公開Gist](docs/gist-samples.md)を参照してください。図・コード・実行結果を同じ例で照合し、実Opus5.5の全ページ画像レビューと修正後レビューを行っています。第02/03回・既存課題・別冊を保持しました。
+
+配布PDFは全16ファイル・613ページです。ローカルでは全14回のSlidevビルドと両Pythonの検証が合格しています。遠隔CIのexportsは既存braces依存の監査で停止しており、ローカルPDF検証の成功とは区別しています。監査gateは保持しています。

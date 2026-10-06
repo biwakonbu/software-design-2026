@@ -1,0 +1,326 @@
+{
+  "scope": "04-15; 02/03 and existing exercises/examples/books protected",
+  "python": [
+    "3.12.13",
+    "3.14.7"
+  ],
+  "node": "24.18.0",
+  "local": {
+    "static_builds": 14,
+    "pdf_files": 16,
+    "pdf_pages": 613,
+    "changed_lesson_pages_visually_reviewed": 415,
+    "regression_tests_each_python": 213,
+    "compatibility_fixtures_each_python": 15,
+    "common_runner_version": "1.1.0",
+    "common_runner_tests": 21,
+    "prose_input_files": 56,
+    "prose_extracted_documents": 482,
+    "new_jaio_diagnostics_run": false,
+    "protected_original_files_sha_matched": 92,
+    "dependency_audit_gate_unchanged": true
+  },
+  "opus_actual_model": "claude-opus-5-5",
+  "opus_route": "firstParty",
+  "internal_advisor_seen": "claude-fable-5-1",
+  "codex_actual_model_receipt_available": false,
+  "new_imagegen_04_15": false,
+  "ci_export_blocker": "npm audit: braces GHSA-vfj7-8cjw-p6xm",
+  "lessons": [
+    {
+      "lesson": "04",
+      "commit": "f68adc6917e170d7670a645d76d46bed8f1e9f12",
+      "pdf_sha256": "1a620228a56a1f3a3e058455fae9fff166eff5ce3f45b527819b4d0db9ee55e5",
+      "pdf_bytes": 388929,
+      "pdf_url": "https://github.com/biwakonbu/software-design-2026/blob/f68adc6917e170d7670a645d76d46bed8f1e9f12/output/pdf/04-algorithms.pdf",
+      "remote_sha_and_bytes_match": true,
+      "ci_url": "https://github.com/biwakonbu/software-design-2026/actions/runs/37387566587",
+      "ci_conclusion": "failure",
+      "ci_jobs": [
+        {
+          "name": "exports",
+          "conclusion": "failure"
+        },
+        {
+          "name": "examples (3.12)",
+          "conclusion": "success"
+        },
+        {
+          "name": "examples (3.14)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "lesson": "05",
+      "commit": "a4e5089331baa47282b2cbbc506028b4032a9169",
+      "pdf_sha256": "c0aedf0a26542b94904820a0221914054593e839619f99fd9e1e7ca09d945eb6",
+      "pdf_bytes": 295799,
+      "pdf_url": "https://github.com/biwakonbu/software-design-2026/blob/a4e5089331baa47282b2cbbc506028b4032a9169/output/pdf/05-graphs.pdf",
+      "remote_sha_and_bytes_match": true,
+      "ci_url": "https://github.com/biwakonbu/software-design-2026/actions/runs/37388369491",
+      "ci_conclusion": "failure",
+      "ci_jobs": [
+        {
+          "name": "exports",
+          "conclusion": "failure"
+        },
+        {
+          "name": "examples (3.12)",
+          "conclusion": "success"
+        },
+        {
+          "name": "examples (3.14)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "lesson": "06",
+      "commit": "078f4e9e31d648bbe2e7ed46b409344c9a735b40",
+      "pdf_sha256": "829b3e3019f4d6c994b7ba8b32608dd66619f460319bffe2e91de35ffbedb794",
+      "pdf_bytes": 275128,
+      "pdf_url": "https://github.com/biwakonbu/software-design-2026/blob/078f4e9e31d648bbe2e7ed46b409344c9a735b40/output/pdf/06-route-project.pdf",
+      "remote_sha_and_bytes_match": true,
+      "ci_url": "https://github.com/biwakonbu/software-design-2026/actions/runs/37388492185",
+      "ci_conclusion": "failure",
+      "ci_jobs": [
+        {
+          "name": "exports",
+          "conclusion": "failure"
+        },
+        {
+          "name": "examples (3.14)",
+          "conclusion": "success"
+        },
+        {
+          "name": "examples (3.12)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "lesson": "07",
+      "commit": "c761e7300425a84725d05c553ebd1d6fc6a3e403",
+      "pdf_sha256": "13c48102943e3ccc3acb096555b7127d9faef8d2616a71a11ff1a3c6d75fc4c1",
+      "pdf_bytes": 286271,
+      "pdf_url": "https://github.com/biwakonbu/software-design-2026/blob/c761e7300425a84725d05c553ebd1d6fc6a3e403/output/pdf/07-review.pdf",
+      "remote_sha_and_bytes_match": true,
+      "ci_url": "https://github.com/biwakonbu/software-design-2026/actions/runs/37393138767",
+      "ci_conclusion": "failure",
+      "ci_jobs": [
+        {
+          "name": "exports",
+          "conclusion": "failure"
+        },
+        {
+          "name": "examples (3.12)",
+          "conclusion": "success"
+        },
+        {
+          "name": "examples (3.14)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "lesson": "08",
+      "commit": "fa4a84024d9eaf77dfbc34d3f8e0b66b2f1bc23a",
+      "pdf_sha256": "23ffd0bf2e843b6929b4bc1443f0493dff8e86b0469e122adcedd7da471cba94",
+      "pdf_bytes": 370299,
+      "pdf_url": "https://github.com/biwakonbu/software-design-2026/blob/fa4a84024d9eaf77dfbc34d3f8e0b66b2f1bc23a/output/pdf/08-calculator.pdf",
+      "remote_sha_and_bytes_match": true,
+      "ci_url": "https://github.com/biwakonbu/software-design-2026/actions/runs/37393516694",
+      "ci_conclusion": "failure",
+      "ci_jobs": [
+        {
+          "name": "exports",
+          "conclusion": "failure"
+        },
+        {
+          "name": "examples (3.12)",
+          "conclusion": "success"
+        },
+        {
+          "name": "examples (3.14)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "lesson": "09",
+      "commit": "428b9479ecd589aad4a21d0647b175d4c2c5fa62",
+      "pdf_sha256": "87c3f1425c35410cd4fe4f940de850a6a101052b36f38d0e73bb4f271569377d",
+      "pdf_bytes": 240304,
+      "pdf_url": "https://github.com/biwakonbu/software-design-2026/blob/428b9479ecd589aad4a21d0647b175d4c2c5fa62/output/pdf/09-lisp-arithmetic.pdf",
+      "remote_sha_and_bytes_match": true,
+      "ci_url": "https://github.com/biwakonbu/software-design-2026/actions/runs/37393606145",
+      "ci_conclusion": "failure",
+      "ci_jobs": [
+        {
+          "name": "exports",
+          "conclusion": "failure"
+        },
+        {
+          "name": "examples (3.14)",
+          "conclusion": "success"
+        },
+        {
+          "name": "examples (3.12)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "lesson": "10",
+      "commit": "919abc13221ce2da87d557ca7c75e25822d3fef4",
+      "pdf_sha256": "e202f6d13fbeda7ec7439131c7ea6bc631206843964edce534fe558440eb8ed8",
+      "pdf_bytes": 274715,
+      "pdf_url": "https://github.com/biwakonbu/software-design-2026/blob/919abc13221ce2da87d557ca7c75e25822d3fef4/output/pdf/10-lisp-functions.pdf",
+      "remote_sha_and_bytes_match": true,
+      "ci_url": "https://github.com/biwakonbu/software-design-2026/actions/runs/37396399891",
+      "ci_conclusion": "failure",
+      "ci_jobs": [
+        {
+          "name": "examples (3.12)",
+          "conclusion": "success"
+        },
+        {
+          "name": "exports",
+          "conclusion": "failure"
+        },
+        {
+          "name": "examples (3.14)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "lesson": "11",
+      "commit": "a64a8695c852283aaa24048ec2035775d9edb7d7",
+      "pdf_sha256": "358646d038b4a125d0566bab11bb61ec68f31497ec79d31e57bd4a6c77d7c911",
+      "pdf_bytes": 301849,
+      "pdf_url": "https://github.com/biwakonbu/software-design-2026/blob/a64a8695c852283aaa24048ec2035775d9edb7d7/output/pdf/11-lisp-scripts.pdf",
+      "remote_sha_and_bytes_match": true,
+      "ci_url": "https://github.com/biwakonbu/software-design-2026/actions/runs/37396483496",
+      "ci_conclusion": "failure",
+      "ci_jobs": [
+        {
+          "name": "exports",
+          "conclusion": "failure"
+        },
+        {
+          "name": "examples (3.14)",
+          "conclusion": "success"
+        },
+        {
+          "name": "examples (3.12)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "lesson": "12",
+      "commit": "b7a64e4840df8f92a8c24e4205447b0f6111dfb5",
+      "pdf_sha256": "354dbb63a18d81c997fda15bfcf6f511e94b7f1b59e28c1346f9f5ba5e233d28",
+      "pdf_bytes": 319746,
+      "pdf_url": "https://github.com/biwakonbu/software-design-2026/blob/b7a64e4840df8f92a8c24e4205447b0f6111dfb5/output/pdf/12-meta-evaluator.pdf",
+      "remote_sha_and_bytes_match": true,
+      "ci_url": "https://github.com/biwakonbu/software-design-2026/actions/runs/37396491196",
+      "ci_conclusion": "failure",
+      "ci_jobs": [
+        {
+          "name": "exports",
+          "conclusion": "failure"
+        },
+        {
+          "name": "examples (3.12)",
+          "conclusion": "success"
+        },
+        {
+          "name": "examples (3.14)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "lesson": "13",
+      "commit": "3a6854d5c1eac0b0dd86e9820364c13900467587",
+      "pdf_sha256": "db3658575844e058519d9d44832fe0cfe57cdfa6a8a8eb8eec0e113a5a515a04",
+      "pdf_bytes": 243490,
+      "pdf_url": "https://github.com/biwakonbu/software-design-2026/blob/3a6854d5c1eac0b0dd86e9820364c13900467587/output/pdf/13-language-review.pdf",
+      "remote_sha_and_bytes_match": true,
+      "ci_url": "https://github.com/biwakonbu/software-design-2026/actions/runs/37396498414",
+      "ci_conclusion": "failure",
+      "ci_jobs": [
+        {
+          "name": "examples (3.12)",
+          "conclusion": "success"
+        },
+        {
+          "name": "examples (3.14)",
+          "conclusion": "success"
+        },
+        {
+          "name": "exports",
+          "conclusion": "failure"
+        }
+      ]
+    },
+    {
+      "lesson": "14",
+      "commit": "2210cb3d0c2abe1297dac034fe7c188008b09a8c",
+      "pdf_sha256": "32e85ae94c73fbfe0300dc73adc107ead99f23267dfe8e85fc0bcfeb90a5f479",
+      "pdf_bytes": 1809025,
+      "pdf_url": "https://github.com/biwakonbu/software-design-2026/blob/2210cb3d0c2abe1297dac034fe7c188008b09a8c/output/pdf/14-selfhosting.pdf",
+      "remote_sha_and_bytes_match": true,
+      "ci_url": "https://github.com/biwakonbu/software-design-2026/actions/runs/37396506014",
+      "ci_conclusion": "failure",
+      "ci_jobs": [
+        {
+          "name": "exports",
+          "conclusion": "failure"
+        },
+        {
+          "name": "examples (3.14)",
+          "conclusion": "success"
+        },
+        {
+          "name": "examples (3.12)",
+          "conclusion": "success"
+        }
+      ]
+    },
+    {
+      "lesson": "15",
+      "commit": "075701fb717fbb13e32acab42443e3ca5de74dc3",
+      "pdf_sha256": "b538cadb371c6e02251e1a8e04ed99d68a4d982dc622624e253bcb573cdc903e",
+      "pdf_bytes": 254243,
+      "pdf_url": "https://github.com/biwakonbu/software-design-2026/blob/075701fb717fbb13e32acab42443e3ca5de74dc3/output/pdf/15-showcase.pdf",
+      "remote_sha_and_bytes_match": true,
+      "ci_url": "https://github.com/biwakonbu/software-design-2026/actions/runs/37396513871",
+      "ci_conclusion": "failure",
+      "ci_jobs": [
+        {
+          "name": "exports",
+          "conclusion": "failure"
+        },
+        {
+          "name": "examples (3.12)",
+          "conclusion": "success"
+        },
+        {
+          "name": "examples (3.14)",
+          "conclusion": "success"
+        }
+      ]
+    }
+  ],
+  "documentation_review": {
+    "model": "claude-opus-5-5",
+    "initial_review_duration_ms": 212685,
+    "corrected_records_review_duration_ms": 27127,
+    "verdict": "pass",
+    "correction": "lesson13/14/15 observation scope and final summary wording; completed lecture/PDF/code unchanged"
+  }
+}

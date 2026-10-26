@@ -34,6 +34,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: sudo apt-get update && sudo apt-get install -y poppler-utils
       - run: npm audit --audit-level=low
+      - run: npm run check:toolchain
       - run: node scripts/export-pdfs.mjs
       - run: node scripts/export-workbooks.mjs
       - run: python scripts/check-public.py

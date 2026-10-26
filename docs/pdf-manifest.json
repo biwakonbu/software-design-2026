@@ -86,8 +86,8 @@
   {
     "file": "output/pdf/instructor-notes.pdf",
     "pages": 43,
-    "size_bytes": 2616784,
-    "sha256": "1ce743f9861d3dd1b15daf0f3e6ddcfbbc437276e5fa949214044e387f80e043"
+    "size_bytes": 2616781,
+    "sha256": "66eba087ef6be40bf9791993899fea05238305ce6b635319b8c1f051d65e19ca"
   },
   {
     "file": "output/pdf/student-workbook.pdf",
